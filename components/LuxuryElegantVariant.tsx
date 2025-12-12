@@ -421,9 +421,8 @@ const LuxuryVariant: React.FC = () => {
                     <div>
                         <h4 className="text-white font-serif text-xl mb-6">Salon Hours</h4>
                         <ul className="space-y-4 text-sm font-light border-l border-stone-800 pl-6">
-                            <li className="flex justify-between"><span>Mon - Fri</span> <span className="text-white">9:30 AM - 7 PM</span></li>
-                            <li className="flex justify-between"><span>Saturday</span> <span className="text-white">9:00 AM - 6 PM</span></li>
-                            <li className="flex justify-between"><span>Sunday</span> <span className="text-white">11:00 AM - 5 PM</span></li>
+                            <li className="flex justify-between"><span>Mon - Sat</span> <span className="text-white">9:00 AM - 7 PM</span></li>
+                            <li className="flex justify-between"><span>Sunday</span> <span className="text-white">CLOSED</span></li>
                         </ul>
                     </div>
                     
