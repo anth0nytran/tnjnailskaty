@@ -90,7 +90,7 @@ const LuxuryVariant: React.FC = () => {
               </h1>
               
               <p className="text-left text-stone-200 text-lg md:text-xl font-light max-w-xl mb-10 leading-relaxed drop-shadow-[0_4px_20px_rgba(0,0,0,0.8)]">
-                More than just a salon. We are a family-owned sanctuary serving Cinco Ranch and Elyson for over 25 years with warmth, care, and perfection.
+                More than just a salon. We are a family-owned sanctuary serving Katy, Cinco Ranch and Fulshear for over 25 years with warmth, care, and perfection.
               </p>
               
               <div className="flex flex-col items-start gap-4">
