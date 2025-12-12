@@ -1,4 +1,9 @@
 import { BusinessInfo, NeighborReview, Service } from './types';
+import gallery1 from './assets/IMG_0676.jpeg';
+import gallery2 from './assets/IMG_1134.jpeg';
+import gallery3 from './assets/IMG_1177.jpeg';
+import gallery4 from './assets/IMG_1312.jpeg';
+import gallery5 from './assets/FullSizeRender.jpeg';
 
 export const BUSINESS_INFO: BusinessInfo = {
   name: "T&J Nails",
@@ -120,33 +125,28 @@ export const NEIGHBOR_REVIEWS: NeighborReview[] = [
 
 export const GALLERY_IMAGES = [
   {
-    url: "https://images.unsplash.com/photo-1632345031435-8727f68979a6?q=80&w=2070&auto=format&fit=crop",
-    alt: "Luxury Salon Interior",
-    type: "horizontal"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=2070&auto=format&fit=crop",
-    alt: "Detailed Nail Art",
-    type: "horizontal"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=2070&auto=format&fit=crop",
-    alt: "Manicure Process",
+    url: gallery1,
+    alt: "Signature Nail Design",
     type: "vertical"
   },
   {
-    url: "https://images.unsplash.com/photo-1522337360705-8b13d5204394?q=80&w=2070&auto=format&fit=crop",
-    alt: "Pink Gel Nails",
-    type: "horizontal"
-  },
-  {
-    url: "https://images.unsplash.com/photo-1630635468840-0ef5723b7e2b?q=80&w=1000&auto=format&fit=crop",
-    alt: "Acrylic Close Up",
+    url: gallery2,
+    alt: "Custom Nail Art",
     type: "vertical"
   },
   {
-    url: "https://images.unsplash.com/photo-1599692996168-3e6bfaa3a7e0?q=80&w=1000&auto=format&fit=crop",
-    alt: "Nail Polish Collection",
+    url: gallery3,
+    alt: "Glossy Gel Set",
+    type: "vertical"
+  },
+  {
+    url: gallery4,
+    alt: "Seasonal Nail Look",
+    type: "vertical"
+  },
+  {
+    url: gallery5,
+    alt: "Detailed Finish",
     type: "vertical"
   }
 ];

@@ -3,6 +3,7 @@ import { MapPin, ArrowRight, Star, Quote, Phone, Clock, Instagram, Facebook, Spa
 import { BUSINESS_INFO, SERVICES, GALLERY_IMAGES, NEIGHBOR_REVIEWS } from '../constants';
 import heroVideo from '../assets/hero_video.mp4';
 import ownersImage from '../assets/owners.JPG';
+import neighborsParallaxBg from '../assets/neighbors_parallax.jpg';
 
 const LuxuryVariant: React.FC = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -145,9 +146,6 @@ const LuxuryVariant: React.FC = () => {
                             alt={img.alt} 
                             className="w-full h-auto object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <span className="text-white font-serif italic text-lg">{img.alt}</span>
-                        </div>
                     </div>
                 ))}
             </div>
@@ -217,8 +215,18 @@ const LuxuryVariant: React.FC = () => {
       </section>
 
       {/* 3.5 SOCIAL PROOF (What Our Neighbors Say) - MOVED BELOW OWNERS */}
-      <section id="neighbors" className="py-24 bg-neutral-950 border-b border-stone-900">
-        <div className="container mx-auto px-6">
+      <section id="neighbors" className="relative py-24 overflow-hidden border-b border-stone-900">
+        {/* Parallax background image (desktop). */}
+        <div
+          className="absolute inset-0 bg-center bg-cover md:bg-fixed"
+          style={{ backgroundImage: `url(${neighborsParallaxBg})` }}
+          aria-hidden="true"
+        />
+        {/* readability overlays */}
+        <div className="absolute inset-0 bg-neutral-950/80" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-transparent to-neutral-950/90" aria-hidden="true" />
+
+        <div className="relative z-10 container mx-auto px-6">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
             <div>
               <span className="text-gold-500 text-xs font-bold tracking-[0.3em] uppercase block mb-4">
