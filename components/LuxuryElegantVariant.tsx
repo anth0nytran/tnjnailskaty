@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MapPin, ArrowRight, Star, Quote, Phone, Clock, Instagram, Facebook, Sparkles, Check, Calendar, User, Mail } from 'lucide-react';
-import { BUSINESS_INFO, SERVICES, TESTIMONIALS, GALLERY_IMAGES } from '../constants';
+import { BUSINESS_INFO, SERVICES, GALLERY_IMAGES, NEIGHBOR_REVIEWS } from '../constants';
 import heroVideo from '../assets/hero_video.mp4';
 
 const LuxuryVariant: React.FC = () => {
@@ -213,6 +213,100 @@ const LuxuryVariant: React.FC = () => {
 
             </div>
          </div>
+      </section>
+
+      {/* 3.5 SOCIAL PROOF (What Our Neighbors Say) - MOVED BELOW OWNERS */}
+      <section id="neighbors" className="py-24 bg-neutral-950 border-b border-stone-900">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-12">
+            <div>
+              <span className="text-gold-500 text-xs font-bold tracking-[0.3em] uppercase block mb-4">
+                From Our Community
+              </span>
+              <h2 className="text-4xl md:text-5xl font-serif text-white">
+                What Our Neighbors Say
+              </h2>
+              <p className="text-stone-400 font-light mt-4 max-w-2xl leading-relaxed">
+                Honest words from real Katy locals—because trust is earned one visit at a time.
+              </p>
+            </div>
+
+            <a
+              href={BUSINESS_INFO.mapLink}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-stone-400 hover:text-gold-500 transition-colors text-xs tracking-widest uppercase border-b border-stone-800 pb-1 hover:border-gold-500 w-fit"
+            >
+              <Star size={14} className="text-gold-500" />
+              Read more reviews
+            </a>
+          </div>
+
+          {/* Mobile: swipeable carousel / Desktop: grid */}
+          <div className="md:hidden -mx-6 px-6 overflow-x-auto pb-4">
+            <div className="flex gap-4 snap-x snap-mandatory">
+              {NEIGHBOR_REVIEWS.map((r, idx) => (
+                <article
+                  key={`${r.name}-${idx}`}
+                  className="snap-start shrink-0 w-[85vw] max-w-[420px] border border-stone-800 bg-neutral-900/60 backdrop-blur-sm p-6"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <p className="text-white font-serif text-lg">{r.name}</p>
+                      <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] uppercase tracking-widest text-stone-500">
+                        {r.meta?.badges?.includes('Local Guide') && (
+                          <span className="text-gold-400/90 flex items-center gap-1">
+                             <Star size={10} className="fill-gold-400/90" />
+                             Local Guide
+                          </span>
+                        )}
+                        {!r.meta?.badges?.includes('Local Guide') && (
+                          <span>Neighbor</span>
+                        )}
+                      </div>
+                    </div>
+                    <Quote size={18} className="text-gold-500 shrink-0 mt-1" />
+                  </div>
+
+                  <p className="text-stone-300 font-light leading-relaxed text-sm">
+                    {r.quote}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden md:grid grid-cols-2 gap-6">
+            {NEIGHBOR_REVIEWS.slice(0, 8).map((r, idx) => (
+              <article
+                key={`${r.name}-${idx}`}
+                className="border border-stone-800 bg-neutral-900/60 backdrop-blur-sm p-8 hover:border-gold-600/40 transition-colors"
+              >
+                <div className="flex items-start justify-between gap-4 mb-5">
+                  <div>
+                    <p className="text-white font-serif text-xl">{r.name}</p>
+                    <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-[10px] uppercase tracking-widest text-stone-500">
+                      {r.meta?.badges?.includes('Local Guide') && (
+                         <span className="text-gold-400/90 flex items-center gap-1">
+                            <Star size={10} className="fill-gold-400/90" />
+                            Local Guide
+                         </span>
+                      )}
+                      {!r.meta?.badges?.includes('Local Guide') && (
+                          <span>Neighbor</span>
+                      )}
+                    </div>
+                  </div>
+                  <Quote size={18} className="text-gold-500 shrink-0 mt-1" />
+                </div>
+
+                <p className="text-stone-300 font-light leading-relaxed text-sm">
+                  {r.quote}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 6. SERVICES SUMMARY (Condensed for Funnel) */}
