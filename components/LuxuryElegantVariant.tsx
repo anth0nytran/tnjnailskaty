@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, ArrowRight, Star, Quote, Phone, Clock, Instagram, Facebook, Sparkles, Check, Calendar, User, Mail } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES, GALLERY_IMAGES, NEIGHBOR_REVIEWS } from '../constants';
 import heroVideo from '../assets/hero_video.mp4';
+import ownersImage from '../assets/owners.JPG';
 
 const LuxuryVariant: React.FC = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -169,7 +170,7 @@ const LuxuryVariant: React.FC = () => {
                     <div className="absolute top-4 left-4 w-full h-full border-2 border-gold-600/20 z-0"></div>
                     <div className="relative z-10 aspect-[4/5] overflow-hidden">
                          <img 
-                            src="./assets/owners.jpg" 
+                            src={ownersImage} 
                             alt="Jenny and Tony Owners of T&J Nails Katy" 
                             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
                          />
