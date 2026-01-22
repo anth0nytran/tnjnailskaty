@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, ArrowRight, Gift, Star, Check, Sparkles, Clock, MapPin } from 'lucide-react';
+import { Phone, ArrowRight, Gift, Star, Check, Sparkles, Clock, Building2 } from 'lucide-react';
 import { BUSINESS_INFO } from '../constants';
 import { MENU_DATA } from '../menuData';
 import BookingForm from './BookingForm';
@@ -245,7 +245,7 @@ const MenuPage: React.FC = () => {
 
             <div className="flex items-start gap-4 p-6 bg-neutral-950/50 border border-stone-800 rounded-sm">
               <div className="w-10 h-10 bg-gold-600/10 border border-gold-600/20 rounded-full flex items-center justify-center shrink-0">
-                <MapPin size={20} className="text-gold-500" />
+                <Building2 size={20} className="text-gold-500" />
               </div>
               <div>
                 <h3 className="text-base font-semibold text-white mb-2">Katy Location</h3>

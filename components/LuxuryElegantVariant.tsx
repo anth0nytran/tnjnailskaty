@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, ArrowRight, Star, Quote, Phone, Clock, Instagram, Facebook, Sparkles, Check } from 'lucide-react';
+import { MapPin, ArrowRight, Star, Quote, Phone, Clock, Instagram, Facebook, Sparkles, Check, Building2 } from 'lucide-react';
 import { BUSINESS_INFO, SERVICES, GALLERY_IMAGES, NEIGHBOR_REVIEWS } from '../constants';
 import { MENU_DATA } from '../menuData';
 import heroVideo from '../assets/hero_video.mp4';
@@ -475,7 +475,7 @@ const LuxuryVariant: React.FC = () => {
                     
                     <div className="mt-12 md:mt-0">
                          <div className="flex items-start gap-3 mb-4">
-                            <MapPin size={18} className="text-gold-500 mt-1 shrink-0" />
+                            <Building2 size={18} className="text-gold-500 mt-1 shrink-0" />
                             <p className="text-sm leading-relaxed">
                                 {BUSINESS_INFO.address}<br/>
                                 {BUSINESS_INFO.city}
