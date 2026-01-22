@@ -44,8 +44,8 @@ export const MENU_DATA: MenuData = {
         },
         {
           "name": "Solar Clear Tip w/ Shellac Polish",
-          "full_set": 45.0,
-          "refill": 40.0
+          "full_set": 50.0,
+          "refill": 45.0
         },
         {
           "name": "Solar White/Pearl tip",
@@ -54,7 +54,7 @@ export const MENU_DATA: MenuData = {
         },
         {
           "name": "Solar White & Pink powder",
-          "full_set": 50.0,
+          "full_set": 55.0,
           "refill": 50.0
         },
         {
