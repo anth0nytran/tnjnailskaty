@@ -35,6 +35,53 @@ export const sanitizeString = (input: string, maxLength: number = 500): string =
   return sanitized;
 };
 
+// Validate URL to prevent SSRF attacks
+export const validateUrl = (url: string): ValidationResult => {
+  if (!url || url.trim() === '') {
+    return { isValid: false, error: 'URL is required' };
+  }
+  
+  try {
+    const urlObj = new URL(url);
+    
+    // Only allow HTTPS
+    if (urlObj.protocol !== 'https:') {
+      return { isValid: false, error: 'Only HTTPS URLs are allowed' };
+    }
+    
+    // Block localhost and private IPs (SSRF protection)
+    const hostname = urlObj.hostname.toLowerCase();
+    if (
+      hostname === 'localhost' ||
+      hostname === '127.0.0.1' ||
+      hostname.startsWith('192.168.') ||
+      hostname.startsWith('10.') ||
+      hostname.startsWith('172.16.') ||
+      hostname.startsWith('172.17.') ||
+      hostname.startsWith('172.18.') ||
+      hostname.startsWith('172.19.') ||
+      hostname.startsWith('172.20.') ||
+      hostname.startsWith('172.21.') ||
+      hostname.startsWith('172.22.') ||
+      hostname.startsWith('172.23.') ||
+      hostname.startsWith('172.24.') ||
+      hostname.startsWith('172.25.') ||
+      hostname.startsWith('172.26.') ||
+      hostname.startsWith('172.27.') ||
+      hostname.startsWith('172.28.') ||
+      hostname.startsWith('172.29.') ||
+      hostname.startsWith('172.30.') ||
+      hostname.startsWith('172.31.')
+    ) {
+      return { isValid: false, error: 'Invalid URL' };
+    }
+    
+    return { isValid: true };
+  } catch {
+    return { isValid: false, error: 'Invalid URL format' };
+  }
+};
+
 // Sanitize HTML - escape special characters
 export const sanitizeHtml = (input: string): string => {
   const map: Record<string, string> = {

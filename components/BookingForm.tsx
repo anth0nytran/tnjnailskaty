@@ -10,6 +10,7 @@ import {
   validateEmail, 
   validateDate, 
   validateTime,
+  validateUrl,
   sanitizeString,
   formatPhone
 } from '../utils/validation';
@@ -32,6 +33,16 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSuccess, showServiceSelecti
   const [email, setEmail] = useState<string>('');
   const [additionalNotes, setAdditionalNotes] = useState<string>('');
   const [selectedService, setSelectedService] = useState<string>('');
+  
+  // Security: Honeypot field (bots will fill this, humans won't see it)
+  const [honeypot, setHoneypot] = useState<string>('');
+  
+  // Security: Track form start time for bot detection
+  const [formStartTime] = useState<number>(Date.now());
+  
+  // Security: Track submission attempts
+  const [submissionAttempts, setSubmissionAttempts] = useState<number>(0);
+  const [lastSubmissionTime, setLastSubmissionTime] = useState<number>(0);
   
   // Error states
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -191,6 +202,42 @@ const BookingForm: React.FC<BookingFormProps> = ({ onSuccess, showServiceSelecti
   const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
+    // Security: Check honeypot field (bots will fill this)
+    if (honeypot && honeypot.trim() !== '') {
+      // Bot detected - silently fail
+      console.warn('Bot detected via honeypot field');
+      return;
+    }
+    
+    // Security: Rate limiting - prevent spam submissions
+    const now = Date.now();
+    const timeSinceLastSubmission = now - lastSubmissionTime;
+    const MIN_SUBMISSION_INTERVAL = 5000; // 5 seconds between submissions
+    
+    if (timeSinceLastSubmission < MIN_SUBMISSION_INTERVAL) {
+      setErrors({ 
+        submit: 'Please wait a moment before submitting again.' 
+      });
+      return;
+    }
+    
+    // Security: Check for too many rapid submissions
+    if (submissionAttempts > 5) {
+      setErrors({ 
+        submit: 'Too many submission attempts. Please try again later.' 
+      });
+      return;
+    }
+    
+    // Security: Bot detection - form filled too quickly (less than 3 seconds)
+    const formFillTime = now - formStartTime;
+    const MIN_FORM_FILL_TIME = 3000; // 3 seconds minimum
+    
+    if (formFillTime < MIN_FORM_FILL_TIME) {
+      console.warn('Suspicious: Form filled too quickly');
+      // Don't block, but log for monitoring
+    }
+    
     // Mark all fields as touched
     const allTouched = {
       fullName: true,
@@ -309,19 +356,59 @@ Submitted via T&J Nails website booking form.`;
       formDataObj.append('services', servicesText || 'Not specified');
       
       // Send to Web3Forms
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const web3FormsResponse = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formDataObj
       });
       
-      const data = await response.json();
+      const web3FormsData = await web3FormsResponse.json();
       
-      if (data.success) {
+      // Also send to n8n webhook for text messages
+      const n8nWebhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL;
+      
+      // Security: Validate webhook URL to prevent SSRF attacks
+      if (n8nWebhookUrl) {
+        const urlValidation = validateUrl(n8nWebhookUrl);
+        if (!urlValidation.isValid) {
+          console.error('Invalid webhook URL:', urlValidation.error);
+          // Don't send to invalid webhook, but don't fail the form
+        } else {
+        const n8nPayload = {
+          fullName,
+          email,
+          phone,
+          preferredDate: formattedDate,
+          preferredTime: selectedTime,
+          services: servicesText || 'Not specified',
+          additionalNotes: additionalNotes || 'None',
+          submittedAt: new Date().toISOString()
+        };
+        
+        try {
+          await fetch(n8nWebhookUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(n8nPayload)
+          });
+        } catch (n8nError) {
+          // Don't fail the form if n8n webhook fails, just log it
+          console.warn('n8n webhook error (non-critical):', n8nError);
+        }
+        }
+      }
+      
+      // Security: Update submission tracking
+      setSubmissionAttempts(prev => prev + 1);
+      setLastSubmissionTime(Date.now());
+      
+      if (web3FormsData.success) {
         setFormStatus('success');
         if (onSuccess) onSuccess();
       } else {
-        console.log('Error', data);
-        setErrors({ submit: data.message || 'Form submission failed' });
+        console.log('Error', web3FormsData);
+        setErrors({ submit: web3FormsData.message || 'Form submission failed' });
         setFormStatus('idle');
       }
     } catch (error: any) {
@@ -863,6 +950,20 @@ Submitted via T&J Nails website booking form.`;
             </div>
           </div>
 
+          {/* Security: Honeypot field - hidden from users, bots will fill it */}
+          <div style={{ position: 'absolute', left: '-9999px', opacity: 0, pointerEvents: 'none' }} aria-hidden="true">
+            <label htmlFor="website-url">Website URL (leave blank)</label>
+            <input
+              type="text"
+              id="website-url"
+              name="website-url"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+          
           <button 
             type="submit" 
             disabled={formStatus === 'submitting' || (showServiceSelection && getSelectedCount() === 0)}
