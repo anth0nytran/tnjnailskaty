@@ -1,0 +1,412 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: 25+ yrs in Katy
+    - generic [ref=e5]: ·
+    - link "Request appointment" [ref=e6] [cursor=pointer]:
+      - /url: /book
+    - generic [ref=e7]: ·
+    - link "(281) 391-1411" [ref=e8] [cursor=pointer]:
+      - /url: tel:+12813911411
+  - banner [ref=e9]:
+    - generic [ref=e10]:
+      - link "T&J Nails — Home" [ref=e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e12]: T&J
+        - generic [ref=e13]: Nails Katy
+      - navigation [ref=e14]:
+        - link "Services" [ref=e15] [cursor=pointer]:
+          - /url: /services
+        - link "Menu" [ref=e16] [cursor=pointer]:
+          - /url: /menu
+        - link "Locations" [ref=e17] [cursor=pointer]:
+          - /url: /locations
+        - link "About" [ref=e18] [cursor=pointer]:
+          - /url: /about
+        - link "Reviews" [ref=e19] [cursor=pointer]:
+          - /url: /reviews
+        - link "FAQ" [ref=e20] [cursor=pointer]:
+          - /url: /faq
+      - generic [ref=e21]:
+        - link "Call (281) 391-1411" [ref=e22] [cursor=pointer]:
+          - /url: tel:+12813911411
+          - img [ref=e23]
+          - generic [ref=e25]: (281) 391-1411
+        - link "Book" [ref=e26] [cursor=pointer]:
+          - /url: /book
+          - img [ref=e27]
+          - text: Book
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - navigation "Breadcrumb" [ref=e32]:
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "Home" [ref=e35] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e36]:
+            - img [ref=e37]
+            - link "Services" [ref=e39] [cursor=pointer]:
+              - /url: /services
+          - listitem [ref=e40]:
+            - img [ref=e41]
+            - generic [ref=e43]: Gel X Extensions
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - paragraph [ref=e46]: Enhancement · 60–90 min · From From $55
+          - heading "Gel X Extensions in Katy, TX" [level=1] [ref=e47]
+          - paragraph [ref=e48]: A modern alternative to acrylic. Pre-shaped soft gel tips bonded with gel adhesive and cured under LED — lighter on your nails, faster to apply, and gentler when it's time to come off.
+          - generic [ref=e49]:
+            - link "Request appointment" [ref=e50] [cursor=pointer]:
+              - /url: /book
+            - link "(281) 391-1411" [ref=e51] [cursor=pointer]:
+              - /url: tel:+12813911411
+              - img [ref=e52]
+              - text: (281) 391-1411
+        - complementary [ref=e54]:
+          - paragraph [ref=e55]: Quick details
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - term [ref=e58]: Starting at
+              - definition [ref=e59]: From $55
+            - generic [ref=e60]:
+              - term [ref=e61]: Duration
+              - definition [ref=e62]: 60–90 min
+            - generic [ref=e63]:
+              - term [ref=e64]: Category
+              - definition [ref=e65]: Enhancement
+            - generic [ref=e66]:
+              - term [ref=e67]: Walk-ins
+              - definition [ref=e68]: Welcome
+          - link "See the full menu" [ref=e69] [cursor=pointer]:
+            - /url: /menu
+            - text: See the full menu
+            - img [ref=e70]
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - paragraph [ref=e75]: Gel X uses pre-formed soft gel tips that cover the entire natural nail from cuticle to free edge. We size each finger, apply gel adhesive, press the tip on, and cure under an LED lamp. There's no acrylic monomer, no harsh smell, and no aggressive filing of the natural nail underneath.
+        - paragraph [ref=e76]: It's the cleanest extension method we offer. Most clients get 3–4 weeks of wear, and removal is a 15-minute soak instead of an hour of filing.
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - heading "Who it's for" [level=2] [ref=e79]
+            - list [ref=e80]:
+              - listitem [ref=e81]:
+                - img [ref=e82]
+                - generic [ref=e84]: You want length but acrylic feels too heavy.
+              - listitem [ref=e85]:
+                - img [ref=e86]
+                - generic [ref=e88]: You want a fast, low-odor service.
+              - listitem [ref=e89]:
+                - img [ref=e90]
+                - generic [ref=e92]: You've had natural nail damage from acrylic and want to switch.
+              - listitem [ref=e93]:
+                - img [ref=e94]
+                - generic [ref=e96]: You want a clean almond, coffin, or square shape without a lot of filing.
+          - generic [ref=e97]:
+            - heading "What's included" [level=2] [ref=e98]
+            - list [ref=e99]:
+              - listitem [ref=e100]:
+                - img [ref=e101]
+                - generic [ref=e103]: Cuticle prep and shaping
+              - listitem [ref=e104]:
+                - img [ref=e105]
+                - generic [ref=e107]: Custom-sized soft gel tips
+              - listitem [ref=e108]:
+                - img [ref=e109]
+                - generic [ref=e111]: Gel adhesive bond and full LED cure
+              - listitem [ref=e112]:
+                - img [ref=e113]
+                - generic [ref=e115]: Length and shape filed to your preference
+              - listitem [ref=e116]:
+                - img [ref=e117]
+                - generic [ref=e119]: Color, shellac, or French finish with top coat
+      - complementary [ref=e120]:
+        - paragraph [ref=e121]: The process
+        - list [ref=e122]:
+          - listitem [ref=e123]:
+            - paragraph [ref=e124]:
+              - generic [ref=e125]: "01"
+              - text: Size
+            - paragraph [ref=e126]: Each tip sized one finger at a time so it sits flush at the cuticle.
+          - listitem [ref=e127]:
+            - paragraph [ref=e128]:
+              - generic [ref=e129]: "02"
+              - text: Bond
+            - paragraph [ref=e130]: Gel adhesive applied to the tip and the natural nail.
+          - listitem [ref=e131]:
+            - paragraph [ref=e132]:
+              - generic [ref=e133]: "03"
+              - text: Press & Cure
+            - paragraph [ref=e134]: Tip pressed on, held in place, cured under LED.
+          - listitem [ref=e135]:
+            - paragraph [ref=e136]:
+              - generic [ref=e137]: "04"
+              - text: Shape
+            - paragraph [ref=e138]: Filed to your length and chosen shape — coffin, almond, square, stiletto.
+          - listitem [ref=e139]:
+            - paragraph [ref=e140]:
+              - generic [ref=e141]: "05"
+              - text: Finish
+            - paragraph [ref=e142]: Color, shellac, or French — top coat, oil.
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - paragraph [ref=e146]: Aftercare
+        - heading "Make it last." [level=2] [ref=e147]
+        - list [ref=e148]:
+          - listitem [ref=e149]:
+            - generic [ref=e151]: Cuticle oil daily — keeps the bond strong.
+          - listitem [ref=e152]:
+            - generic [ref=e154]: Don't bite, peel, or use your nails as tools.
+          - listitem [ref=e155]:
+            - generic [ref=e157]: Soak off only — about 15 minutes in acetone.
+      - generic [ref=e158]:
+        - paragraph [ref=e159]: Common questions
+        - heading "Asked & answered." [level=2] [ref=e160]
+        - generic [ref=e162]:
+          - generic [ref=e163]:
+            - button "Is Gel X the same as acrylic?" [expanded] [ref=e164] [cursor=pointer]:
+              - heading "Is Gel X the same as acrylic?" [level=3] [ref=e165]
+              - img [ref=e167]
+            - paragraph [ref=e168]: No. Acrylic is sculpted from liquid and powder; Gel X uses pre-shaped soft gel tips bonded and cured. Gel X is lighter, has no smell, and removes faster.
+          - button "How long does Gel X last?" [ref=e170] [cursor=pointer]:
+            - heading "How long does Gel X last?" [level=3] [ref=e171]
+            - img [ref=e173]
+          - button "Does Gel X damage your nails?" [ref=e175] [cursor=pointer]:
+            - heading "Does Gel X damage your nails?" [level=3] [ref=e176]
+            - img [ref=e178]
+          - button "Can you do nail art on Gel X?" [ref=e180] [cursor=pointer]:
+            - heading "Can you do nail art on Gel X?" [level=3] [ref=e181]
+            - img [ref=e183]
+    - generic [ref=e185]:
+      - generic [ref=e186]:
+        - paragraph [ref=e187]: Often booked with
+        - heading "You may also like." [level=2] [ref=e188]
+      - generic [ref=e189]:
+        - link "Builder Gel Overlay From From $55 A clear, hardening gel layered over your natural nail to add strength without adding length. It's what we recommend most often for clients whose nails feel thin, peel, or split. See details" [ref=e190] [cursor=pointer]:
+          - /url: /services/builder-gel-overlay
+          - generic [ref=e191]:
+            - heading "Builder Gel Overlay" [level=3] [ref=e192]
+            - generic [ref=e193]: From From $55
+          - paragraph [ref=e194]: A clear, hardening gel layered over your natural nail to add strength without adding length. It's what we recommend most often for clients whose nails feel thin, peel, or split.
+          - generic [ref=e195]:
+            - text: See details
+            - img [ref=e196]
+        - link "Acrylic Nails From $40 When you want length, structure, and a shape that holds — acrylic is still the workhorse. We sculpt; we don't just glue. See details" [ref=e198] [cursor=pointer]:
+          - /url: /services/acrylic-nails
+          - generic [ref=e199]:
+            - heading "Acrylic Nails" [level=3] [ref=e200]
+            - generic [ref=e201]: From $40
+          - paragraph [ref=e202]: When you want length, structure, and a shape that holds — acrylic is still the workhorse. We sculpt; we don't just glue.
+          - generic [ref=e203]:
+            - text: See details
+            - img [ref=e204]
+        - link "Nail Art & Custom Designs From From $5 Bring us an inspiration photo. We'll tell you exactly how it'll look on your nail length, what's possible, and what's not — then we'll do it. See details" [ref=e206] [cursor=pointer]:
+          - /url: /services/nail-art
+          - generic [ref=e207]:
+            - heading "Nail Art & Custom Designs" [level=3] [ref=e208]
+            - generic [ref=e209]: From From $5
+          - paragraph [ref=e210]: Bring us an inspiration photo. We'll tell you exactly how it'll look on your nail length, what's possible, and what's not — then we'll do it.
+          - generic [ref=e211]:
+            - text: See details
+            - img [ref=e212]
+    - generic [ref=e216]:
+      - generic [ref=e217]:
+        - paragraph [ref=e218]: Reserve your visit
+        - heading "Book your gel x." [level=2] [ref=e219]
+        - paragraph [ref=e220]: We call back within 5 minutes during open hours.
+      - generic [ref=e222]:
+        - generic [ref=e223]:
+          - generic [ref=e224]: Full Name *
+          - generic [ref=e225]:
+            - img [ref=e227]
+            - textbox "Jane Doe" [ref=e230]
+        - generic [ref=e231]:
+          - generic [ref=e232]:
+            - generic [ref=e233]: Phone *
+            - generic [ref=e234]:
+              - img [ref=e236]
+              - textbox "(281) 555-0123" [ref=e238]
+          - generic [ref=e239]:
+            - generic [ref=e240]: Email *
+            - generic [ref=e241]:
+              - img [ref=e243]
+              - textbox "jane@example.com" [ref=e246]
+        - generic [ref=e247]:
+          - generic [ref=e248]:
+            - generic [ref=e249]: Preferred Date *
+            - generic [ref=e250]:
+              - img [ref=e252]
+              - combobox [ref=e254]:
+                - option "Select date…" [selected]
+                - option "Today · May 6"
+                - option "Tomorrow · May 7"
+                - option "Fri, May 8"
+                - option "Sat, May 9"
+                - option "Mon, May 11"
+                - option "Tue, May 12"
+                - option "Wed, May 13"
+                - option "Thu, May 14"
+                - option "Fri, May 15"
+                - option "Sat, May 16"
+                - option "Mon, May 18"
+                - option "Tue, May 19"
+                - option "Wed, May 20"
+                - option "Thu, May 21"
+          - generic [ref=e255]:
+            - generic [ref=e256]: Preferred Time *
+            - generic [ref=e257]:
+              - img [ref=e259]
+              - combobox [disabled] [ref=e262]:
+                - option "Pick a date first" [selected]
+                - option "9:00 AM"
+                - option "9:30 AM"
+                - option "10:00 AM"
+                - option "10:30 AM"
+                - option "11:00 AM"
+                - option "11:30 AM"
+                - option "12:00 PM"
+                - option "12:30 PM"
+                - option "1:00 PM"
+                - option "1:30 PM"
+                - option "2:00 PM"
+                - option "2:30 PM"
+                - option "3:00 PM"
+                - option "3:30 PM"
+                - option "4:00 PM"
+                - option "4:30 PM"
+                - option "5:00 PM"
+                - option "5:30 PM"
+                - option "6:00 PM"
+                - option "6:30 PM"
+        - generic [ref=e263]:
+          - generic [ref=e264]: Services * (select all that apply)
+          - generic [ref=e265]:
+            - button "Nail Enhancements" [ref=e266] [cursor=pointer]
+            - button "Manicure" [ref=e267] [cursor=pointer]
+            - button "Pedicure" [ref=e268] [cursor=pointer]
+            - button "Waxing" [ref=e269] [cursor=pointer]
+            - button "À La Carte" [ref=e270] [cursor=pointer]
+          - generic [ref=e271]:
+            - generic [ref=e272] [cursor=pointer]:
+              - checkbox "Solar Clear Tip with Color Polish" [ref=e273]
+              - generic [ref=e274]: Solar Clear Tip with Color Polish
+            - generic [ref=e275] [cursor=pointer]:
+              - checkbox "Solar Clear Tip with Shellac Polish" [ref=e276]
+              - generic [ref=e277]: Solar Clear Tip with Shellac Polish
+            - generic [ref=e278] [cursor=pointer]:
+              - checkbox "Solar White / Pearl Tip" [ref=e279]
+              - generic [ref=e280]: Solar White / Pearl Tip
+            - generic [ref=e281] [cursor=pointer]:
+              - checkbox "Solar White & Pink Powder" [ref=e282]
+              - generic [ref=e283]: Solar White & Pink Powder
+            - generic [ref=e284] [cursor=pointer]:
+              - checkbox "Solar Color Powder" [ref=e285]
+              - generic [ref=e286]: Solar Color Powder
+            - generic [ref=e287] [cursor=pointer]:
+              - checkbox "Dipping Powder" [ref=e288]
+              - generic [ref=e289]: Dipping Powder
+            - generic [ref=e290] [cursor=pointer]:
+              - checkbox "Builder Gel Overlay" [ref=e291]
+              - generic [ref=e292]: Builder Gel Overlay
+            - generic [ref=e293] [cursor=pointer]:
+              - checkbox "Gel X Extensions" [checked] [ref=e294]
+              - generic [ref=e295]: Gel X Extensions
+          - paragraph [ref=e296]: 1 service selected
+        - generic [ref=e297]:
+          - generic [ref=e298]: Notes (optional)
+          - textbox "Inspiration photo? Special request? Tell us anything that will help." [ref=e300]
+        - generic:
+          - generic:
+            - text: Website
+            - textbox
+        - generic [ref=e301]:
+          - button "Request appointment" [ref=e302] [cursor=pointer]
+          - paragraph [ref=e303]: No payment required. We'll call you within 5 minutes during open hours to confirm.
+  - contentinfo [ref=e304]:
+    - generic [ref=e305]:
+      - generic [ref=e306]:
+        - generic [ref=e307]: T&J Nails
+        - paragraph [ref=e308]: Family-owned nail care in Katy, Texas for over 25 years. Jenny and Tony still work the floor every day.
+        - generic [ref=e309]:
+          - link "Instagram" [ref=e310] [cursor=pointer]:
+            - /url: https://www.instagram.com/tjnailskaty
+            - img [ref=e311]
+          - link "Facebook" [ref=e314] [cursor=pointer]:
+            - /url: https://www.facebook.com/p/TJ-Nails-100040377415874/
+            - img [ref=e315]
+      - generic [ref=e317]:
+        - heading "Visit" [level=4] [ref=e318]
+        - list [ref=e319]:
+          - listitem [ref=e320]:
+            - img [ref=e321]
+            - link "5304 E 5th St Ste 105 Katy, TX 77493" [ref=e324] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=T%26J+Nails+5304+E+5th+St+Ste+105+Katy+TX+77493
+              - text: 5304 E 5th St Ste 105
+              - text: Katy, TX 77493
+          - listitem [ref=e325]:
+            - img [ref=e326]
+            - link "(281) 391-1411" [ref=e328] [cursor=pointer]:
+              - /url: tel:+12813911411
+          - listitem [ref=e329]:
+            - img [ref=e330]
+            - generic [ref=e333]:
+              - text: Mon–Sat · 9 AM – 7 PM
+              - text: Sunday closed
+      - generic [ref=e334]:
+        - heading "Services" [level=4] [ref=e335]
+        - list [ref=e336]:
+          - listitem [ref=e337]:
+            - link "Dip Powder Nails" [ref=e338] [cursor=pointer]:
+              - /url: /services/dip-powder-nails
+          - listitem [ref=e339]:
+            - link "Gel Manicure" [ref=e340] [cursor=pointer]:
+              - /url: /services/gel-manicure
+          - listitem [ref=e341]:
+            - link "Shellac Nails" [ref=e342] [cursor=pointer]:
+              - /url: /services/shellac-nails
+          - listitem [ref=e343]:
+            - link "Pedicure" [ref=e344] [cursor=pointer]:
+              - /url: /services/pedicure
+          - listitem [ref=e345]:
+            - link "Manicure" [ref=e346] [cursor=pointer]:
+              - /url: /services/manicure
+          - listitem [ref=e347]:
+            - link "Acrylic Nails" [ref=e348] [cursor=pointer]:
+              - /url: /services/acrylic-nails
+          - listitem [ref=e349]:
+            - link "Custom Nail Art" [ref=e350] [cursor=pointer]:
+              - /url: /services/nail-art
+          - listitem [ref=e351]:
+            - link "Waxing" [ref=e352] [cursor=pointer]:
+              - /url: /services/waxing
+      - generic [ref=e353]:
+        - heading "Local" [level=4] [ref=e354]
+        - list [ref=e355]:
+          - listitem [ref=e356]:
+            - link "Katy, TX" [ref=e357] [cursor=pointer]:
+              - /url: /locations/katy-tx
+          - listitem [ref=e358]:
+            - link "Cinco Ranch" [ref=e359] [cursor=pointer]:
+              - /url: /locations/cinco-ranch
+          - listitem [ref=e360]:
+            - link "Fulshear" [ref=e361] [cursor=pointer]:
+              - /url: /locations/fulshear
+          - listitem [ref=e362]:
+            - link "Elyson" [ref=e363] [cursor=pointer]:
+              - /url: /locations/elyson
+          - listitem [ref=e364]:
+            - link "Old Towne Katy 77493" [ref=e365] [cursor=pointer]:
+              - /url: /locations/katy-77493
+          - listitem [ref=e366]:
+            - link "Request appointment" [ref=e367] [cursor=pointer]:
+              - /url: /book
+          - listitem [ref=e368]:
+            - link "Nail care guides" [ref=e369] [cursor=pointer]:
+              - /url: /articles
+          - listitem [ref=e370]:
+            - link "Menu & pricing" [ref=e371] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=e372]:
+            - link "Contact" [ref=e373] [cursor=pointer]:
+              - /url: /contact
+    - generic [ref=e375]:
+      - paragraph [ref=e376]: © 2026 T&J Nails Katy. All rights reserved.
+      - paragraph [ref=e377]: 5304 E 5th St Ste 105 - Katy, TX 77493

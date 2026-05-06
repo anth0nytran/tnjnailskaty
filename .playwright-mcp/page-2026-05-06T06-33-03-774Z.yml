@@ -1,0 +1,620 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]: 25+ yrs in Katy
+    - generic [ref=e5]: ·
+    - link "Request appointment" [ref=e6] [cursor=pointer]:
+      - /url: /book
+    - generic [ref=e7]: ·
+    - link "(281) 391-1411" [ref=e8] [cursor=pointer]:
+      - /url: tel:+12813911411
+  - banner [ref=e9]:
+    - generic [ref=e10]:
+      - link "T&J Nails — Home" [ref=e11] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e12]: T&J
+        - generic [ref=e13]: Nails Katy
+      - navigation [ref=e14]:
+        - link "Services" [ref=e15] [cursor=pointer]:
+          - /url: /services
+        - link "Menu" [ref=e16] [cursor=pointer]:
+          - /url: /menu
+        - link "Locations" [ref=e17] [cursor=pointer]:
+          - /url: /locations
+        - link "About" [ref=e18] [cursor=pointer]:
+          - /url: /about
+        - link "Reviews" [ref=e19] [cursor=pointer]:
+          - /url: /reviews
+        - link "FAQ" [ref=e20] [cursor=pointer]:
+          - /url: /faq
+      - generic [ref=e21]:
+        - link "Call (281) 391-1411" [ref=e22] [cursor=pointer]:
+          - /url: tel:+12813911411
+          - img [ref=e23]
+          - generic [ref=e25]: (281) 391-1411
+        - link "Book" [ref=e26] [cursor=pointer]:
+          - /url: /book
+          - img [ref=e27]
+          - text: Book
+  - main [ref=e29]:
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - paragraph [ref=e34]: Katy, TX 77493 · Family-owned since 2001
+        - heading "Katy's family-owned nail salon since 2001." [level=1] [ref=e35]:
+          - text: Katy's family-owned
+          - generic [ref=e36]: nail salon since 2001.
+        - paragraph [ref=e37]: Manicures, pedicures, dip powder, gel, acrylic, shellac, custom nail art, and waxing — done by the same hands that have done them in Old Towne Katy for over two decades.
+        - generic [ref=e38]:
+          - link "Request appointment" [ref=e39] [cursor=pointer]:
+            - /url: /book
+            - img [ref=e40]
+            - text: Request appointment
+          - link "(281) 391-1411" [ref=e42] [cursor=pointer]:
+            - /url: tel:+12813911411
+            - img [ref=e43]
+            - text: (281) 391-1411
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - paragraph [ref=e47]: 4.9★
+            - paragraph [ref=e48]: Google rating
+          - generic [ref=e49]:
+            - paragraph [ref=e50]: 25+
+            - paragraph [ref=e51]: Years in Katy
+          - generic [ref=e52]:
+            - paragraph [ref=e53]: 5 min
+            - paragraph [ref=e54]: Callback during hours
+      - img "T&J Nails storefront in Old Towne Katy, TX at night" [ref=e56]
+    - generic [ref=e58]:
+      - generic [ref=e59]:
+        - img [ref=e61]
+        - generic [ref=e63]:
+          - paragraph [ref=e64]: Owner-led
+          - paragraph [ref=e65]: Jenny and Tony work the floor every day
+      - generic [ref=e66]:
+        - img [ref=e68]
+        - generic [ref=e71]:
+          - paragraph [ref=e72]: Sterilized tools
+          - paragraph [ref=e73]: Autoclaved between every client
+      - generic [ref=e74]:
+        - img [ref=e76]
+        - generic [ref=e78]:
+          - paragraph [ref=e79]: Easy booking
+          - paragraph [ref=e80]: We call you back in under 5 minutes
+      - generic [ref=e81]:
+        - img [ref=e83]
+        - generic [ref=e86]:
+          - paragraph [ref=e87]: Old Towne Katy
+          - paragraph [ref=e88]: 5304 E 5th St — free lot parking
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - paragraph [ref=e92]: Services
+        - heading "From a quick polish change to a full custom set." [level=2] [ref=e93]
+        - paragraph [ref=e94]: Click any service for the price, the time it takes, what's included, and the questions our clients ask most.
+      - generic [ref=e95]:
+        - link "Enhancement From $50 Dip Powder Nails Dip powder gives you the strength of acrylic and the shine of gel — without the harsh smell or the lamp time. It's our most-requested service, and it's why most of our clients keep coming back. See details" [ref=e96] [cursor=pointer]:
+          - /url: /services/dip-powder-nails
+          - generic [ref=e97]:
+            - generic [ref=e98]: Enhancement
+            - generic [ref=e99]: From $50
+          - heading "Dip Powder Nails" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Dip powder gives you the strength of acrylic and the shine of gel — without the harsh smell or the lamp time. It's our most-requested service, and it's why most of our clients keep coming back.
+          - generic [ref=e102]:
+            - text: See details
+            - img [ref=e103]
+        - link "Manicure From $35 Gel Manicure A gel manicure is the answer when you want polish that looks salon-fresh on day fourteen. Cured under LED light, sealed in seconds, no smudges in the parking lot. See details" [ref=e105] [cursor=pointer]:
+          - /url: /services/gel-manicure
+          - generic [ref=e106]:
+            - generic [ref=e107]: Manicure
+            - generic [ref=e108]: From $35
+          - heading "Gel Manicure" [level=3] [ref=e109]
+          - paragraph [ref=e110]: A gel manicure is the answer when you want polish that looks salon-fresh on day fourteen. Cured under LED light, sealed in seconds, no smudges in the parking lot.
+          - generic [ref=e111]:
+            - text: See details
+            - img [ref=e112]
+        - link "Pedicure From $30 Pedicure Five tiers of foot care, from a tidy maintenance pedicure to a 70-minute relief experience. All performed in our heated massage chairs with fresh single-use liners and tools sterilized to medical-grade. See details" [ref=e114] [cursor=pointer]:
+          - /url: /services/pedicure
+          - generic [ref=e115]:
+            - generic [ref=e116]: Pedicure
+            - generic [ref=e117]: From $30
+          - heading "Pedicure" [level=3] [ref=e118]
+          - paragraph [ref=e119]: Five tiers of foot care, from a tidy maintenance pedicure to a 70-minute relief experience. All performed in our heated massage chairs with fresh single-use liners and tools sterilized to medical-grade.
+          - generic [ref=e120]:
+            - text: See details
+            - img [ref=e121]
+        - link "Manicure From $20 Classic Manicure The basics, done right. Soak, shape, cuticle care, hand massage, polish — every step, every time, no shortcuts. See details" [ref=e123] [cursor=pointer]:
+          - /url: /services/manicure
+          - generic [ref=e124]:
+            - generic [ref=e125]: Manicure
+            - generic [ref=e126]: From $20
+          - heading "Classic Manicure" [level=3] [ref=e127]
+          - paragraph [ref=e128]: The basics, done right. Soak, shape, cuticle care, hand massage, polish — every step, every time, no shortcuts.
+          - generic [ref=e129]:
+            - text: See details
+            - img [ref=e130]
+        - link "Enhancement From $40 Acrylic Nails When you want length, structure, and a shape that holds — acrylic is still the workhorse. We sculpt; we don't just glue. See details" [ref=e132] [cursor=pointer]:
+          - /url: /services/acrylic-nails
+          - generic [ref=e133]:
+            - generic [ref=e134]: Enhancement
+            - generic [ref=e135]: From $40
+          - heading "Acrylic Nails" [level=3] [ref=e136]
+          - paragraph [ref=e137]: When you want length, structure, and a shape that holds — acrylic is still the workhorse. We sculpt; we don't just glue.
+          - generic [ref=e138]:
+            - text: See details
+            - img [ref=e139]
+        - link "Specialty From $5 Nail Art & Custom Designs Bring us an inspiration photo. We'll tell you exactly how it'll look on your nail length, what's possible, and what's not — then we'll do it. See details" [ref=e141] [cursor=pointer]:
+          - /url: /services/nail-art
+          - generic [ref=e142]:
+            - generic [ref=e143]: Specialty
+            - generic [ref=e144]: From $5
+          - heading "Nail Art & Custom Designs" [level=3] [ref=e145]
+          - paragraph [ref=e146]: Bring us an inspiration photo. We'll tell you exactly how it'll look on your nail length, what's possible, and what's not — then we'll do it.
+          - generic [ref=e147]:
+            - text: See details
+            - img [ref=e148]
+      - link "All services" [ref=e151] [cursor=pointer]:
+        - /url: /services
+        - text: All services
+        - img [ref=e152]
+    - generic [ref=e155]:
+      - img "Jenny and Tony, owners of T&J Nails in Katy, TX" [ref=e157]
+      - generic [ref=e158]:
+        - paragraph [ref=e159]: Family-owned
+        - heading "We answer the phone. We do your nails." [level=2] [ref=e160]
+        - generic [ref=e161]:
+          - paragraph [ref=e162]: Jenny and Tony opened the shop in 2001 and never stopped working the floor. The team is small and steady — most of our techs have been with us a decade or more — so the person doing your nails knows you, and gets better at it every visit.
+          - paragraph [ref=e163]: Our regulars stay because the work is consistent. Same shape, same prep, same clean tools, every time. No surprise pricing. No rushed cuticles.
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - paragraph [ref=e166]: We ask before we start
+            - paragraph [ref=e167]: Length, shape, color, anything that bothered you about a previous set — we want to know.
+          - generic [ref=e168]:
+            - paragraph [ref=e169]: Healthy nail standards
+            - paragraph [ref=e170]: Tools autoclave-sterilized between every client. Removal by soak — never scraped or peeled.
+        - link "Meet Jenny & Tony" [ref=e171] [cursor=pointer]:
+          - /url: /about
+          - text: Meet Jenny & Tony
+          - img [ref=e172]
+    - generic [ref=e175]:
+      - generic [ref=e176]:
+        - generic [ref=e177]:
+          - paragraph [ref=e178]: Reading room
+          - heading "Honest answers before you book." [level=2] [ref=e179]
+        - paragraph [ref=e180]: Short guides written by the owners — what to expect from a service, how long it lasts, and how to pick the right one for your nails.
+      - generic [ref=e181]:
+        - link "Service Guide · 6 min read Dip vs Gel vs Acrylic Compare dip powder, gel manicures, and acrylic nails by durability, cost, removal, nail health, and best use case before booking in Katy, TX. Read" [ref=e182] [cursor=pointer]:
+          - /url: /articles/dip-powder-vs-gel-vs-acrylic-katy
+          - paragraph [ref=e183]: Service Guide · 6 min read
+          - heading "Dip vs Gel vs Acrylic" [level=3] [ref=e184]
+          - paragraph [ref=e185]: Compare dip powder, gel manicures, and acrylic nails by durability, cost, removal, nail health, and best use case before booking in Katy, TX.
+          - generic [ref=e186]:
+            - text: Read
+            - img [ref=e187]
+        - link "Service Guide · 5 min read Pedicure Guide A practical guide to choosing a classic, deluxe, royal, or relief pedicure based on callus care, massage time, polish, and foot fatigue. Read" [ref=e189] [cursor=pointer]:
+          - /url: /articles/best-pedicure-type-katy
+          - paragraph [ref=e190]: Service Guide · 5 min read
+          - heading "Pedicure Guide" [level=3] [ref=e191]
+          - paragraph [ref=e192]: A practical guide to choosing a classic, deluxe, royal, or relief pedicure based on callus care, massage time, polish, and foot fatigue.
+          - generic [ref=e193]:
+            - text: Read
+            - img [ref=e194]
+        - 'link "Nail Health · 7 min read Clean Salon Guide What to look for in a clean Katy nail salon: sterilized tools, fresh pedicure liners, healthy removal, clear prep, and honest service recommendations. Read" [ref=e196] [cursor=pointer]':
+          - /url: /articles/healthy-nail-salon-sanitation-katy
+          - paragraph [ref=e197]: Nail Health · 7 min read
+          - heading "Clean Salon Guide" [level=3] [ref=e198]
+          - paragraph [ref=e199]: "What to look for in a clean Katy nail salon: sterilized tools, fresh pedicure liners, healthy removal, clear prep, and honest service recommendations."
+          - generic [ref=e200]:
+            - text: Read
+            - img [ref=e201]
+      - link "All guides" [ref=e204] [cursor=pointer]:
+        - /url: /articles
+        - text: All guides
+        - img [ref=e205]
+    - generic [ref=e208]:
+      - generic [ref=e209]:
+        - paragraph [ref=e210]: Recent work
+        - heading "Real clients. Real Katy." [level=2] [ref=e211]
+      - generic [ref=e212]:
+        - img "T&J Nails Katy nail design 1" [ref=e214]
+        - img "T&J Nails Katy nail design 2" [ref=e216]
+        - img "T&J Nails Katy nail design 3" [ref=e218]
+        - img "T&J Nails Katy nail design 4" [ref=e220]
+        - img "T&J Nails Katy nail design 5" [ref=e222]
+    - generic [ref=e224]:
+      - generic [ref=e225]:
+        - generic [ref=e226]:
+          - paragraph [ref=e227]: Reviews
+          - heading "4.9 stars, earned one visit at a time." [level=2] [ref=e228]
+          - paragraph [ref=e229]: 280+ Google reviews. Many of our clients have been with us for over a decade.
+        - link "Read on Google" [ref=e230] [cursor=pointer]:
+          - /url: https://share.google/ozrerN3sqf64AOh4j
+          - img [ref=e231]
+          - text: Read on Google
+      - generic [ref=e233]:
+        - article [ref=e234]:
+          - generic [ref=e235]:
+            - img [ref=e236]
+            - img [ref=e238]
+            - img [ref=e240]
+            - img [ref=e242]
+            - img [ref=e244]
+            - img [ref=e246]
+          - paragraph [ref=e249]: I love the two owners. They have been doing my nails for the past year. The whole staff treats me extremely well. I always get what I asked for, they are always honest about their work. My sets just progressively get more beautiful. The pricing will never beat anyone else I've heard of, especially with designs and how intricate the designs I want are.
+          - generic [ref=e250]:
+            - paragraph [ref=e251]: Samantha Tran
+            - paragraph [ref=e252]: Verified Google Review - 11 months ago
+        - article [ref=e253]:
+          - generic [ref=e254]:
+            - img [ref=e255]
+            - img [ref=e257]
+            - img [ref=e259]
+            - img [ref=e261]
+            - img [ref=e263]
+            - img [ref=e265]
+          - paragraph [ref=e268]: I started coming here because of a close friend's recommendation, and I'm so glad I did. The service never fails — every visit feels just as amazing as the last. The staff are genuinely some of the kindest and most caring people I've ever met. They always go above and beyond to make sure I'm comfortable and happy with the results.
+          - generic [ref=e269]:
+            - paragraph [ref=e270]: Marcus Kinnard Bing
+            - paragraph [ref=e271]: Google Local Guide - 5 months ago
+        - article [ref=e272]:
+          - generic [ref=e273]:
+            - img [ref=e274]
+            - img [ref=e276]
+            - img [ref=e278]
+            - img [ref=e280]
+            - img [ref=e282]
+            - img [ref=e284]
+          - paragraph [ref=e287]: Love getting my nails done here, and I have throughout the years on and off. I've been coming since 2010, and they always remember me, my family etc. Consider trying them out, and support a small family-owned business!
+          - generic [ref=e288]:
+            - paragraph [ref=e289]: Leah English
+            - paragraph [ref=e290]: Google Local Guide - Edited 4 years ago
+        - article [ref=e291]:
+          - generic [ref=e292]:
+            - img [ref=e293]
+            - img [ref=e295]
+            - img [ref=e297]
+            - img [ref=e299]
+            - img [ref=e301]
+            - img [ref=e303]
+          - paragraph [ref=e306]: Jenny never misses! I love my nails — the chrome was her suggestion and she did amazing! Prices were super fair and I will never stop coming here.
+          - generic [ref=e307]:
+            - paragraph [ref=e308]: Jennie Le
+            - paragraph [ref=e309]: Google Local Guide - a year ago
+        - article [ref=e310]:
+          - generic [ref=e311]:
+            - img [ref=e312]
+            - img [ref=e314]
+            - img [ref=e316]
+            - img [ref=e318]
+            - img [ref=e320]
+            - img [ref=e322]
+          - paragraph [ref=e325]: I love my nails so much and customer service is so great. They get you in and out and they make you feel welcome — also treat you like family. I love going there. I definitely recommend.
+          - generic [ref=e326]:
+            - paragraph [ref=e327]: Cazhia Jackson
+            - paragraph [ref=e328]: Verified Google Review - a year ago
+        - article [ref=e329]:
+          - generic [ref=e330]:
+            - img [ref=e331]
+            - img [ref=e333]
+            - img [ref=e335]
+            - img [ref=e337]
+            - img [ref=e339]
+            - img [ref=e341]
+          - paragraph [ref=e344]: I've been coming to T&J for 20 years! They never disappoint. Their customer service is top notch and their work is phenomenal. They're the only place in Katy I trust to do my nails. Their work is consistent and I never leave disappointed.
+          - generic [ref=e345]:
+            - paragraph [ref=e346]: Emily Holcomb
+            - paragraph [ref=e347]: Verified Google Review - a year ago
+    - generic [ref=e349]:
+      - generic [ref=e350]:
+        - paragraph [ref=e351]: Find us
+        - heading "In the heart of Old Towne Katy." [level=2] [ref=e352]
+        - paragraph [ref=e353]:
+          - strong [ref=e354]: 5304 E 5th St Ste 105, Katy, TX 77493
+          - text: — five minutes north of I-10 at Pin Oak Road. Free lot parking out front.
+      - generic [ref=e355]:
+        - iframe [ref=e357]
+        - generic [ref=e358]:
+          - generic [ref=e359]:
+            - generic [ref=e360]:
+              - generic [ref=e361]:
+                - paragraph [ref=e362]: Address
+                - paragraph [ref=e363]: 5304 E 5th St Ste 105, Katy, TX 77493
+              - generic [ref=e364]:
+                - paragraph [ref=e365]: Hours
+                - paragraph [ref=e366]: Mon–Sat · 9 AM – 7 PM
+              - generic [ref=e367]:
+                - paragraph [ref=e368]: Phone
+                - paragraph [ref=e369]: (281) 391-1411
+              - generic [ref=e370]:
+                - paragraph [ref=e371]: Parking
+                - paragraph [ref=e372]: Free lot out front
+            - generic [ref=e373]:
+              - heading "Nearby Katy neighborhoods" [level=3] [ref=e374]
+              - generic [ref=e375]:
+                - link "Katy 5 min from Old Towne Katy" [ref=e376] [cursor=pointer]:
+                  - /url: /locations/katy-tx
+                  - generic [ref=e377]: Katy
+                  - generic [ref=e378]:
+                    - text: 5 min from Old Towne Katy
+                    - img [ref=e379]
+                - link "Cinco Ranch 10 minutes from anywhere in Cinco Ranch" [ref=e381] [cursor=pointer]:
+                  - /url: /locations/cinco-ranch
+                  - generic [ref=e382]: Cinco Ranch
+                  - generic [ref=e383]:
+                    - text: 10 minutes from anywhere in Cinco Ranch
+                    - img [ref=e384]
+                - link "Fulshear 15–20 minutes from Fulshear" [ref=e386] [cursor=pointer]:
+                  - /url: /locations/fulshear
+                  - generic [ref=e387]: Fulshear
+                  - generic [ref=e388]:
+                    - text: 15–20 minutes from Fulshear
+                    - img [ref=e389]
+                - link "Elyson 10 minutes from Elyson" [ref=e391] [cursor=pointer]:
+                  - /url: /locations/elyson
+                  - generic [ref=e392]: Elyson
+                  - generic [ref=e393]:
+                    - text: 10 minutes from Elyson
+                    - img [ref=e394]
+                - link "77493 5 minutes from anywhere in Old Towne Katy" [ref=e396] [cursor=pointer]:
+                  - /url: /locations/katy-77493
+                  - generic [ref=e397]: "77493"
+                  - generic [ref=e398]:
+                    - text: 5 minutes from anywhere in Old Towne Katy
+                    - img [ref=e399]
+          - link "Open in Google Maps" [ref=e401] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=T%26J+Nails+5304+E+5th+St+Ste+105+Katy+TX+77493
+            - img [ref=e402]
+            - text: Open in Google Maps
+    - generic [ref=e405]:
+      - generic [ref=e406]:
+        - paragraph [ref=e407]: Common questions
+        - heading "Asked & answered." [level=2] [ref=e408]
+        - paragraph [ref=e409]:
+          - text: Anything else? Call
+          - link "(281) 391-1411" [ref=e410] [cursor=pointer]:
+            - /url: tel:+12813911411
+          - text: — we answer 9 to 7, Monday through Saturday.
+      - generic [ref=e412]:
+        - generic [ref=e413]:
+          - button "What's the best nail salon in Katy, TX?" [expanded] [ref=e414] [cursor=pointer]:
+            - heading "What's the best nail salon in Katy, TX?" [level=3] [ref=e415]
+            - img [ref=e417]
+          - paragraph [ref=e418]: T&J Nails has been a top-rated, family-owned nail salon in Katy, Texas for over 25 years, with a 4.9-star Google rating from hundreds of local clients. The owners — Jenny and Tony — work the floor daily and personally know most of their regulars.
+        - button "Where is T&J Nails located?" [ref=e420] [cursor=pointer]:
+          - heading "Where is T&J Nails located?" [level=3] [ref=e421]
+          - img [ref=e423]
+        - button "What are T&J Nails' hours?" [ref=e425] [cursor=pointer]:
+          - heading "What are T&J Nails' hours?" [level=3] [ref=e426]
+          - img [ref=e428]
+        - button "Do you take walk-ins or do I need an appointment?" [ref=e430] [cursor=pointer]:
+          - heading "Do you take walk-ins or do I need an appointment?" [level=3] [ref=e431]
+          - img [ref=e433]
+        - button "How much does a full set cost at T&J Nails?" [ref=e435] [cursor=pointer]:
+          - heading "How much does a full set cost at T&J Nails?" [level=3] [ref=e436]
+          - img [ref=e438]
+        - button "Do you do dip powder?" [ref=e440] [cursor=pointer]:
+          - heading "Do you do dip powder?" [level=3] [ref=e441]
+          - img [ref=e443]
+        - button "Do you do nail art and custom designs?" [ref=e445] [cursor=pointer]:
+          - heading "Do you do nail art and custom designs?" [level=3] [ref=e446]
+          - img [ref=e448]
+        - button "How do you sanitize tools?" [ref=e450] [cursor=pointer]:
+          - heading "How do you sanitize tools?" [level=3] [ref=e451]
+          - img [ref=e453]
+    - generic [ref=e456]:
+      - generic [ref=e457]:
+        - paragraph [ref=e458]: Book
+        - heading "Request your appointment." [level=2] [ref=e459]
+        - paragraph [ref=e460]: Tell us when. We call back within 5 minutes during open hours.
+      - generic [ref=e462]:
+        - generic [ref=e463]:
+          - generic [ref=e464]: Full Name *
+          - generic [ref=e465]:
+            - img [ref=e467]
+            - textbox "Jane Doe" [ref=e470]
+        - generic [ref=e471]:
+          - generic [ref=e472]:
+            - generic [ref=e473]: Phone *
+            - generic [ref=e474]:
+              - img [ref=e476]
+              - textbox "(281) 555-0123" [ref=e478]
+          - generic [ref=e479]:
+            - generic [ref=e480]: Email *
+            - generic [ref=e481]:
+              - img [ref=e483]
+              - textbox "jane@example.com" [ref=e486]
+        - generic [ref=e487]:
+          - generic [ref=e488]:
+            - generic [ref=e489]: Preferred Date *
+            - generic [ref=e490]:
+              - img [ref=e492]
+              - combobox [ref=e494]:
+                - option "Select date…" [selected]
+                - option "Today · May 6"
+                - option "Tomorrow · May 7"
+                - option "Fri, May 8"
+                - option "Sat, May 9"
+                - option "Mon, May 11"
+                - option "Tue, May 12"
+                - option "Wed, May 13"
+                - option "Thu, May 14"
+                - option "Fri, May 15"
+                - option "Sat, May 16"
+                - option "Mon, May 18"
+                - option "Tue, May 19"
+                - option "Wed, May 20"
+                - option "Thu, May 21"
+          - generic [ref=e495]:
+            - generic [ref=e496]: Preferred Time *
+            - generic [ref=e497]:
+              - img [ref=e499]
+              - combobox [disabled] [ref=e502]:
+                - option "Pick a date first" [selected]
+                - option "9:00 AM"
+                - option "9:30 AM"
+                - option "10:00 AM"
+                - option "10:30 AM"
+                - option "11:00 AM"
+                - option "11:30 AM"
+                - option "12:00 PM"
+                - option "12:30 PM"
+                - option "1:00 PM"
+                - option "1:30 PM"
+                - option "2:00 PM"
+                - option "2:30 PM"
+                - option "3:00 PM"
+                - option "3:30 PM"
+                - option "4:00 PM"
+                - option "4:30 PM"
+                - option "5:00 PM"
+                - option "5:30 PM"
+                - option "6:00 PM"
+                - option "6:30 PM"
+        - generic [ref=e503]:
+          - generic [ref=e504]: Services * (select all that apply)
+          - generic [ref=e505]:
+            - button "Nail Enhancements" [ref=e506] [cursor=pointer]
+            - button "Manicure" [ref=e507] [cursor=pointer]
+            - button "Pedicure" [ref=e508] [cursor=pointer]
+            - button "Waxing" [ref=e509] [cursor=pointer]
+            - button "À La Carte" [ref=e510] [cursor=pointer]
+          - generic [ref=e511]:
+            - generic [ref=e512] [cursor=pointer]:
+              - checkbox "Solar Clear Tip with Color Polish" [ref=e513]
+              - generic [ref=e514]: Solar Clear Tip with Color Polish
+            - generic [ref=e515] [cursor=pointer]:
+              - checkbox "Solar Clear Tip with Shellac Polish" [ref=e516]
+              - generic [ref=e517]: Solar Clear Tip with Shellac Polish
+            - generic [ref=e518] [cursor=pointer]:
+              - checkbox "Solar White / Pearl Tip" [ref=e519]
+              - generic [ref=e520]: Solar White / Pearl Tip
+            - generic [ref=e521] [cursor=pointer]:
+              - checkbox "Solar White & Pink Powder" [ref=e522]
+              - generic [ref=e523]: Solar White & Pink Powder
+            - generic [ref=e524] [cursor=pointer]:
+              - checkbox "Solar Color Powder" [ref=e525]
+              - generic [ref=e526]: Solar Color Powder
+            - generic [ref=e527] [cursor=pointer]:
+              - checkbox "Dipping Powder" [ref=e528]
+              - generic [ref=e529]: Dipping Powder
+        - generic [ref=e530]:
+          - generic [ref=e531]: Notes (optional)
+          - textbox "Inspiration photo? Special request? Tell us anything that will help." [ref=e533]
+        - generic:
+          - generic:
+            - text: Website
+            - textbox
+        - generic [ref=e534]:
+          - button "Request appointment" [ref=e535] [cursor=pointer]
+          - paragraph [ref=e536]: No payment required. We'll call you within 5 minutes during open hours to confirm.
+    - generic [ref=e539]:
+      - generic [ref=e540]:
+        - generic [ref=e541]:
+          - img [ref=e542]
+          - generic [ref=e545]: Visit
+        - link "5304 E 5th St Ste 105 Katy, TX 77493" [ref=e546] [cursor=pointer]:
+          - /url: https://www.google.com/maps/search/?api=1&query=T%26J+Nails+5304+E+5th+St+Ste+105+Katy+TX+77493
+          - text: 5304 E 5th St Ste 105
+          - text: Katy, TX 77493
+        - paragraph [ref=e547]: 5 min from I-10 (Pin Oak Rd exit)
+      - generic [ref=e548]:
+        - generic [ref=e549]:
+          - img [ref=e550]
+          - generic [ref=e552]: Call
+        - link "(281) 391-1411" [ref=e553] [cursor=pointer]:
+          - /url: tel:+12813911411
+        - paragraph [ref=e554]: We answer 9 AM - 7 PM, Mon-Sat
+      - generic [ref=e555]:
+        - generic [ref=e556]:
+          - img [ref=e557]
+          - generic [ref=e560]: Hours
+        - generic [ref=e561]:
+          - paragraph [ref=e562]: Mon-Sat 9 AM - 7 PM
+          - paragraph [ref=e563]: Sunday Closed
+  - contentinfo [ref=e564]:
+    - generic [ref=e565]:
+      - generic [ref=e566]:
+        - generic [ref=e567]: T&J Nails
+        - paragraph [ref=e568]: Family-owned nail care in Katy, Texas for over 25 years. Jenny and Tony still work the floor every day.
+        - generic [ref=e569]:
+          - link "Instagram" [ref=e570] [cursor=pointer]:
+            - /url: https://www.instagram.com/tjnailskaty
+            - img [ref=e571]
+          - link "Facebook" [ref=e574] [cursor=pointer]:
+            - /url: https://www.facebook.com/p/TJ-Nails-100040377415874/
+            - img [ref=e575]
+      - generic [ref=e577]:
+        - heading "Visit" [level=4] [ref=e578]
+        - list [ref=e579]:
+          - listitem [ref=e580]:
+            - img [ref=e581]
+            - link "5304 E 5th St Ste 105 Katy, TX 77493" [ref=e584] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=T%26J+Nails+5304+E+5th+St+Ste+105+Katy+TX+77493
+              - text: 5304 E 5th St Ste 105
+              - text: Katy, TX 77493
+          - listitem [ref=e585]:
+            - img [ref=e586]
+            - link "(281) 391-1411" [ref=e588] [cursor=pointer]:
+              - /url: tel:+12813911411
+          - listitem [ref=e589]:
+            - img [ref=e590]
+            - generic [ref=e593]:
+              - text: Mon–Sat · 9 AM – 7 PM
+              - text: Sunday closed
+      - generic [ref=e594]:
+        - heading "Services" [level=4] [ref=e595]
+        - list [ref=e596]:
+          - listitem [ref=e597]:
+            - link "Dip Powder Nails" [ref=e598] [cursor=pointer]:
+              - /url: /services/dip-powder-nails
+          - listitem [ref=e599]:
+            - link "Gel Manicure" [ref=e600] [cursor=pointer]:
+              - /url: /services/gel-manicure
+          - listitem [ref=e601]:
+            - link "Shellac Nails" [ref=e602] [cursor=pointer]:
+              - /url: /services/shellac-nails
+          - listitem [ref=e603]:
+            - link "Pedicure" [ref=e604] [cursor=pointer]:
+              - /url: /services/pedicure
+          - listitem [ref=e605]:
+            - link "Manicure" [ref=e606] [cursor=pointer]:
+              - /url: /services/manicure
+          - listitem [ref=e607]:
+            - link "Acrylic Nails" [ref=e608] [cursor=pointer]:
+              - /url: /services/acrylic-nails
+          - listitem [ref=e609]:
+            - link "Custom Nail Art" [ref=e610] [cursor=pointer]:
+              - /url: /services/nail-art
+          - listitem [ref=e611]:
+            - link "Waxing" [ref=e612] [cursor=pointer]:
+              - /url: /services/waxing
+      - generic [ref=e613]:
+        - heading "Local" [level=4] [ref=e614]
+        - list [ref=e615]:
+          - listitem [ref=e616]:
+            - link "Katy, TX" [ref=e617] [cursor=pointer]:
+              - /url: /locations/katy-tx
+          - listitem [ref=e618]:
+            - link "Cinco Ranch" [ref=e619] [cursor=pointer]:
+              - /url: /locations/cinco-ranch
+          - listitem [ref=e620]:
+            - link "Fulshear" [ref=e621] [cursor=pointer]:
+              - /url: /locations/fulshear
+          - listitem [ref=e622]:
+            - link "Elyson" [ref=e623] [cursor=pointer]:
+              - /url: /locations/elyson
+          - listitem [ref=e624]:
+            - link "Old Towne Katy 77493" [ref=e625] [cursor=pointer]:
+              - /url: /locations/katy-77493
+          - listitem [ref=e626]:
+            - link "Request appointment" [ref=e627] [cursor=pointer]:
+              - /url: /book
+          - listitem [ref=e628]:
+            - link "Nail care guides" [ref=e629] [cursor=pointer]:
+              - /url: /articles
+          - listitem [ref=e630]:
+            - link "Menu & pricing" [ref=e631] [cursor=pointer]:
+              - /url: /menu
+          - listitem [ref=e632]:
+            - link "Contact" [ref=e633] [cursor=pointer]:
+              - /url: /contact
+    - generic [ref=e635]:
+      - paragraph [ref=e636]: © 2026 T&J Nails Katy. All rights reserved.
+      - paragraph [ref=e637]: 5304 E 5th St Ste 105 - Katy, TX 77493

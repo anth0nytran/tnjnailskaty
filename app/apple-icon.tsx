@@ -20,7 +20,16 @@ export default function AppleIcon() {
           fontFamily: "Georgia, serif",
         }}
       >
-        <div style={{ fontSize: 96, fontWeight: 600, letterSpacing: "-0.04em", lineHeight: 1 }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            fontSize: 96,
+            fontWeight: 600,
+            letterSpacing: "-0.04em",
+            lineHeight: 1,
+          }}
+        >
           T<span style={{ color: "#C9A961", margin: "0 4px" }}>&amp;</span>J
         </div>
         <div

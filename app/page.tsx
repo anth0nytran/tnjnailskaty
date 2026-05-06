@@ -39,49 +39,45 @@ export default function HomePage() {
       />
 
       <section className="page-hero">
-        <div className="container-x grid items-center gap-12 pb-20 pt-14 lg:grid-cols-12 lg:gap-14 lg:pb-28 lg:pt-20">
-          <div className="lg:col-span-7">
-            <p className="eyebrow">Katy, TX 77493 · Family-owned since 2001</p>
-            <h1 className="mt-6 page-title">
-              Katy&apos;s family-owned
-              <span className="block text-clay-700">nail salon since 2001.</span>
-            </h1>
-            <p className="mt-7 max-w-2xl lede">
-              Manicures, pedicures, dip powder, gel, acrylic, shellac, custom nail art, and waxing — done by the
-              same hands that have done them in Old Towne Katy for over two decades.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link href="/book" className="btn-primary">
-                <CalendarDays size={15} />
-                Request appointment
-              </Link>
-              <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary">
-                <Phone size={15} className="text-clay-700" />
-                {BUSINESS.phone}
-              </a>
-            </div>
-
-            <div className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-charcoal/10 pt-8">
-              <Stat top="4.9★" label="Google rating" />
-              <Stat top="25+" label="Years in Katy" />
-              <Stat top="5 min" label="Callback during hours" />
-            </div>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="relative">
-              <Image
-                src="/images/gallery-2.jpeg"
-                alt="Custom manicure done at T&J Nails in Katy, TX"
-                width={720}
-                height={860}
-                priority
-                className="aspect-[4/5] w-full rounded-[6px] object-cover shadow-[0_28px_80px_rgba(26,26,26,0.16)]"
-              />
-              <div className="absolute -bottom-6 left-5 right-5 rounded-[6px] border border-charcoal/10 bg-ivory/95 p-5 shadow-[0_20px_50px_rgba(26,26,26,0.14)] backdrop-blur sm:left-8 sm:right-8">
-                <p className="font-display text-xl leading-tight text-charcoal">Same owners. Same chair. Same careful hands.</p>
-                <p className="mt-1.5 text-sm text-stone-warm">Open Mon–Sat, 9 AM – 7 PM.</p>
+        <div className="container-x pb-14 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-20">
+          <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-16">
+            <div className="flex flex-col justify-center lg:pr-2">
+              <p className="eyebrow">Katy, TX 77493 · Family-owned since 2001</p>
+              <h1 className="mt-5 font-display text-[clamp(2.2rem,5.4vw,3.9rem)] leading-[1.05] tracking-[-0.01em] text-charcoal [text-wrap:balance] sm:mt-6">
+                <span className="block whitespace-nowrap">Katy&apos;s family-owned</span>
+                <span className="block text-clay-700">nail salon since 2001.</span>
+              </h1>
+              <p className="mt-6 max-w-[34rem] lede sm:mt-7">
+                Manicures, pedicures, dip powder, gel, builder gel, Gel X, acrylic, shellac, custom nail art, and
+                waxing — done by the same hands that have done them in Old Towne Katy for over two decades.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center">
+                <Link href="/book" className="btn-primary">
+                  <CalendarDays size={15} />
+                  Request appointment
+                </Link>
+                <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary">
+                  <Phone size={15} className="text-clay-700" />
+                  {BUSINESS.phone}
+                </a>
               </div>
+
+              <div className="mt-10 grid grid-cols-3 gap-4 border-t border-charcoal/10 pt-7 sm:mt-12 sm:gap-8 sm:pt-8">
+                <Stat top="4.9★" label="Google rating" />
+                <Stat top="25+" label="Years in Katy" />
+                <Stat top="5 min" label="Callback during hours" />
+              </div>
+            </div>
+
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[8px] bg-charcoal/5 shadow-[0_28px_80px_rgba(26,26,26,0.14)] sm:aspect-[16/10] lg:aspect-auto lg:min-h-[520px]">
+              <Image
+                src="/home.png"
+                alt="T&J Nails storefront in Old Towne Katy, TX at night"
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-center"
+              />
             </div>
           </div>
         </div>
@@ -96,7 +92,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-cream">
+      <section
+        className="parallax-section parallax-section--cream"
+        style={{ backgroundImage: "url('/images/parallax-services.jpg')" }}
+      >
         <div className="container-x section-pad">
           <div className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Services</p>
@@ -171,8 +170,58 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Standards & sterilization — citable E-E-A-T detail. Targets long-tail
+          queries like "is dip powder safe", "do nail salons sterilize tools",
+          "Texas nail salon regulations", and gives AI engines specific,
+          extractable claims tied to a real authority (TDLR). */}
+      <section className="bg-cream">
+        <div className="container-x section-pad">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="eyebrow">Standards we don&apos;t skip</p>
+            <h2 className="mt-5 section-title">A salon visit shouldn&apos;t put your nails in worse shape.</h2>
+            <p className="mx-auto mt-6 max-w-2xl lede">
+              Texas requires every nail salon to follow{" "}
+              <a
+                href="https://www.tdlr.texas.gov/cosmet/cosmet.htm"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-charcoal underline underline-offset-4 hover:text-clay-700"
+              >
+                TDLR cosmetology rules
+              </a>
+              . Most do the minimum. Here&apos;s what we&apos;ve done every shift since 2001 — in plain English.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            <Protocol
+              kicker="Sterilization"
+              title="Autoclave for metal — not just a wipe"
+              detail="Cuticle nippers, pushers, and clippers run through a steam autoclave between every client and stay in sealed pouches until your service starts. Wiping with disinfectant — what most salons do — does not kill bacterial spores. Autoclave does."
+            />
+            <Protocol
+              kicker="Disposables"
+              title="Single-use everything else"
+              detail="Pedicure liners, files, buffers, and orange-wood sticks are new for every client and discarded in front of you. We don't reuse the things you can see — and we don't reuse the things you can't."
+            />
+            <Protocol
+              kicker="Removal"
+              title="Soak — never scrape"
+              detail="Gel, dip, and acrylic come off in 100% acetone soak time. It takes 10–15 minutes longer than prying with a metal pusher, and that's the point: your natural nail plate stays intact. If a salon is fast on removal, that's a red flag."
+            />
+          </div>
+
+          <p className="mx-auto mt-12 max-w-2xl text-center text-sm leading-7 text-stone-warm">
+            Texas Cosmetology Salon Establishment License on display at the front desk. Owners on the floor every shift since 2001 — same hands, same standards, every visit.
+          </p>
+        </div>
+      </section>
+
       {ARTICLES.length > 0 && (
-        <section className="bg-sage-50">
+        <section
+          className="parallax-section parallax-section--sage"
+          style={{ backgroundImage: "url('/images/parallax-articles.jpg')" }}
+        >
           <div className="container-x section-pad">
             <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
               <div>
@@ -331,7 +380,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="book" className="bg-cream">
+      <section id="book" className="book-parallax">
         <div className="container-x section-pad">
           <div className="mx-auto max-w-3xl">
             <div className="mb-12 text-center">
@@ -361,8 +410,10 @@ export default function HomePage() {
 function Stat({ top, label }: { top: string; label: string }) {
   return (
     <div>
-      <p className="font-display text-4xl leading-none text-charcoal">{top}</p>
-      <p className="mt-2.5 text-[10px] uppercase tracking-[0.22em] text-stone-warm">{label}</p>
+      <p className="font-display text-3xl leading-none text-charcoal sm:text-4xl">{top}</p>
+      <p className="mt-2 text-[9px] uppercase tracking-[0.18em] text-stone-warm sm:mt-2.5 sm:text-[10px] sm:tracking-[0.22em]">
+        {label}
+      </p>
     </div>
   );
 }
@@ -386,6 +437,16 @@ function Bullet({ title, children }: { title: string; children: React.ReactNode 
     <div className="border-l border-clay-500/40 pl-5">
       <p className="font-display text-xl text-charcoal">{title}</p>
       <p className="mt-1.5 text-sm leading-6 text-stone-warm">{children}</p>
+    </div>
+  );
+}
+
+function Protocol({ kicker, title, detail }: { kicker: string; title: string; detail: string }) {
+  return (
+    <div className="card-soft p-7">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-clay-700">{kicker}</p>
+      <h3 className="mt-4 font-display text-2xl leading-tight text-charcoal">{title}</h3>
+      <p className="mt-4 text-[15px] font-light leading-7 text-stone-warm">{detail}</p>
     </div>
   );
 }

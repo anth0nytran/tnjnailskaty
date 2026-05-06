@@ -69,7 +69,16 @@ export default function OG() {
             fontFamily: "system-ui, sans-serif",
           }}
         >
-          <div style={{ fontFamily: "Georgia, serif", fontSize: 56, fontWeight: 600, letterSpacing: "-0.03em" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              fontFamily: "Georgia, serif",
+              fontSize: 56,
+              fontWeight: 600,
+              letterSpacing: "-0.03em",
+            }}
+          >
             T<span style={{ color: "#A65F4E", margin: "0 4px" }}>&amp;</span>J Nails
           </div>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>

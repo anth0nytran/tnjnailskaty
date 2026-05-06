@@ -13,7 +13,7 @@ export function localBusinessSchema() {
     name: BUSINESS.name,
     legalName: BUSINESS.legalName,
     description:
-      "Family-owned nail salon in Katy, Texas offering manicures, pedicures, dip powder, gel, acrylic, custom nail art, and waxing for over 25 years.",
+      "Family-owned nail salon in Katy, Texas offering manicures, pedicures, dip powder, gel, builder gel overlay, Gel X extensions, acrylic, custom nail art, and waxing for over 25 years.",
     url: SITE_URL,
     telephone: BUSINESS.phoneTel,
     email: BUSINESS.email,

@@ -42,7 +42,7 @@ export default function ServicesHub() {
             <p className="eyebrow">Services</p>
             <h1 className="mt-5 page-title">Every service we offer.</h1>
             <p className="mt-7 max-w-2xl lede">
-              Nine services, all performed by techs with 10+ years of practice. Click any one for the price, what&apos;s
+              Eleven services, all performed by techs with 10+ years of practice. Click any one for the price, what&apos;s
               included, the steps involved, and the questions our clients ask.
             </p>
           </div>

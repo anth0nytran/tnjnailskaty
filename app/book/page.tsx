@@ -48,7 +48,10 @@ export default function BookPage() {
         </div>
       </section>
 
-      <section className="bg-cream">
+      <section
+        className="parallax-section parallax-section--cream"
+        style={{ backgroundImage: "url('/images/neighbors-parallax.jpg')" }}
+      >
         <div className="container-x section-pad grid gap-10 lg:grid-cols-5 lg:gap-12">
           <div className="panel p-6 sm:p-9 lg:col-span-3 lg:p-10">
             <QuoteForm />

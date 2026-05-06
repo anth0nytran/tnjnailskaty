@@ -77,7 +77,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <section className="bg-cream">
+      <section
+        className="parallax-section parallax-section--cream"
+        style={{ backgroundImage: "url('/images/parallax-locations.jpg')" }}
+      >
         <div className="container-x section-pad grid gap-12 lg:grid-cols-3 lg:gap-14">
           <div className="space-y-5 lg:col-span-2">
             {l.body.map((p, i) => (
@@ -107,13 +110,33 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
+      {l.localContext && (
+        <section className="bg-ivory">
+          <div className="container-x section-pad">
+            <div className="mx-auto max-w-3xl">
+              <p className="eyebrow">{l.localContext.eyebrow}</p>
+              <h2 className="mt-4 section-title">{l.localContext.heading}</h2>
+              <p className="mt-6 lede">{l.localContext.lede}</p>
+            </div>
+            <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
+              {l.localContext.cards.map((card) => (
+                <ContextCard key={card.title} {...card} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="bg-charcoal text-ivory">
         <div className="container-x py-14">
           <NapBlock tone="dark" />
         </div>
       </section>
 
-      <section className="bg-ivory">
+      <section
+        className="parallax-section parallax-section--sage"
+        style={{ backgroundImage: "url('/images/parallax-botanical.jpg')" }}
+      >
         <div className="container-x section-pad">
           <div className="max-w-3xl">
             <p className="eyebrow">Local questions</p>
@@ -135,7 +158,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <section className="bg-ivory">
+      <section className="book-parallax">
         <div className="container-x section-pad">
           <div className="mx-auto max-w-3xl">
             <div className="mb-10 text-center">
@@ -150,5 +173,15 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
     </>
+  );
+}
+
+function ContextCard({ kicker, title, body }: { kicker: string; title: string; body: string }) {
+  return (
+    <div className="card-soft p-7">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-clay-700">{kicker}</p>
+      <h3 className="mt-4 font-display text-xl leading-tight text-charcoal">{title}</h3>
+      <p className="mt-3 text-[14.5px] font-light leading-7 text-stone-warm">{body}</p>
+    </div>
   );
 }

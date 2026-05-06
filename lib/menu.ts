@@ -35,8 +35,14 @@ export const MENU: MenuSection[] = [
       { name: "Solar White & Pink Powder", fullSet: 55, refill: 50 },
       { name: "Solar Color Powder", fullSet: 50, refill: 45 },
       { name: "Dipping Powder", fullSet: 50, refill: 45 },
+      { name: "Builder Gel Overlay", fullSet: 55 },
+      { name: "Gel X Extensions", fullSet: 55 },
     ],
-    notes: ["Long nails — additional fee", "Designed shapes (almond, coffin, stiletto) — additional fee"],
+    notes: [
+      "Builder Gel Overlay & Gel X — from $55 (final price depends on length, shape, and design)",
+      "Long nails — additional fee",
+      "Designed shapes (almond, coffin, stiletto) — additional fee",
+    ],
   },
   {
     slug: "manicure",

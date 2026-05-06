@@ -88,7 +88,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-ivory">
+      <section
+        className="parallax-section parallax-section--ivory"
+        style={{ backgroundImage: "url('/images/parallax-locations.jpg')" }}
+      >
         <div className="container-x section-pad grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-14">
           <div>
             <p className="eyebrow">Where to find us</p>

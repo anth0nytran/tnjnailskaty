@@ -19,6 +19,16 @@ export type Service = {
   aftercare: string[];
   faqs: { q: string; a: string }[];
   relatedSlugs: string[];
+  // Per-service unique content — Katy/Texas-specific buying context.
+  // Engineered for AEO/AI citation: concrete claims, real brands, real local
+  // references. Content is hand-written per service, not templated.
+  katyContext?: {
+    eyebrow: string;
+    heading: string;
+    lede: string;
+    cards: { kicker: string; title: string; body: string }[];
+    kicker?: string;
+  };
 };
 
 export const SERVICES: Service[] = [
@@ -84,6 +94,34 @@ export const SERVICES: Service[] = [
       },
     ],
     relatedSlugs: ["gel-manicure", "acrylic-nails", "shellac-nails"],
+    katyContext: {
+      eyebrow: "Dip in Katy, specifically",
+      heading: "What we've learned about dip powder after 25 Katy summers.",
+      lede:
+        "Dip is our most-booked service. Two-and-a-half decades of 95° Katy heat, dishpan hands, and pool weeks have taught us things the original SNS training booklet didn't cover. Here's what holds up — and what doesn't — in this climate.",
+      cards: [
+        {
+          kicker: "Heat & humidity",
+          title: "Sealed pours — never double-dipped",
+          body:
+            "A lot of salons in Katy still dip multiple clients' fingers into the same powder jar. We pour individual portions onto a clean pad and discard the unused powder. In Texas humidity that's the only sanitary way (and the only TDLR-defensible way) to do dip.",
+        },
+        {
+          kicker: "Wear window",
+          title: "3 weeks minimum, 4 if you wear gloves",
+          body:
+            "Pool, hot tub, dishwater, and yard work are dip's enemies. Cinco Ranch clients who garden through April–October refill at 2.5 weeks; office workers in 77493 stretch to 5. We log it on your chart so we can schedule honestly — not just every other Saturday because the slot's open.",
+        },
+        {
+          kicker: "Color we stock",
+          title: "300+ shades, refreshed seasonally",
+          body:
+            "We restock from Kiara Sky and Apres four times a year — warm neutrals for KISD school photos in October, deeper plums by November, milky French shades for Cinco Ranch brides through spring. Bring a phone photo of any color and we'll match from the wall.",
+        },
+      ],
+      kicker:
+        "Most-booked dip shades this season: 'Lily Pond' (sage) and 'Dahlia' (warm rose). Both came in on the September restock.",
+    },
   },
   {
     slug: "gel-manicure",
@@ -132,6 +170,34 @@ export const SERVICES: Service[] = [
       { q: "Can I get gel without color?", a: "Yes. A clear gel overlay adds shine and strength to a natural nail." },
     ],
     relatedSlugs: ["shellac-nails", "manicure", "dip-powder-nails"],
+    katyContext: {
+      eyebrow: "Gel that survives a Katy week",
+      heading: "Why our gel doesn't peel by Wednesday.",
+      lede:
+        "If you've had gel that lifted at the cuticle by day three, that's almost always a prep problem — not a product problem. Here's what we do differently, and how to spot it at any salon you visit in Katy.",
+      cards: [
+        {
+          kicker: "Prep depth",
+          title: "Five-step prep, not three",
+          body:
+            "Push, gentle nip, dehydrate, primer, base. Most chain salons skip dehydrate and primer because it adds 90 seconds — that's 90 seconds you pay for in week-one chipping. If you don't smell the dehydrator at any salon you visit, that step got skipped.",
+        },
+        {
+          kicker: "Cure quality",
+          title: "LED, replaced every 18 months",
+          body:
+            "An aging UV lamp under-cures gel and you don't notice for two visits. We swapped to LED in 2018 and replace lamps every 18 months on a calendar reminder, not on guess. If your gel feels tacky after the wipe at any salon, ask for another cure — it should feel hard.",
+        },
+        {
+          kicker: "Removal honesty",
+          title: "$15 soak, 15 minutes, no scraping",
+          body:
+            "We charge $15 for a proper soak-off because it takes time and acetone we don't reuse. Salons that 'remove gel free' are scraping with a metal pusher — that's how nail beds get thinner over years. Pay the $15. Your nail plate is the long game.",
+        },
+      ],
+      kicker:
+        "If we did your gel, we'll fix any week-one chip free of charge. We rarely get the call.",
+    },
   },
   {
     slug: "shellac-nails",
@@ -168,6 +234,32 @@ export const SERVICES: Service[] = [
       { q: "How is shellac different from regular polish?", a: "Regular polish chips in 3–7 days. Shellac holds for 2 weeks with no chipping." },
     ],
     relatedSlugs: ["gel-manicure", "manicure", "dip-powder-nails"],
+    katyContext: {
+      eyebrow: "Real CND Shellac",
+      heading: "Why we still keep CND Shellac stocked.",
+      lede:
+        "Half the salons in Katy that say 'shellac' are using a different gel-polish brand. CND Shellac® is a trademarked product. Here's why the brand still matters and when we'll recommend it over plain gel.",
+      cards: [
+        {
+          kicker: "Brand truth",
+          title: "If they don't say CND, it isn't Shellac",
+          body:
+            "'Shellac-style' is shorthand for any LED-cured gel polish — most work fine, but they're not Shellac. We stock real CND because the formula breaks down differently on removal: less acetone, less time, less stress on the nail plate. That difference compounds over years.",
+        },
+        {
+          kicker: "Glassiness",
+          title: "Mirror finish that doesn't dull at week two",
+          body:
+            "CND Shellac top coat is the highest-shine top we stock. Other gel tops dull by day 10 in Katy weather; Shellac holds glass-clear to the end of week two. If you photograph your hands — brides, real estate agents, food bloggers in 77494 — that finish matters.",
+        },
+        {
+          kicker: "Recovery service",
+          title: "Best between two acrylic sets",
+          body:
+            "After a 6-month acrylic stretch, your natural nail needs a break — not bare. A Shellac collagen manicure ($40) gives you a hard top layer and a hydration boost without adding length. Most of our Cinco Ranch brides do this 4 weeks before the wedding, then a fresh full set the week of.",
+        },
+      ],
+    },
   },
   {
     slug: "pedicure",
@@ -215,6 +307,32 @@ export const SERVICES: Service[] = [
       { q: "Are kids welcome?", a: "Yes. We do kids pedicures regularly and have age-appropriate options." },
     ],
     relatedSlugs: ["kids-pedicure", "manicure", "gel-manicure"],
+    katyContext: {
+      eyebrow: "Five tiers, picked for real reasons",
+      heading: "Match the pedicure tier to what your feet actually went through.",
+      lede:
+        "We didn't pick five tiers to upsell you. We picked them because the right pedicure depends on what your feet did this month — yard work, marathon training, hospital shifts, or simply keeping up with kids. Here's how to choose at our shop.",
+      cards: [
+        {
+          kicker: "Classic ($30)",
+          title: "Maintenance, not therapy",
+          body:
+            "30 minutes. Trim, shape, cuticles, mild callus, polish. Right when your feet look fine and the polish is going. Most of our 77493 walk-ins book Classic because they live close enough to come back monthly without saving up the time.",
+        },
+        {
+          kicker: "Royal ($65)",
+          title: "What teachers and nurses book",
+          body:
+            "60 minutes with hot stones, sea salt scrub, mud mask, paraffin, and 15 minutes of leg massage. Katy ISD teachers in May/June book this weekly — the calf work resets after a year on classroom floors. Methodist West night-shift nurses come in mid-morning before sleeping.",
+        },
+        {
+          kicker: "Deluxe Relief ($70)",
+          title: "If you're on your feet 50+ hours/week",
+          body:
+            "70 minutes. Same as Royal plus a deeper exfoliation, an extended foot reflex massage, and time. We built this tier for one client — a long-time Katy hairstylist whose arches gave out — and a quarter of our Saturday afternoons now book it. Worth the upgrade if your work is your feet.",
+        },
+      ],
+    },
   },
   {
     slug: "manicure",
@@ -252,6 +370,32 @@ export const SERVICES: Service[] = [
       { q: "What's a collagen manicure?", a: "Same prep with the addition of a collagen-infused mask and gloves — the difference shows in dry hands." },
     ],
     relatedSlugs: ["gel-manicure", "shellac-nails", "pedicure"],
+    katyContext: {
+      eyebrow: "Where most clients start",
+      heading: "The $20 manicure is the test of any salon.",
+      lede:
+        "It's our cheapest service, and it's our hardest one to fake. The shortcuts that don't show up on a $50 dip set show up on a $20 polish manicure within a week. Here's what we don't skip — and what to look for at any salon you visit.",
+      cards: [
+        {
+          kicker: "Soak depth",
+          title: "5 minutes minimum, not the 60-second dip",
+          body:
+            "Cuticles need warm water and time to soften. A real soak makes the next 25 minutes possible. Watch the soak bowl at any salon — if it's room-temperature tap water and you're in it for 90 seconds, the cuticle work that follows is going to leave a hangnail.",
+        },
+        {
+          kicker: "The massage",
+          title: "Forearm, not just hand",
+          body:
+            "Our hand massage runs from fingertips to mid-forearm, 5+ minutes, with our house lotion. We added forearm work after enough KISD teachers and Cinco Ranch real-estate agents asked for it. Cost? Same $20. We absorbed the time because the regulars stayed.",
+        },
+        {
+          kicker: "Polish that lasts",
+          title: "OPI and CND base coats — never store-brand",
+          body:
+            "Cheap base coat is why polish chips by day four. We keep OPI Natural Nail Strengthener and CND Stickey Base in rotation; the application is identical, the wear is 3+ days longer. If a salon's base coat doesn't have a brand name on the bottle, that's where they're saving money.",
+        },
+      ],
+    },
   },
   {
     slug: "acrylic-nails",
@@ -285,6 +429,210 @@ export const SERVICES: Service[] = [
       { q: "Do acrylic nails ruin your nails?", a: "Not when applied and removed properly. Lift, peeling, and rough removal cause damage — not the product." },
     ],
     relatedSlugs: ["dip-powder-nails", "nail-art", "gel-manicure"],
+    katyContext: {
+      eyebrow: "Solar acrylic, not MMA",
+      heading: "Why our acrylic doesn't smell — and why that matters.",
+      lede:
+        "If a salon's acrylic smells like nail-polish remover from twenty feet away, that's MMA — methyl methacrylate — banned by Texas TDLR for nail services for decades. Here's what we use, why we use it, and how to spot the difference at any salon in Katy.",
+      cards: [
+        {
+          kicker: "Chemistry",
+          title: "EMA, not MMA",
+          body:
+            "We use EMA-based Solar acrylic — the legal, gentler chemistry. EMA cures slower (which is why our sets take 60–90 minutes) and bonds without bleaching the natural nail. MMA cures fast and cheap but is banned for a reason: it bonds so hard the natural nail comes off with the set.",
+        },
+        {
+          kicker: "Apex placement",
+          title: "Where the strength actually lives",
+          body:
+            "An acrylic set that breaks one nail a week has the apex in the wrong spot — too thin at the stress zone, too thick at the tip. We sculpt with an apex two-thirds back from the free edge. Our Cinco Ranch real-estate agents and Cane Island gardeners go a full 3 weeks without a break.",
+        },
+        {
+          kicker: "Refill cadence",
+          title: "Every 2–3 weeks — not 'when it lifts'",
+          body:
+            "Lift starts before you can see it. Refill at 2 weeks if you're hard on hands; 3 weeks for office work. We log your last visit on the chart so we'll tell you when to come back — most clients book the next refill before they leave the chair.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "builder-gel-overlay",
+    name: "Builder Gel Overlay",
+    shortName: "Builder Gel",
+    category: "Enhancement",
+    duration: "60–75 min",
+    priceFrom: 55,
+    priceDisplay: "$55",
+    metaTitle: "Builder Gel Overlay in Katy, TX | T&J Nails — From $55",
+    metaDescription:
+      "Builder gel overlay in Katy, TX. Strength for thin or brittle natural nails — flexible, light, lamp-cured. From $55 at T&J Nails. Family-owned for 25+ years.",
+    h1: "Builder Gel Overlay in Katy, TX",
+    intro:
+      "A clear, hardening gel layered over your natural nail to add strength without adding length. It's what we recommend most often for clients whose nails feel thin, peel, or split.",
+    description: [
+      "Builder gel sits between gel polish and acrylic. We brush it directly over your natural nail — no tips, no extension — to reinforce the surface and stop everyday breakage. The result is a flexible armor that bends with your nail rather than fighting it.",
+      "Each layer is sculpted at the apex (the strongest curved point of the nail), then cured under an LED lamp. We finish with color, shellac, or a French and a top coat. Most clients get 3–4 weeks of wear with no chips.",
+    ],
+    whoFor: [
+      "Your natural nails are thin, peel, or split when they grow out.",
+      "You want strength without artificial length.",
+      "You're growing out an old acrylic or dip set and need a bridge.",
+      "You want gel polish that lasts longer and stays glossier.",
+    ],
+    whatsIncluded: [
+      "Cuticle prep and shaping",
+      "Builder gel applied at natural length",
+      "Sculpted apex for strength where your nail flexes",
+      "Color, shellac, or French finish with top coat",
+      "Cuticle oil",
+    ],
+    process: [
+      { title: "Prep", detail: "Cuticles cleaned, surface lightly buffed, dehydrated." },
+      { title: "Bond", detail: "A thin bonder is brushed on for adhesion to your natural nail." },
+      { title: "Build", detail: "Builder gel applied in two thin layers and cured under an LED lamp." },
+      { title: "Shape", detail: "Filed to your preferred shape with a defined apex." },
+      { title: "Finish", detail: "Color, shellac, or French — top coat, oil." },
+    ],
+    aftercare: [
+      "Cuticle oil daily — keeps the gel flexible and prevents lift.",
+      "Soak off only — never peel or pry.",
+      "Touch up every 3 weeks before the regrowth shows at the cuticle.",
+    ],
+    faqs: [
+      {
+        q: "What's the difference between builder gel and gel polish?",
+        a: "Gel polish is a thin colored coating. Builder gel is a thicker structural gel that adds strength and shape over the natural nail before the polish goes on.",
+      },
+      {
+        q: "Is builder gel the same as hard gel?",
+        a: "They're related, but builder gel is softer and soaks off more easily. Hard gel has to be filed off entirely, which is harder on your natural nail.",
+      },
+      {
+        q: "Will it ruin my natural nails?",
+        a: "No — applied and removed properly, builder gel actually protects the natural nail underneath. The damage people associate with gel comes from peeling or rough removal.",
+      },
+      {
+        q: "How long does builder gel last?",
+        a: "3–4 weeks for most clients. We schedule a refill before regrowth shows at the cuticle.",
+      },
+    ],
+    relatedSlugs: ["gel-manicure", "gel-x", "dip-powder-nails"],
+    katyContext: {
+      eyebrow: "Builder gel — the bridge service",
+      heading: "Why we recommend builder gel more than we used to.",
+      lede:
+        "Five years ago builder gel was a niche service. Now it's the second-most-recommended enhancement in our chairs — because so many of our clients spent the 2010s on heavy acrylic and their natural nails need rest, not more removal. Here's when we suggest it.",
+      cards: [
+        {
+          kicker: "Bridge service",
+          title: "After acrylic, before going bare",
+          body:
+            "If you've been on acrylic for two years and your natural nail is paper-thin, going bare is painful — every dish, every type, your nails feel things they shouldn't. Builder gel adds back a hard top layer so the natural nail can grow underneath without the daily damage.",
+        },
+        {
+          kicker: "Strength without length",
+          title: "For people who tried acrylic and hated it",
+          body:
+            "Acrylic is heavy. Builder gel is half the weight at the apex, half the curing time, and removes in 15 minutes of soak instead of an hour of file work. Same 3–4 week wear, far less drama on the natural nail underneath.",
+        },
+        {
+          kicker: "Refill rhythm",
+          title: "3 weeks because of cuticle, not lift",
+          body:
+            "Builder gel rarely lifts when applied right — what brings clients back is regrowth at the cuticle showing. Book the next refill at 21 days; we'll touch up the apex and move the color forward without redoing the whole nail.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "gel-x",
+    name: "Gel X Extensions",
+    shortName: "Gel X",
+    category: "Enhancement",
+    duration: "60–90 min",
+    priceFrom: 55,
+    priceDisplay: "$55",
+    metaTitle: "Gel X Nails in Katy, TX | Apres Gel Extensions — T&J Nails From $55",
+    metaDescription:
+      "Gel X nail extensions in Katy, TX. Pre-shaped soft gel tips, lamp-cured, lighter than acrylic. Lasts 3+ weeks. From $55 at T&J Nails — family-owned for 25+ years.",
+    h1: "Gel X Extensions in Katy, TX",
+    intro:
+      "A modern alternative to acrylic. Pre-shaped soft gel tips bonded with gel adhesive and cured under LED — lighter on your nails, faster to apply, and gentler when it's time to come off.",
+    description: [
+      "Gel X uses pre-formed soft gel tips that cover the entire natural nail from cuticle to free edge. We size each finger, apply gel adhesive, press the tip on, and cure under an LED lamp. There's no acrylic monomer, no harsh smell, and no aggressive filing of the natural nail underneath.",
+      "It's the cleanest extension method we offer. Most clients get 3–4 weeks of wear, and removal is a 15-minute soak instead of an hour of filing.",
+    ],
+    whoFor: [
+      "You want length but acrylic feels too heavy.",
+      "You want a fast, low-odor service.",
+      "You've had natural nail damage from acrylic and want to switch.",
+      "You want a clean almond, coffin, or square shape without a lot of filing.",
+    ],
+    whatsIncluded: [
+      "Cuticle prep and shaping",
+      "Custom-sized soft gel tips",
+      "Gel adhesive bond and full LED cure",
+      "Length and shape filed to your preference",
+      "Color, shellac, or French finish with top coat",
+    ],
+    process: [
+      { title: "Size", detail: "Each tip sized one finger at a time so it sits flush at the cuticle." },
+      { title: "Bond", detail: "Gel adhesive applied to the tip and the natural nail." },
+      { title: "Press & Cure", detail: "Tip pressed on, held in place, cured under LED." },
+      { title: "Shape", detail: "Filed to your length and chosen shape — coffin, almond, square, stiletto." },
+      { title: "Finish", detail: "Color, shellac, or French — top coat, oil." },
+    ],
+    aftercare: [
+      "Cuticle oil daily — keeps the bond strong.",
+      "Don't bite, peel, or use your nails as tools.",
+      "Soak off only — about 15 minutes in acetone.",
+    ],
+    faqs: [
+      {
+        q: "Is Gel X the same as acrylic?",
+        a: "No. Acrylic is sculpted from liquid and powder; Gel X uses pre-shaped soft gel tips bonded and cured. Gel X is lighter, has no smell, and removes faster.",
+      },
+      {
+        q: "How long does Gel X last?",
+        a: "3–4 weeks for most clients. Cuticle regrowth, not lifting, is usually what brings people back in.",
+      },
+      {
+        q: "Does Gel X damage your nails?",
+        a: "Less than most extension methods. We don't file down the natural nail before applying, and removal is a soak — not a scrape.",
+      },
+      {
+        q: "Can you do nail art on Gel X?",
+        a: "Yes — chrome, French, ombre, and hand-painted designs all work great on Gel X. Mention it when you book so we set aside time.",
+      },
+    ],
+    relatedSlugs: ["builder-gel-overlay", "acrylic-nails", "nail-art"],
+    katyContext: {
+      eyebrow: "Gel X — the modern acrylic",
+      heading: "Why Gel X has taken over from acrylic in our chairs.",
+      lede:
+        "Gel X is a 5-year-old technology and most of Katy still calls it 'press-on with extra steps.' That misunderstanding costs clients results. Pre-shaped Apres tips, gel adhesive, full LED cure — done. Lighter than acrylic, faster than dip, removes in a soak. Here's why it's our top recommendation for first-time extensions.",
+      cards: [
+        {
+          kicker: "Speed",
+          title: "60–90 minutes vs. 90–120 for acrylic",
+          body:
+            "Pre-shaped tips mean less filing. We size each tip in five minutes total, then bond and cure. The set goes on like a kit — except sized to your specific nail width. Most of our Cinco Ranch and Fulshear lunch-break clients are in and out before the hour mark.",
+        },
+        {
+          kicker: "Removal honesty",
+          title: "15-minute soak, not an hour of filing",
+          body:
+            "Acrylic removal is brutal: file, file, file, soak. Gel X removal is a foil-wrap soak in 100% acetone for 15 minutes, then the tip slides off. We charge $20 for removal because the acetone we use isn't reused — but the natural nail underneath looks like it did before the set went on.",
+        },
+        {
+          kicker: "Best for first-timers",
+          title: "Try extensions without the commitment",
+          body:
+            "First time wanting length? Gel X is the lowest-risk way. If you don't like the feel after a week, removal is fast and gentle. Most clients keep them — but the option to bail without nail damage is what convinces hesitant clients to try.",
+        },
+      ],
+    },
   },
   {
     slug: "nail-art",
@@ -317,6 +665,32 @@ export const SERVICES: Service[] = [
       { q: "Can you match a specific photo?", a: "Almost always. Chrome and certain pearlescent finishes need products we keep in stock — bring the photo." },
     ],
     relatedSlugs: ["acrylic-nails", "gel-manicure", "dip-powder-nails"],
+    katyContext: {
+      eyebrow: "What we actually keep in stock",
+      heading: "What's possible at our shop, today, on real Katy nails.",
+      lede:
+        "Pinterest boards lie about nail art. Half the designs need acrylic gel mediums most salons in Katy don't keep, or stamping plates we don't carry. Here's what we actually have stocked — so you can plan a design we can finish in your booked window.",
+      cards: [
+        {
+          kicker: "Always stocked",
+          title: "Chrome, foil, glitter fade, French",
+          body:
+            "Three chrome powders (silver, gold, holographic). Six foil patterns. Glitter in nine sizes from microfine to chunky. French in any color combo, including reverse and double. These add 15 minutes total — book any service +15 and you're set.",
+        },
+        {
+          kicker: "Custom paint",
+          title: "Hand-painted florals & seasonal designs",
+          body:
+            "Jenny does the paint work — small florals, abstracts, seasonal (KISD spirit colors come up every August before football). Adds 30–60 minutes per set. Bring a phone photo a day before so we can stage gel colors that match the inspiration.",
+        },
+        {
+          kicker: "What we send you elsewhere for",
+          title: "3D acrylic charms & nail piercings",
+          body:
+            "We don't carry 3D charm work or nail piercings — both need specific equipment we'd rarely use. If that's your design, we'll honestly tell you which Houston salon does it right. We'd rather lose the booking than do a bad version of someone's wedding nails.",
+        },
+      ],
+    },
   },
   {
     slug: "kids-pedicure",
@@ -347,6 +721,32 @@ export const SERVICES: Service[] = [
       { q: "Do you do nail polish without all the chemicals?", a: "We can use lower-VOC kid-friendly polish on request." },
     ],
     relatedSlugs: ["pedicure", "manicure"],
+    katyContext: {
+      eyebrow: "Built around what kids actually want",
+      heading: "First-time pedicure: how to make it a yes.",
+      lede:
+        "Kid pedicures fail when they're scaled-down adult pedicures. We've done thousands of first-times for Katy families — birthday parties, mom-and-daughter trips, KISD teacher gifts. Here's what works in our chair.",
+      cards: [
+        {
+          kicker: "Age & comfort",
+          title: "5+ years, parent in the chair next to them",
+          body:
+            "We seat kids next to a parent in matching chairs. Parent gets the Classic Pedicure ($30); kid gets Kids ($25). Total visit ~45 minutes. Younger than 5? Bring them, but expect them to bail at minute 12 — we won't charge if it doesn't take.",
+        },
+        {
+          kicker: "What we skip",
+          title: "No callus blade, no heat lamps",
+          body:
+            "Kid feet don't have callus to remove. We use a soft buffer only. We skip the paraffin lamp (heat) and high-strength acetone in case they touch their face. Polish is regular kid-friendly — not gel — so it comes off easy at home with regular remover.",
+        },
+        {
+          kicker: "Birthday parties",
+          title: "Side-by-side chairs, 3+ kids welcome",
+          body:
+            "Book at least a week ahead for groups of 3+ — we'll set up the back chairs together. We've done KISD birthday parties (4–6 kids), Cinco Ranch dance recitals, quinceañera prep. Total cost stays at sticker price; no hidden party fee, no minimum spend.",
+        },
+      ],
+    },
   },
   {
     slug: "waxing",
@@ -377,6 +777,32 @@ export const SERVICES: Service[] = [
       { q: "How often should I wax brows?", a: "Every 3–4 weeks for most clients." },
     ],
     relatedSlugs: ["manicure", "pedicure"],
+    katyContext: {
+      eyebrow: "The combo most clients book",
+      heading: "Brow wax + nail fill = one chair, one trip, two services done.",
+      lede:
+        "Most of our waxing happens during a fill — eight extra minutes for brows, twenty for face. Here's what works for the women who come in once every 3 weeks for a maintenance combo, and the brides booking for the day before the rehearsal.",
+      cards: [
+        {
+          kicker: "Brow shape",
+          title: "Hard wax, mapped before we start",
+          body:
+            "Soft wax (strip) on brows pulls fine skin in this Texas dry-air climate. Hard wax peels off itself; gentler. We map the brow with a pencil before any wax goes near skin — no surprise shape, no take-it-back conversation.",
+        },
+        {
+          kicker: "Pre-wedding combo",
+          title: "Brow + lip + chin = $42 total",
+          body:
+            "Most overlap with a fill or pedicure. Pre-wedding, brides usually book brow + lip + chin the morning of the rehearsal so any redness is gone by the next day. Post-wax oil included; we don't bill for it as an extra.",
+        },
+        {
+          kicker: "What we don't do",
+          title: "No bikini, no Brazilian",
+          body:
+            "We do brows, lip, chin, face, underarms, and legs. We don't do bikini line or Brazilian — there are full-body specialists nearby in Cinco Ranch we send those bookings to. Different equipment, different room. We won't do it half-right.",
+        },
+      ],
+    },
   },
 ];
 

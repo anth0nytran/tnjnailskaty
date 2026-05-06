@@ -196,6 +196,56 @@
   .rule-gold {
     @apply h-px w-12 bg-gold-500;
   }
+
+  /* Parallax section system — pass image via inline style, pick overlay tone via variant */
+  .parallax-section {
+    position: relative;
+    isolation: isolate;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  @media (min-width: 768px) {
+    .parallax-section {
+      background-attachment: fixed;
+    }
+  }
+  .parallax-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .parallax-section--cream::before {
+    background: linear-gradient(180deg, rgba(245, 240, 230, 0.88) 0%, rgba(250, 248, 243, 0.84) 100%);
+  }
+  .parallax-section--ivory::before {
+    background: linear-gradient(180deg, rgba(250, 248, 243, 0.90) 0%, rgba(245, 240, 230, 0.86) 100%);
+  }
+  .parallax-section--sage::before {
+    background: linear-gradient(180deg, rgba(241, 243, 238, 0.90) 0%, rgba(221, 227, 215, 0.86) 100%);
+  }
+  .parallax-section--dark::before {
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.84) 0%, rgba(13, 13, 13, 0.90) 100%);
+  }
+  /* Edge fades soften where parallax meets adjacent flat sections so it
+     never feels like a hard tile/band stacked on the page. */
+  .parallax-section--feather::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, var(--feather-top, #FAF8F3) 0%, transparent 7%, transparent 93%, var(--feather-bottom, #FAF8F3) 100%);
+  }
+
+  /* Backwards-compat alias for the original booking parallax */
+  .book-parallax {
+    @apply parallax-section parallax-section--cream;
+    background-image: url('/images/neighbors-parallax.jpg');
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

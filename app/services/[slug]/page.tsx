@@ -152,7 +152,32 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="bg-ivory">
+      {s.katyContext && (
+        <section className="bg-ivory">
+          <div className="container-x section-pad">
+            <div className="mx-auto max-w-3xl">
+              <p className="eyebrow">{s.katyContext.eyebrow}</p>
+              <h2 className="mt-4 section-title">{s.katyContext.heading}</h2>
+              <p className="mt-6 lede">{s.katyContext.lede}</p>
+            </div>
+            <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">
+              {s.katyContext.cards.map((card) => (
+                <ContextCard key={card.title} {...card} />
+              ))}
+            </div>
+            {s.katyContext.kicker && (
+              <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-7 text-stone-warm">
+                {s.katyContext.kicker}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      <section
+        className="parallax-section parallax-section--sage"
+        style={{ backgroundImage: "url('/images/parallax-botanical.jpg')" }}
+      >
         <div className="container-x section-pad grid gap-12 lg:grid-cols-2 lg:gap-14">
           <div>
             <p className="eyebrow">Aftercare</p>
@@ -224,7 +249,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
-      <section className="bg-ivory">
+      <section className="book-parallax">
         <div className="container-x section-pad">
           <div className="mx-auto max-w-3xl">
             <div className="mb-10 text-center">
@@ -247,6 +272,16 @@ function Row({ term, value, bold = false }: { term: string; value: string; bold?
     <div className="flex justify-between gap-4 border-b border-charcoal/10 pb-3 last:border-0">
       <dt className="text-stone-warm">{term}</dt>
       <dd className={bold ? "font-semibold text-charcoal" : "text-charcoal"}>{value}</dd>
+    </div>
+  );
+}
+
+function ContextCard({ kicker, title, body }: { kicker: string; title: string; body: string }) {
+  return (
+    <div className="card-soft p-7">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-clay-700">{kicker}</p>
+      <h3 className="mt-4 font-display text-xl leading-tight text-charcoal">{title}</h3>
+      <p className="mt-3 text-[14.5px] font-light leading-7 text-stone-warm">{body}</p>
     </div>
   );
 }

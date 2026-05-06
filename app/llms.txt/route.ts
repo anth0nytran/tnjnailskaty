@@ -17,7 +17,7 @@ export function GET() {
   lines.push(`# ${BUSINESS.name}`);
   lines.push("");
   lines.push(
-    `> ${BUSINESS.name} is a family-owned nail salon at ${BUSINESS.address.full}, in Old Towne Katy. Owned and operated by Jenny and Tony since 2001 (${BUSINESS.yearsInBusiness}+ years). Services include manicures, pedicures, dip powder, gel, acrylic, shellac, custom nail art, kids pedicures, and waxing. Phone: ${BUSINESS.phone}. Open Monday–Saturday, 9 AM – 7 PM. Rated ${BUSINESS.rating.value}★ by ${BUSINESS.rating.count}+ Google reviewers.`
+    `> ${BUSINESS.name} is a family-owned nail salon at ${BUSINESS.address.full}, in Old Towne Katy. Owned and operated by Jenny and Tony since 2001 (${BUSINESS.yearsInBusiness}+ years). Services include manicures, pedicures, dip powder, gel, builder gel overlay, Gel X extensions, acrylic, shellac, custom nail art, kids pedicures, and waxing. Phone: ${BUSINESS.phone}. Open Monday–Saturday, 9 AM – 7 PM. Rated ${BUSINESS.rating.value}★ by ${BUSINESS.rating.count}+ Google reviewers.`
   );
   lines.push("");
 
