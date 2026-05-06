@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CalendarDays, Clock, MapPin, Menu, Phone, X } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
+import { trackEvent } from "@/lib/analytics";
 
 const NAV = [
   { label: "Services", href: "/services" },
@@ -84,6 +85,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <a
               href={`tel:${BUSINESS.phoneTel}`}
+              onClick={() => trackEvent("phone_call_clicked", { source: "header" })}
               className="hidden min-h-11 items-center gap-2 rounded-[3px] border border-charcoal/15 bg-white/40 px-3.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-charcoal transition-all hover:border-clay-500 hover:bg-white hover:text-clay-700 sm:inline-flex"
               aria-label={`Call ${BUSINESS.phone}`}
             >
@@ -93,6 +95,7 @@ export default function Header() {
             </a>
             <Link
               href="/book"
+              onClick={() => trackEvent("book_cta_clicked", { source: "header", label: "Book" })}
               className="inline-flex min-h-11 items-center gap-2 rounded-[3px] bg-charcoal px-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-ivory transition-colors hover:bg-clay-700"
             >
               <CalendarDays size={13} />
@@ -201,7 +204,10 @@ function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () 
           <div className="mt-5 grid gap-2.5">
             <a
               href={`tel:${BUSINESS.phoneTel}`}
-              onClick={onClose}
+              onClick={() => {
+                trackEvent("phone_call_clicked", { source: "header_mobile_drawer" });
+                onClose();
+              }}
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[4px] border border-charcoal/20 bg-white px-4 text-sm font-semibold tracking-[0.1em] text-charcoal transition-colors hover:border-clay-500 hover:text-clay-700"
             >
               <Phone size={15} className="text-clay-700" />
@@ -209,7 +215,13 @@ function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () 
             </a>
             <Link
               href="/book"
-              onClick={onClose}
+              onClick={() => {
+                trackEvent("book_cta_clicked", {
+                  source: "header_mobile_drawer",
+                  label: "Request appointment",
+                });
+                onClose();
+              }}
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[4px] bg-charcoal px-4 text-sm font-semibold uppercase tracking-[0.16em] text-ivory transition-colors hover:bg-clay-700"
             >
               <CalendarDays size={15} />

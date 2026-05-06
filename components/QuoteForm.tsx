@@ -3,14 +3,30 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AlertCircle, Calendar, CheckCircle2, Clock, Mail, Phone, User } from "lucide-react";
 import { MENU } from "@/lib/menu";
+import { trackEvent, type TrackSource } from "@/lib/analytics";
+import { readAttribution } from "@/lib/attribution";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function QuoteForm({ defaultService }: { defaultService?: string }) {
+export default function QuoteForm({
+  defaultService,
+  source = "book_page",
+}: {
+  defaultService?: string;
+  source?: TrackSource;
+}) {
   const formStartedAtRef = useRef(Date.now());
+  const formStartTrackedRef = useRef(false);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  // Track the first interaction with the form (top-of-funnel signal).
+  function markFormStarted() {
+    if (formStartTrackedRef.current) return;
+    formStartTrackedRef.current = true;
+    trackEvent("quote_form_started", { source, service: defaultService });
+  }
 
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
@@ -62,6 +78,7 @@ export default function QuoteForm({ defaultService }: { defaultService?: string 
   }, []);
 
   function toggleService(name: string) {
+    markFormStarted();
     setServices((prev) => (prev.includes(name) ? prev.filter((s) => s !== name) : [...prev, name]));
     setFieldErrors((e) => ({ ...e, services: "" }));
   }
@@ -71,6 +88,25 @@ export default function QuoteForm({ defaultService }: { defaultService?: string 
     setStatus("submitting");
     setErrorMsg("");
     setFieldErrors({});
+
+    // Pull silent attribution captured at first landing + the page they
+    // submitted from. Survives full-page navigation via sessionStorage.
+    const attribution = readAttribution() ?? {};
+    const submittedFromPath =
+      typeof window !== "undefined"
+        ? window.location.pathname + (window.location.search || "")
+        : undefined;
+    const attributionPayload = {
+      ...attribution,
+      ...(submittedFromPath ? { submittedFromPath } : {}),
+    };
+
+    // Top-of-submit funnel event — include attribution so dashboards can
+    // segment by source/medium/channel without a join.
+    trackEvent("quote_form_submitted", {
+      services_count: services.length,
+      service_categories: services.slice(0, 5).join(", ").slice(0, 90) || "none",
+    });
 
     try {
       const res = await fetch("/api/quote", {
@@ -86,6 +122,7 @@ export default function QuoteForm({ defaultService }: { defaultService?: string 
           notes,
           website,
           formStartedAt: formStartedAtRef.current,
+          attribution: attributionPayload,
         }),
       });
 
@@ -95,13 +132,20 @@ export default function QuoteForm({ defaultService }: { defaultService?: string 
         if (data.fieldErrors) setFieldErrors(data.fieldErrors);
         setErrorMsg(data.error ?? "Something went wrong. Please try again or call us at (281) 391-1411.");
         setStatus("error");
+        trackEvent("quote_form_failed", {
+          reason: data.error ? String(data.error).slice(0, 90) : `http_${res.status}`,
+        });
         return;
       }
 
       setStatus("success");
-    } catch {
+      trackEvent("quote_form_succeeded", { services_count: services.length });
+    } catch (err) {
       setErrorMsg("We couldn't reach the server. Please call (281) 391-1411 — we'll book you over the phone.");
       setStatus("error");
+      trackEvent("quote_form_failed", {
+        reason: err instanceof Error ? err.message.slice(0, 90) : "network_error",
+      });
     }
   }
 
@@ -124,7 +168,12 @@ export default function QuoteForm({ defaultService }: { defaultService?: string 
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+    <form
+      onSubmit={handleSubmit}
+      onFocusCapture={markFormStarted}
+      className="space-y-6"
+      noValidate
+    >
       {errorMsg && (
         <div className="flex items-start gap-2 rounded-[4px] border border-red-300 bg-red-50 p-3 text-sm text-red-800">
           <AlertCircle size={16} className="shrink-0 mt-0.5" />

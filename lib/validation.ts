@@ -1,5 +1,26 @@
 import { z } from "zod";
 
+// Marketing attribution captured silently from URL + referrer + sessionStorage.
+// Every field is optional and length-capped so we don't trust client input.
+export const AttributionSchema = z
+  .object({
+    utmSource: z.string().trim().max(100).optional(),
+    utmMedium: z.string().trim().max(100).optional(),
+    utmCampaign: z.string().trim().max(120).optional(),
+    utmContent: z.string().trim().max(120).optional(),
+    utmTerm: z.string().trim().max(120).optional(),
+    referrer: z.string().trim().max(400).optional(),
+    referrerHost: z.string().trim().max(200).optional(),
+    channel: z.string().trim().max(80).optional(),
+    landingPath: z.string().trim().max(400).optional(),
+    submittedFromPath: z.string().trim().max(400).optional(),
+    capturedAt: z.string().trim().max(40).optional(),
+  })
+  .partial()
+  .optional();
+
+export type Attribution = z.infer<typeof AttributionSchema>;
+
 export const QuoteRequestSchema = z.object({
   fullName: z
     .string()
@@ -22,6 +43,8 @@ export const QuoteRequestSchema = z.object({
   website: z.string().max(0, "Bot detected.").optional().default(""),
   // form-render time — block submissions under 3 seconds
   formStartedAt: z.coerce.number(),
+  // optional silent attribution payload
+  attribution: AttributionSchema,
 });
 
 export type QuoteRequest = z.infer<typeof QuoteRequestSchema>;

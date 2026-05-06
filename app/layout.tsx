@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 import { BUSINESS } from "@/lib/business";
@@ -9,6 +10,7 @@ import { jsonLd, localBusinessSchema, organizationSchema } from "@/lib/schema";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AttributionTracker from "@/components/AttributionTracker";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -77,10 +79,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="flex min-h-screen flex-col bg-ivory text-charcoal">
+        <AttributionTracker />
         <AnnouncementBar />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

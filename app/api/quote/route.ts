@@ -243,6 +243,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(apiKey);
 
+    const userAgent = req.headers.get("user-agent") ?? "";
     const html = renderEmail({
       fullName: data.fullName,
       phone: formatPhone(data.phone),
@@ -252,6 +253,8 @@ export async function POST(req: Request) {
       services: data.services,
       notes,
       ip,
+      attribution: data.attribution,
+      userAgent,
     });
 
     const text = renderText({
@@ -262,6 +265,7 @@ export async function POST(req: Request) {
       preferredTime: data.preferredTime,
       services: data.services,
       notes,
+      attribution: data.attribution,
     });
 
     const { error } = await resend.emails.send({
@@ -294,6 +298,20 @@ export async function POST(req: Request) {
   }
 }
 
+type AttributionLite = {
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmContent?: string;
+  utmTerm?: string;
+  referrer?: string;
+  referrerHost?: string;
+  channel?: string;
+  landingPath?: string;
+  submittedFromPath?: string;
+  capturedAt?: string;
+};
+
 function renderText(d: {
   fullName: string;
   phone: string;
@@ -302,7 +320,20 @@ function renderText(d: {
   preferredTime: string;
   services: string[];
   notes: string;
+  attribution?: AttributionLite;
 }) {
+  const a = d.attribution || {};
+  const attrLines: string[] = [];
+  if (a.channel) attrLines.push(`  Source:        ${a.channel}`);
+  if (a.utmSource) attrLines.push(`  utm_source:    ${a.utmSource}`);
+  if (a.utmMedium) attrLines.push(`  utm_medium:    ${a.utmMedium}`);
+  if (a.utmCampaign) attrLines.push(`  utm_campaign:  ${a.utmCampaign}`);
+  if (a.utmContent) attrLines.push(`  utm_content:   ${a.utmContent}`);
+  if (a.utmTerm) attrLines.push(`  utm_term:      ${a.utmTerm}`);
+  if (a.referrerHost) attrLines.push(`  Referrer:      ${a.referrerHost}`);
+  if (a.landingPath) attrLines.push(`  Landed on:     ${a.landingPath}`);
+  if (a.submittedFromPath) attrLines.push(`  Submitted on:  ${a.submittedFromPath}`);
+
   return [
     `New appointment request from the website — call back within 5 minutes.`,
     ``,
@@ -316,6 +347,9 @@ function renderText(d: {
     ...d.services.map((s) => `  • ${s}`),
     ``,
     d.notes ? `Notes: ${d.notes}` : `Notes: (none)`,
+    ...(attrLines.length > 0
+      ? ["", `--- Where this lead came from ---`, ...attrLines]
+      : []),
     ``,
     `— ${BUSINESS.name} site`,
   ].join("\n");
@@ -330,6 +364,8 @@ function renderEmail(d: {
   services: string[];
   notes: string;
   ip: string;
+  attribution?: AttributionLite;
+  userAgent?: string;
 }) {
   const safe = (s: string) =>
     s.replace(
@@ -381,7 +417,39 @@ function renderEmail(d: {
       <a href="tel:${phoneTel}" style="background:#1A1A1A;color:#FAF8F3;padding:14px 22px;text-decoration:none;font-size:12px;letter-spacing:.25em;text-transform:uppercase;font-weight:600;display:inline-block;">Call ${safe(d.phone)}</a>
     </div>
 
-    <p style="margin:24px 0 0;color:#A8A09A;font-size:11px;text-align:center;">Submitted from tjnailskaty.com · IP ${safe(d.ip)}</p>
+    ${renderAttributionBlock(d.attribution, safe)}
+
+    <p style="margin:24px 0 0;color:#A8A09A;font-size:11px;text-align:center;line-height:1.6;">Submitted from tjnailskaty.com · IP ${safe(d.ip)}${d.userAgent ? `<br />${safe(d.userAgent.slice(0, 220))}` : ""}</p>
   </div>
 </body></html>`;
+}
+
+function renderAttributionBlock(a: AttributionLite | undefined, safe: (s: string) => string) {
+  if (!a) return "";
+  const rows: { label: string; value: string }[] = [];
+  if (a.channel) rows.push({ label: "Source", value: a.channel });
+  if (a.utmSource) rows.push({ label: "utm_source", value: a.utmSource });
+  if (a.utmMedium) rows.push({ label: "utm_medium", value: a.utmMedium });
+  if (a.utmCampaign) rows.push({ label: "utm_campaign", value: a.utmCampaign });
+  if (a.utmContent) rows.push({ label: "utm_content", value: a.utmContent });
+  if (a.utmTerm) rows.push({ label: "utm_term", value: a.utmTerm });
+  if (a.referrerHost) rows.push({ label: "Referrer", value: a.referrerHost });
+  if (a.landingPath) rows.push({ label: "Landed on", value: a.landingPath });
+  if (a.submittedFromPath) rows.push({ label: "Submitted on", value: a.submittedFromPath });
+
+  if (rows.length === 0) return "";
+
+  return `<div style="margin-top:18px;background:#F5F0E6;border:1px solid #E8DCC4;padding:18px 22px;">
+      <p style="margin:0 0 10px;color:#A65F4E;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;">Where this lead came from</p>
+      <table cellpadding="0" cellspacing="0" style="width:100%;font-size:13px;">
+        ${rows
+          .map(
+            (r) => `<tr>
+            <td style="padding:4px 0;color:#6B6258;width:130px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;">${safe(r.label)}</td>
+            <td style="padding:4px 0;color:#1A1A1A;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;word-break:break-all;">${safe(r.value)}</td>
+          </tr>`
+          )
+          .join("")}
+      </table>
+    </div>`;
 }
