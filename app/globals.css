@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  /* Hard-stop horizontal scroll & smooth tap behavior across mobile */
+  html,
+  body {
+    overflow-x: clip;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
+    /* Respect iOS notch / Android nav padding via env() in containers */
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-sans;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+
+  main {
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-gold-500 text-ink;
+  }
+
+  /* Iframe / image safety on small screens */
+  img,
+  iframe,
+  video,
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  iframe {
+    height: revert;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-normal;
+    font-feature-settings: "liga", "kern", "ss01";
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 30;
+  }
+
+  h2 {
+    font-variation-settings: "opsz" 96, "wght" 450, "SOFT" 30;
+  }
+
+  h3 {
+    font-variation-settings: "opsz" 48, "wght" 500;
+  }
+
+  /* iOS auto-zooms inputs whose font-size is < 16px. Force 16px on mobile. */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  @media (min-width: 640px) {
+    input,
+    select,
+    textarea {
+      font-size: 15px;
+    }
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay-500 focus-visible:ring-offset-2 focus-visible:ring-offset-ivory;
+  }
+
+  /* Buttons reachable by thumb — minimum 44x44 tap target */
+  button,
+  [role="button"] {
+    touch-action: manipulation;
+  }
+
+  .prose a {
+    @apply text-clay-700 underline underline-offset-4 decoration-gold-300/60 transition-colors;
+  }
+
+  .prose a:hover {
+    @apply text-charcoal decoration-clay-500;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1180px] px-5 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6;
+  }
+
+  .section-pad {
+    @apply py-14 sm:py-20 lg:py-24;
+  }
+
+  .page-hero {
+    @apply bg-ivory pt-8 sm:pt-12;
+    background:
+      radial-gradient(circle at 18% 12%, rgb(221 227 215 / 0.58), transparent 31rem),
+      linear-gradient(135deg, #faf8f3 0%, #f6efe7 52%, #f1f3ee 100%);
+  }
+
+  .hero-title {
+    @apply font-display text-[clamp(2.6rem,8vw,6.75rem)] leading-[0.95] text-charcoal;
+  }
+
+  .page-title {
+    @apply font-display text-[clamp(2.5rem,6.2vw,5.6rem)] leading-[0.95] text-charcoal;
+  }
+
+  .section-title {
+    @apply font-display text-[clamp(2rem,4vw,4.2rem)] leading-[1.05] text-charcoal;
+  }
+
+  .lede {
+    @apply text-[16px] sm:text-lg leading-[1.7] sm:leading-[1.75] text-stone-warm font-light;
+  }
+
+  .eyebrow {
+    @apply font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-clay-700 sm:tracking-[0.26em];
+  }
+
+  .eyebrow-on-dark {
+    @apply font-sans text-[10px] font-semibold uppercase tracking-[0.24em] text-gold-200 sm:tracking-[0.26em];
+  }
+
+  .kicker-row {
+    @apply flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-stone-warm;
+  }
+
+  .text-link {
+    @apply inline-flex items-center gap-2 border-b border-gold-500 pb-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-charcoal transition-all duration-300 hover:gap-3 hover:text-clay-700;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] bg-charcoal px-5 py-3.5 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-ivory shadow-[0_12px_28px_rgba(26,26,26,0.15)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-clay-700 hover:text-ivory focus:outline-none focus:ring-2 focus:ring-clay-500 focus:ring-offset-2 focus:ring-offset-ivory sm:px-6 sm:tracking-[0.2em];
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] border border-charcoal/20 bg-white/35 px-5 py-3.5 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-charcoal transition-all duration-300 hover:-translate-y-0.5 hover:border-clay-500 hover:bg-white hover:text-clay-700 focus:outline-none focus:ring-2 focus:ring-clay-500 focus:ring-offset-2 sm:px-6 sm:tracking-[0.2em];
+  }
+
+  .btn-primary-dark {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] bg-gold-500 px-5 py-3.5 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-all duration-300 hover:-translate-y-0.5 hover:bg-ivory hover:text-ink focus:outline-none focus:ring-2 focus:ring-gold-300 focus:ring-offset-2 focus:ring-offset-ink sm:px-6 sm:tracking-[0.2em];
+  }
+
+  .btn-secondary-dark {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[3px] border border-gold-500/35 bg-white/[0.03] px-5 py-3.5 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-gold-200 transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-300 hover:bg-white/[0.06] hover:text-ivory focus:outline-none focus:ring-2 focus:ring-gold-400 sm:px-6 sm:tracking-[0.2em];
+  }
+
+  .card-soft {
+    @apply rounded-[6px] border border-charcoal/10 bg-white/55 shadow-[0_1px_0_rgba(26,26,26,0.03)] transition-all duration-300 hover:-translate-y-0.5 hover:border-clay-500/35 hover:bg-white hover:shadow-[0_18px_40px_rgba(26,26,26,0.08)];
+  }
+
+  .card-dark {
+    @apply rounded-[6px] border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-gold-500/35 hover:bg-white/[0.06];
+  }
+
+  .panel {
+    @apply rounded-[6px] border border-charcoal/10 bg-white/70 shadow-[0_24px_70px_rgba(26,26,26,0.08)];
+  }
+
+  .field-control {
+    @apply w-full rounded-[4px] border border-charcoal/15 bg-white px-3.5 py-3 leading-6 text-charcoal transition-colors placeholder:text-stone-warm/55 focus:border-clay-500 focus:outline-none focus:ring-4 focus:ring-clay-100 disabled:cursor-not-allowed disabled:opacity-55;
+    /* font-size handled at base layer (16px mobile / 15px ≥640) to defeat iOS auto-zoom */
+  }
+
+  .rule-gold {
+    @apply h-px w-12 bg-gold-500;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}
