@@ -93,7 +93,7 @@ export default function AboutPage() {
               href={`tel:${BUSINESS.phoneTel}`}
               className="mt-3 flex items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-charcoal hover:text-clay-700"
             >
-              <Phone size={12} className="text-clay-700" /> {BUSINESS.phone}
+              <Phone aria-hidden="true" size={12} className="text-clay-700" /> {BUSINESS.phone}
             </a>
           </aside>
         </div>

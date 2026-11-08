@@ -47,7 +47,7 @@ export default function LocationsHub() {
           {LOCATIONS.map((l) => (
             <Link key={l.slug} href={`/locations/${l.slug}`} className="group card-soft flex flex-col gap-4 p-7">
               <div className="flex items-center gap-2 text-clay-700">
-                <MapPin size={14} />
+                <MapPin aria-hidden="true" size={14} />
                 <span className="text-[10px] font-semibold uppercase tracking-[0.22em]">
                   {firstLeg(l.travelTime)}
                 </span>
@@ -55,7 +55,7 @@ export default function LocationsHub() {
               <h3 className="font-display text-2xl leading-tight text-charcoal">{l.fullName}</h3>
               <p className="text-sm font-light leading-7 text-stone-warm">{l.intro}</p>
               <span className="mt-auto text-link">
-                See directions <ArrowRight size={12} />
+                See directions <ArrowRight aria-hidden="true" size={12} />
               </span>
             </Link>
           ))}

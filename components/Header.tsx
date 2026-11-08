@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CalendarDays, Clock, MapPin, Menu, Phone, X } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { trackEvent } from "@/lib/analytics";
@@ -29,6 +29,14 @@ const NAV_DESKTOP = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const wasOpen = useRef(false);
+
+  // Return keyboard focus to the menu button when the drawer closes (WCAG 2.4.3)
+  useEffect(() => {
+    if (wasOpen.current && !open) menuButtonRef.current?.focus();
+    wasOpen.current = open;
+  }, [open]);
 
   // Close drawer on route change
   useEffect(() => {
@@ -89,7 +97,7 @@ export default function Header() {
               className="hidden min-h-11 items-center gap-2 rounded-[3px] border border-charcoal/15 bg-white/40 px-3.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-charcoal transition-all hover:border-clay-500 hover:bg-white hover:text-clay-700 sm:inline-flex"
               aria-label={`Call ${BUSINESS.phone}`}
             >
-              <Phone size={13} className="text-clay-700" />
+              <Phone aria-hidden="true" size={13} className="text-clay-700" />
               <span className="hidden md:inline">{BUSINESS.phone}</span>
               <span className="md:hidden">Call</span>
             </a>
@@ -98,11 +106,12 @@ export default function Header() {
               onClick={() => trackEvent("book_cta_clicked", { source: "header", label: "Book" })}
               className="inline-flex min-h-11 items-center gap-2 rounded-[3px] bg-charcoal px-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-ivory transition-colors hover:bg-clay-700"
             >
-              <CalendarDays size={13} />
+              <CalendarDays aria-hidden="true" size={13} />
               Book
             </Link>
             {/* Mobile hamburger — 44x44 tap target */}
             <button
+              ref={menuButtonRef}
               type="button"
               onClick={() => setOpen(true)}
               aria-label="Open navigation menu"
@@ -110,7 +119,7 @@ export default function Header() {
               aria-controls="mobile-drawer"
               className="inline-flex h-11 w-11 items-center justify-center rounded-[3px] border border-charcoal/15 bg-white/40 text-charcoal transition-colors hover:border-clay-500 hover:text-clay-700 lg:hidden"
             >
-              <Menu size={20} />
+              <Menu aria-hidden="true" size={20} />
             </button>
           </div>
         </div>
@@ -123,18 +132,46 @@ export default function Header() {
 }
 
 function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () => void; pathname: string }) {
+  const panelRef = useRef<HTMLElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  // Move focus into the dialog on open, and keep Tab inside it while open.
+  useEffect(() => {
+    if (!open) return;
+    closeRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Tab" || !panelRef.current) return;
+      const items = panelRef.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <div
       id="mobile-drawer"
       className={`fixed inset-0 z-50 lg:hidden ${open ? "pointer-events-auto" : "pointer-events-none"}`}
       aria-hidden={!open}
+      // `inert` removes the closed drawer's links from Tab order and the
+      // accessibility tree (aria-hidden alone left them focusable).
+      inert={!open}
     >
       {/* Backdrop */}
       <button
         type="button"
         onClick={onClose}
         aria-label="Close navigation"
-        tabIndex={open ? 0 : -1}
+        tabIndex={-1}
         className={`absolute inset-0 bg-charcoal/55 backdrop-blur-sm transition-opacity duration-300 ${
           open ? "opacity-100" : "opacity-0"
         }`}
@@ -142,6 +179,7 @@ function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () 
 
       {/* Panel */}
       <aside
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label="Site navigation"
@@ -155,12 +193,13 @@ function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () 
             T<span className="text-clay-700">&amp;</span>J Nails
           </Link>
           <button
+            ref={closeRef}
             type="button"
             onClick={onClose}
             aria-label="Close navigation menu"
             className="inline-flex h-11 w-11 items-center justify-center rounded-[3px] border border-charcoal/15 text-charcoal transition-colors hover:border-clay-500 hover:text-clay-700"
           >
-            <X size={20} />
+            <X aria-hidden="true" size={20} />
           </button>
         </div>
 
@@ -192,11 +231,11 @@ function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () 
         <div className="border-t border-charcoal/10 bg-cream/40 px-5 py-5">
           <div className="grid gap-3 text-sm text-stone-warm">
             <div className="flex gap-3">
-              <Clock size={14} className="mt-1 shrink-0 text-clay-700" />
+              <Clock aria-hidden="true" size={14} className="mt-1 shrink-0 text-clay-700" />
               <span>Mon–Sat · 9 AM – 7 PM</span>
             </div>
             <div className="flex gap-3">
-              <MapPin size={14} className="mt-1 shrink-0 text-clay-700" />
+              <MapPin aria-hidden="true" size={14} className="mt-1 shrink-0 text-clay-700" />
               <span>{BUSINESS.address.street}, Katy, TX 77493</span>
             </div>
           </div>
@@ -210,7 +249,7 @@ function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () 
               }}
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[4px] border border-charcoal/20 bg-white px-4 text-sm font-semibold tracking-[0.1em] text-charcoal transition-colors hover:border-clay-500 hover:text-clay-700"
             >
-              <Phone size={15} className="text-clay-700" />
+              <Phone aria-hidden="true" size={15} className="text-clay-700" />
               {BUSINESS.phone}
             </a>
             <Link
@@ -224,7 +263,7 @@ function MobileDrawer({ open, onClose, pathname }: { open: boolean; onClose: () 
               }}
               className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[4px] bg-charcoal px-4 text-sm font-semibold uppercase tracking-[0.16em] text-ivory transition-colors hover:bg-clay-700"
             >
-              <CalendarDays size={15} />
+              <CalendarDays aria-hidden="true" size={15} />
               Request appointment
             </Link>
           </div>

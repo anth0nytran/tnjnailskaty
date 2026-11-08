@@ -77,10 +77,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="flex min-h-screen flex-col bg-ivory text-charcoal">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[3px] focus:bg-charcoal focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-ivory"
+        >
+          Skip to main content
+        </a>
         <AttributionTracker />
         <AnnouncementBar />
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">{children}</main>
         <Footer />
         <Analytics />
       </body>

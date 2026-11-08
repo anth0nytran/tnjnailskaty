@@ -51,11 +51,11 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-center">
                 <Link href="/book" className="btn-primary">
-                  <CalendarDays size={15} />
+                  <CalendarDays aria-hidden="true" size={15} />
                   Request appointment
                 </Link>
                 <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary">
-                  <Phone size={15} className="text-clay-700" />
+                  <Phone aria-hidden="true" size={15} className="text-clay-700" />
                   {BUSINESS.phone}
                 </a>
               </div>
@@ -83,10 +83,10 @@ export default function HomePage() {
 
       <section className="border-y border-charcoal/10 bg-ivory">
         <div className="container-x grid gap-6 py-10 sm:grid-cols-2 lg:grid-cols-4">
-          <Trust icon={<Sparkles size={16} />} label="Owner-led" sub="Jenny and Tony work the floor every day" />
-          <Trust icon={<ShieldCheck size={16} />} label="Sterilized tools" sub="Autoclaved between every client" />
-          <Trust icon={<CalendarDays size={16} />} label="Easy booking" sub="We call you back in under 5 minutes" />
-          <Trust icon={<MapPin size={16} />} label="Old Towne Katy" sub="5304 E 5th St — free lot parking" />
+          <Trust icon={<Sparkles aria-hidden="true" size={16} />} label="Owner-led" sub="Jenny and Tony work the floor every day" />
+          <Trust icon={<ShieldCheck aria-hidden="true" size={16} />} label="Sterilized tools" sub="Autoclaved between every client" />
+          <Trust icon={<CalendarDays aria-hidden="true" size={16} />} label="Easy booking" sub="We call you back in under 5 minutes" />
+          <Trust icon={<MapPin aria-hidden="true" size={16} />} label="Old Towne Katy" sub="5304 E 5th St — free lot parking" />
         </div>
       </section>
 
@@ -113,7 +113,7 @@ export default function HomePage() {
                 <h3 className="mt-5 font-display text-3xl leading-tight text-charcoal">{s.name}</h3>
                 <p className="mt-3 text-[15px] font-light leading-7 text-stone-warm">{s.intro}</p>
                 <span className="mt-6 text-link">
-                  See details <ArrowRight size={13} />
+                  See details <ArrowRight aria-hidden="true" size={13} />
                 </span>
               </Link>
             ))}
@@ -121,7 +121,7 @@ export default function HomePage() {
 
           <div className="mt-12 flex justify-center">
             <Link href="/services" className="text-link">
-              All services <ArrowRight size={13} />
+              All services <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </div>
         </div>
@@ -161,7 +161,7 @@ export default function HomePage() {
               </Bullet>
             </div>
             <Link href="/about" className="mt-9 text-link">
-              Meet Jenny &amp; Tony <ArrowRight size={13} />
+              Meet Jenny &amp; Tony <ArrowRight aria-hidden="true" size={13} />
             </Link>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function HomePage() {
                   <h3 className="mt-4 font-display text-2xl leading-tight text-charcoal">{article.shortTitle}</h3>
                   <p className="mt-3 text-sm font-light leading-7 text-stone-warm">{article.description}</p>
                   <span className="mt-6 text-link">
-                    Read <ArrowRight size={13} />
+                    Read <ArrowRight aria-hidden="true" size={13} />
                   </span>
                 </Link>
               ))}
@@ -248,7 +248,7 @@ export default function HomePage() {
 
             <div className="mt-10 flex justify-center">
               <Link href="/articles" className="text-link">
-                All guides <ArrowRight size={13} />
+                All guides <ArrowRight aria-hidden="true" size={13} />
               </Link>
             </div>
           </div>
@@ -289,7 +289,7 @@ export default function HomePage() {
               </p>
             </div>
             <a href={BUSINESS.socials.google} target="_blank" rel="noreferrer noopener" className="btn-secondary-dark">
-              <Star size={14} className="fill-gold-300 text-gold-300" />
+              <Star aria-hidden="true" size={14} className="fill-gold-300 text-gold-300" />
               Read on Google
             </a>
           </div>
@@ -341,7 +341,7 @@ export default function HomePage() {
                       >
                         <span className="font-display text-lg text-charcoal">{l.name}</span>
                         <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-stone-warm group-hover:text-clay-700">
-                          {firstTravelTime(l.travelTime)} <ArrowRight size={12} />
+                          {firstTravelTime(l.travelTime)} <ArrowRight aria-hidden="true" size={12} />
                         </span>
                       </Link>
                     ))}
@@ -350,7 +350,7 @@ export default function HomePage() {
               </div>
 
               <a href={BUSINESS.mapLink} target="_blank" rel="noreferrer noopener" className="mt-10 btn-secondary w-full">
-                <Navigation size={14} />
+                <Navigation aria-hidden="true" size={14} />
                 Open in Google Maps
               </a>
             </div>

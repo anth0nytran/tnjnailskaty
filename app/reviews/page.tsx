@@ -40,7 +40,7 @@ export default function ReviewsPage() {
             <div className="mt-7 flex items-center gap-3">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={20} className="fill-gold-500 text-gold-500" />
+                  <Star aria-hidden="true" key={i} size={20} className="fill-gold-500 text-gold-500" />
                 ))}
               </div>
               <p className="text-stone-warm">

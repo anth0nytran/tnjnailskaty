@@ -70,7 +70,7 @@ export default function ServicesHub() {
                         {s.duration}
                       </span>
                       <span className="text-link">
-                        See details <ArrowRight size={12} />
+                        See details <ArrowRight aria-hidden="true" size={12} />
                       </span>
                     </div>
                   </Link>

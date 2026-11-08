@@ -11,7 +11,7 @@ export default function Breadcrumbs({ items, tone = "light" }: { items: Crumb[];
       <ol className="flex flex-wrap items-center gap-1.5">
         {items.map((c, i) => (
           <li key={c.path} className="flex items-center gap-1.5">
-            {i > 0 && <ChevronRight size={12} className="opacity-50" />}
+            {i > 0 && <ChevronRight aria-hidden="true" size={12} className="opacity-50" />}
             {c.current ? (
               <span aria-current="page" className={tone === "dark" ? "text-ivory" : "text-charcoal"}>
                 {c.name}

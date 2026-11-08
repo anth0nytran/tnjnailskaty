@@ -39,7 +39,7 @@ export default function BookPage() {
           </div>
           <div className="lg:col-span-4">
             <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary w-full">
-              <Phone size={14} className="text-clay-700" />
+              <Phone aria-hidden="true" size={14} className="text-clay-700" />
               {BUSINESS.phone}
             </a>
           </div>
@@ -58,7 +58,7 @@ export default function BookPage() {
           <aside className="space-y-5 lg:col-span-2">
             <div className="card-soft p-7">
               <div className="flex h-10 w-10 items-center justify-center rounded-[3px] bg-sage-100 text-sage-700">
-                <CalendarDays size={18} />
+                <CalendarDays aria-hidden="true" size={18} />
               </div>
               <h2 className="mt-6 font-display text-2xl text-charcoal">How booking works</h2>
               <ol className="mt-5 space-y-4 text-sm leading-7 text-stone-warm">
@@ -75,7 +75,7 @@ export default function BookPage() {
             <div className="card-soft p-7">
               <h2 className="font-display text-2xl text-charcoal">Prefer to call?</h2>
               <a href={`tel:${BUSINESS.phoneTel}`} className="mt-3 inline-flex items-center gap-2 font-display text-3xl text-charcoal hover:text-clay-700">
-                <Phone size={20} className="text-clay-700" />
+                <Phone aria-hidden="true" size={20} className="text-clay-700" />
                 {BUSINESS.phone}
               </a>
               <p className="mt-3 text-sm leading-6 text-stone-warm">9 AM – 7 PM, Monday – Saturday.</p>

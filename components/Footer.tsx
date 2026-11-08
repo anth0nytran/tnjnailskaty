@@ -19,25 +19,25 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener"
               className="inline-flex h-11 w-11 items-center justify-center rounded-[3px] border border-white/10 transition-colors hover:border-gold-400 hover:text-gold-300"
-              aria-label="Instagram"
+              aria-label="T&J Nails on Instagram (opens in a new tab)"
             >
-              <Instagram size={17} />
+              <Instagram aria-hidden="true" size={17} />
             </a>
             <a
               href={BUSINESS.socials.facebook}
               target="_blank"
               rel="noreferrer noopener"
               className="inline-flex h-11 w-11 items-center justify-center rounded-[3px] border border-white/10 transition-colors hover:border-gold-400 hover:text-gold-300"
-              aria-label="Facebook"
+              aria-label="T&J Nails on Facebook (opens in a new tab)"
             >
-              <Facebook size={17} />
+              <Facebook aria-hidden="true" size={17} />
             </a>
           </div>
         </div>
 
         <FooterColumn title="Visit">
           <li className="flex gap-3">
-            <MapPin size={15} className="mt-1 shrink-0 text-gold-300" />
+            <MapPin aria-hidden="true" size={15} className="mt-1 shrink-0 text-gold-300" />
             <a href={BUSINESS.mapLink} target="_blank" rel="noreferrer noopener" className="hover:text-gold-200">
               {BUSINESS.address.street}
               <br />
@@ -45,13 +45,13 @@ export default function Footer() {
             </a>
           </li>
           <li className="flex gap-3">
-            <Phone size={15} className="mt-1 shrink-0 text-gold-300" />
+            <Phone aria-hidden="true" size={15} className="mt-1 shrink-0 text-gold-300" />
             <a href={`tel:${BUSINESS.phoneTel}`} className="hover:text-gold-200">
               {BUSINESS.phone}
             </a>
           </li>
           <li className="flex gap-3">
-            <Clock size={15} className="mt-1 shrink-0 text-gold-300" />
+            <Clock aria-hidden="true" size={15} className="mt-1 shrink-0 text-gold-300" />
             <span>
               Mon–Sat · 9 AM – 7 PM
               <br />
@@ -86,9 +86,13 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-x flex flex-col gap-3 py-6 text-[10px] uppercase tracking-[0.18em] text-stone-quiet/70 sm:flex-row sm:items-center sm:justify-between">
+        <div className="container-x flex flex-col gap-3 py-6 text-[10px] uppercase tracking-[0.18em] text-stone-quiet sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} T&amp;J Nails Katy. All rights reserved.</p>
           <p>5304 E 5th St Ste 105 - Katy, TX 77493</p>
+          <nav aria-label="Legal" className="flex gap-5">
+            <Link href="/privacy" className="hover:text-gold-200">Privacy Policy</Link>
+            <Link href="/accessibility" className="hover:text-gold-200">Accessibility</Link>
+          </nav>
         </div>
       </div>
     </footer>

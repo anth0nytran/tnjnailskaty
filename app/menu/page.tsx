@@ -47,7 +47,7 @@ export default function MenuPage() {
           <div className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
             <Link href="/book" className="btn-primary">Request appointment</Link>
             <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary">
-              <Phone size={14} className="text-clay-700" />
+              <Phone aria-hidden="true" size={14} className="text-clay-700" />
               {BUSINESS.phone}
             </a>
           </div>
@@ -146,7 +146,7 @@ export default function MenuPage() {
       <section className="bg-ivory">
         <div className="container-x section-pad grid gap-6 lg:grid-cols-3">
           <div className="card-soft p-7">
-            <Gift size={20} className="text-clay-700" />
+            <Gift aria-hidden="true" size={20} className="text-clay-700" />
             <h3 className="mt-5 font-display text-xl text-charcoal">Gift certificates</h3>
             <p className="mt-2.5 text-sm leading-6 text-stone-warm">
               Available in any amount, in-store. Easy last-minute gift.
@@ -155,7 +155,7 @@ export default function MenuPage() {
               href={`tel:${BUSINESS.phoneTel}`}
               className="mt-5 inline-flex items-center gap-2 border-b border-clay-500 pb-0.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-charcoal hover:text-clay-700"
             >
-              Call to purchase <ArrowRight size={12} />
+              Call to purchase <ArrowRight aria-hidden="true" size={12} />
             </a>
           </div>
           <div className="card-soft p-7">

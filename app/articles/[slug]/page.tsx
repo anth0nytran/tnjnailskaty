@@ -73,7 +73,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link href="/book" className="btn-primary">Request appointment</Link>
                 <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary">
-                  <Phone size={14} className="text-clay-700" />
+                  <Phone aria-hidden="true" size={14} className="text-clay-700" />
                   {BUSINESS.phone}
                 </a>
               </div>
@@ -99,7 +99,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 <ul className="mt-4 grid gap-3">
                   {article.takeaways.map((takeaway) => (
                     <li key={takeaway} className="flex gap-3 text-sm leading-6 text-stone-warm">
-                      <Check size={16} className="mt-1 shrink-0 text-clay-700" />
+                      <Check aria-hidden="true" size={16} className="mt-1 shrink-0 text-clay-700" />
                       <span>{takeaway}</span>
                     </li>
                   ))}
@@ -148,7 +148,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   {relatedArticles.map((related) => (
                     <Link key={related.slug} href={`/articles/${related.slug}`} className="group flex items-center justify-between gap-4 border-b border-charcoal/10 pb-3 last:border-0">
                       <span className="text-sm font-medium leading-6 text-charcoal group-hover:text-clay-700">{related.shortTitle}</span>
-                      <ArrowRight size={13} className="shrink-0 text-clay-700" />
+                      <ArrowRight aria-hidden="true" size={13} className="shrink-0 text-clay-700" />
                     </Link>
                   ))}
                 </div>

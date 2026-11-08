@@ -37,7 +37,7 @@ export default function ContactPage() {
 
             <div className="mt-12 grid gap-5">
               <ContactRow
-                icon={<Phone size={16} />}
+                icon={<Phone aria-hidden="true" size={16} />}
                 label="Phone"
                 primary={
                   <a href={`tel:${BUSINESS.phoneTel}`} className="transition-colors hover:text-clay-700">
@@ -47,24 +47,24 @@ export default function ContactPage() {
                 sub="Mon–Sat, 9 AM – 7 PM"
               />
               <ContactRow
-                icon={<MapPin size={16} />}
+                icon={<MapPin aria-hidden="true" size={16} />}
                 label="Address"
                 primary={
                   <a href={BUSINESS.mapLink} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-2 transition-colors hover:text-clay-700">
                     {BUSINESS.address.street}, {BUSINESS.address.city}, {BUSINESS.address.region} {BUSINESS.address.postal}
-                    <ExternalLink size={12} />
+                    <ExternalLink aria-hidden="true" size={12} />
                   </a>
                 }
                 sub="Old Towne Katy · 5 min from I-10 (Pin Oak Rd) · Free parking"
               />
               <ContactRow
-                icon={<Clock size={16} />}
+                icon={<Clock aria-hidden="true" size={16} />}
                 label="Hours"
                 primary={<span>Monday – Saturday, 9 AM – 7 PM</span>}
                 sub="Closed Sunday"
               />
               <ContactRow
-                icon={<Mail size={16} />}
+                icon={<Mail aria-hidden="true" size={16} />}
                 label="Email"
                 primary={
                   <a href={`mailto:${BUSINESS.email}`} className="transition-colors hover:text-clay-700">
@@ -99,7 +99,7 @@ export default function ContactPage() {
               out front. If you&apos;re coming from I-10, exit Pin Oak Rd and head north past the train tracks.
             </p>
             <a href={BUSINESS.mapLink} target="_blank" rel="noreferrer noopener" className="mt-8 btn-secondary">
-              <Navigation size={14} />
+              <Navigation aria-hidden="true" size={14} />
               Open directions
             </a>
           </div>

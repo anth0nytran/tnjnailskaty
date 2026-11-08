@@ -12,7 +12,7 @@ export default function NapBlock({ tone = "light" }: { tone?: "light" | "dark" }
     <div className="grid gap-8 sm:grid-cols-3">
       <div>
         <div className={`flex items-center gap-2 ${accent}`}>
-          <MapPin size={14} />
+          <MapPin aria-hidden="true" size={14} />
           <span className="text-[10px] font-semibold uppercase tracking-[0.22em]">Visit</span>
         </div>
         <a
@@ -30,7 +30,7 @@ export default function NapBlock({ tone = "light" }: { tone?: "light" | "dark" }
 
       <div>
         <div className={`flex items-center gap-2 ${accent}`}>
-          <Phone size={14} />
+          <Phone aria-hidden="true" size={14} />
           <span className="text-[10px] font-semibold uppercase tracking-[0.22em]">Call</span>
         </div>
         <a href={`tel:${BUSINESS.phoneTel}`} className={`mt-2 block font-display text-xl ${text} ${link} transition-colors`}>
@@ -41,7 +41,7 @@ export default function NapBlock({ tone = "light" }: { tone?: "light" | "dark" }
 
       <div>
         <div className={`flex items-center gap-2 ${accent}`}>
-          <Clock size={14} />
+          <Clock aria-hidden="true" size={14} />
           <span className="text-[10px] font-semibold uppercase tracking-[0.22em]">Hours</span>
         </div>
         <div className={`mt-2 text-base leading-7 ${text}`}>

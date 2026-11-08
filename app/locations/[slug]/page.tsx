@@ -68,7 +68,7 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
           <div className="mt-9 flex flex-wrap gap-3">
             <Link href="/book" className="btn-primary">Request appointment</Link>
             <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary">
-              <Phone size={14} className="text-clay-700" />
+              <Phone aria-hidden="true" size={14} className="text-clay-700" />
               {BUSINESS.phone}
             </a>
           </div>

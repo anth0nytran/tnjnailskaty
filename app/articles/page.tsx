@@ -45,7 +45,7 @@ export default function ArticlesPage() {
           </div>
           <div className="hidden lg:col-span-4 lg:block">
             <div className="rounded-[6px] border border-charcoal/10 bg-white/60 p-6">
-              <BookOpen size={22} className="text-clay-700" />
+              <BookOpen aria-hidden="true" size={22} className="text-clay-700" />
               <p className="mt-4 font-display text-2xl leading-tight text-charcoal">Built for real booking questions.</p>
               <p className="mt-2 text-sm leading-6 text-stone-warm">No filler posts. Every guide links to a service, price, or local decision.</p>
             </div>
@@ -68,7 +68,7 @@ export default function ArticlesPage() {
               <h2 className="mt-4 section-title">{featured.title}</h2>
               <p className="mt-5 lede">{featured.description}</p>
               <span className="mt-8 text-link">
-                Read guide <ArrowRight size={13} />
+                Read guide <ArrowRight aria-hidden="true" size={13} />
               </span>
             </div>
           </Link>
@@ -101,7 +101,7 @@ function ArticleCard({ article }: { article: (typeof ARTICLES)[number] }) {
         <h2 className="mt-4 font-display text-2xl leading-tight text-charcoal">{article.shortTitle}</h2>
         <p className="mt-3 text-sm font-light leading-6 text-stone-warm">{article.description}</p>
         <span className="mt-5 text-link">
-          Read more <ArrowRight size={13} />
+          Read more <ArrowRight aria-hidden="true" size={13} />
         </span>
       </div>
     </Link>

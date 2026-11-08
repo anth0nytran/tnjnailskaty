@@ -77,7 +77,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/book" className="btn-primary">Request appointment</Link>
               <a href={`tel:${BUSINESS.phoneTel}`} className="btn-secondary">
-                <Phone size={14} className="text-clay-700" />
+                <Phone aria-hidden="true" size={14} className="text-clay-700" />
                 {BUSINESS.phone}
               </a>
             </div>
@@ -91,7 +91,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <Row term="Walk-ins" value="Welcome" />
             </dl>
             <Link href="/menu" className="mt-6 text-link">
-              See the full menu <ArrowRight size={12} />
+              See the full menu <ArrowRight aria-hidden="true" size={12} />
             </Link>
           </aside>
         </div>
@@ -112,7 +112,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <ul className="mt-5 space-y-3">
                   {s.whoFor.map((w) => (
                     <li key={w} className="flex gap-3 text-stone-warm leading-6">
-                      <Check size={16} className="mt-1 shrink-0 text-clay-700" />
+                      <Check aria-hidden="true" size={16} className="mt-1 shrink-0 text-clay-700" />
                       <span>{w}</span>
                     </li>
                   ))}
@@ -123,7 +123,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <ul className="mt-5 space-y-3">
                   {s.whatsIncluded.map((w) => (
                     <li key={w} className="flex gap-3 text-stone-warm leading-6">
-                      <Check size={16} className="mt-1 shrink-0 text-clay-700" />
+                      <Check aria-hidden="true" size={16} className="mt-1 shrink-0 text-clay-700" />
                       <span>{w}</span>
                     </li>
                   ))}
@@ -145,7 +145,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <p className="mt-3 text-sm text-stone-warm">
                   Prices match our in-shop menu.{" "}
                   <Link href="/menu" className="text-link">
-                    Full price list <ArrowRight size={12} />
+                    Full price list <ArrowRight aria-hidden="true" size={12} />
                   </Link>
                 </p>
               </div>
@@ -232,7 +232,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </div>
                 <p className="mt-3 text-sm leading-6 text-stone-warm">{r.intro}</p>
                 <span className="mt-5 text-link">
-                  See details <ArrowRight size={12} />
+                  See details <ArrowRight aria-hidden="true" size={12} />
                 </span>
               </Link>
             ))}
@@ -256,7 +256,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <h3 className="mt-4 font-display text-2xl leading-tight text-charcoal">{guide.shortTitle}</h3>
                   <p className="mt-3 text-sm font-light leading-7 text-stone-warm">{guide.description}</p>
                   <span className="mt-6 text-link">
-                    Read <ArrowRight size={13} />
+                    Read <ArrowRight aria-hidden="true" size={13} />
                   </span>
                 </Link>
               ))}

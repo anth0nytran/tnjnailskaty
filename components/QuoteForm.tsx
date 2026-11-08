@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { AlertCircle, Calendar, CheckCircle2, Clock, Mail, Phone, User } from "lucide-react";
 import { MENU } from "@/lib/menu";
 import { trackEvent, type TrackSource } from "@/lib/analytics";
@@ -20,6 +21,18 @@ export default function QuoteForm({
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  // Accessible ids: every label/error is programmatically tied to its control (WCAG 1.3.1, 3.3.1, 4.1.2)
+  const uid = useId();
+  const fid = (name: string) => `${uid}-${name}`;
+  const a11y = (name: string) => ({
+    id: fid(name),
+    "aria-invalid": fieldErrors[name] ? true : undefined,
+    "aria-describedby": fieldErrors[name] ? `${fid(name)}-error` : undefined,
+  });
+  const successRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   // Track the first interaction with the form (top-of-funnel signal).
   function markFormStarted() {
@@ -151,9 +164,9 @@ export default function QuoteForm({
 
   if (status === "success") {
     return (
-      <div className="px-4 py-12 text-center">
-        <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-sage-100 text-sage-700">
-          <CheckCircle2 size={28} />
+      <div ref={successRef} tabIndex={-1} role="status" className="px-4 py-12 text-center focus:outline-none">
+        <div aria-hidden="true" className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-sage-100 text-sage-700">
+          <CheckCircle2 aria-hidden="true" size={28} />
         </div>
         <h3 className="font-display text-3xl leading-tight text-charcoal">Request received.</h3>
         <p className="mx-auto mt-3 max-w-md text-stone-warm leading-7">
@@ -175,14 +188,15 @@ export default function QuoteForm({
       noValidate
     >
       {errorMsg && (
-        <div className="flex items-start gap-2 rounded-[4px] border border-red-300 bg-red-50 p-3 text-sm text-red-800">
-          <AlertCircle size={16} className="shrink-0 mt-0.5" />
+        <div role="alert" className="flex items-start gap-2 rounded-[4px] border border-red-300 bg-red-50 p-3 text-sm text-red-800">
+          <AlertCircle aria-hidden="true" size={16} className="shrink-0 mt-0.5" />
           <p>{errorMsg}</p>
         </div>
       )}
 
-      <Field label="Full Name" error={fieldErrors.fullName} required icon={<User size={14} />}>
+      <Field id={fid("fullName")} label="Full Name" error={fieldErrors.fullName} required icon={<User aria-hidden="true" size={14} />}>
         <input
+          {...a11y("fullName")}
           type="text"
           required
           value={fullName}
@@ -195,8 +209,9 @@ export default function QuoteForm({
       </Field>
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Phone" error={fieldErrors.phone} required icon={<Phone size={14} />}>
+        <Field id={fid("phone")} label="Phone" error={fieldErrors.phone} required icon={<Phone aria-hidden="true" size={14} />}>
           <input
+            {...a11y("phone")}
             type="tel"
             required
             value={phone}
@@ -207,8 +222,9 @@ export default function QuoteForm({
             className="field-control pl-10"
           />
         </Field>
-        <Field label="Email" error={fieldErrors.email} required icon={<Mail size={14} />}>
+        <Field id={fid("email")} label="Email" error={fieldErrors.email} required icon={<Mail aria-hidden="true" size={14} />}>
           <input
+            {...a11y("email")}
             type="email"
             required
             value={email}
@@ -222,8 +238,9 @@ export default function QuoteForm({
       </div>
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <Field label="Preferred Date" error={fieldErrors.preferredDate} required icon={<Calendar size={14} />}>
+        <Field id={fid("preferredDate")} label="Preferred Date" error={fieldErrors.preferredDate} required icon={<Calendar aria-hidden="true" size={14} />}>
           <select
+            {...a11y("preferredDate")}
             required
             value={date}
             onChange={(e) => setDate(e.target.value)}
@@ -237,8 +254,9 @@ export default function QuoteForm({
             ))}
           </select>
         </Field>
-        <Field label="Preferred Time" error={fieldErrors.preferredTime} required icon={<Clock size={14} />}>
+        <Field id={fid("preferredTime")} label="Preferred Time" error={fieldErrors.preferredTime} required icon={<Clock aria-hidden="true" size={14} />}>
           <select
+            {...a11y("preferredTime")}
             required
             value={time}
             onChange={(e) => setTime(e.target.value)}
@@ -255,17 +273,19 @@ export default function QuoteForm({
         </Field>
       </div>
 
-      <div>
-        <label className="mb-3 block text-[10px] font-semibold uppercase tracking-[0.22em] text-stone-warm">
-          Services <span className="text-red-500">*</span>{" "}
-          <span className="font-normal normal-case tracking-normal text-stone-warm/80">(select all that apply)</span>
-        </label>
+      <fieldset aria-describedby={fieldErrors.services ? `${fid("services")}-error` : undefined}>
+        <legend className="mb-3 block text-[10px] font-semibold uppercase tracking-[0.22em] text-stone-warm">
+          Services <span aria-hidden="true" className="text-red-700">*</span>
+          <span className="sr-only">(required)</span>{" "}
+          <span className="font-normal normal-case tracking-normal text-stone-warm">(select all that apply)</span>
+        </legend>
 
         <div className="mb-3 flex flex-wrap gap-2">
           {MENU.map((s) => (
             <button
               key={s.section}
               type="button"
+              aria-pressed={activeCat === s.section}
               onClick={() => setActiveCat(s.section)}
               className={`rounded-[3px] px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.17em] transition-colors ${
                 activeCat === s.section
@@ -301,20 +321,21 @@ export default function QuoteForm({
         </div>
 
         {fieldErrors.services && (
-          <p className="mt-2 text-xs text-red-700 flex items-center gap-1">
-            <AlertCircle size={12} />
+          <p id={`${fid("services")}-error`} className="mt-2 text-xs text-red-700 flex items-center gap-1">
+            <AlertCircle size={12} aria-hidden="true" />
             {fieldErrors.services}
           </p>
         )}
         {services.length > 0 && (
-          <p className="mt-2 text-xs text-stone-warm">
+          <p aria-live="polite" className="mt-2 text-xs text-stone-warm">
             {services.length} service{services.length > 1 ? "s" : ""} selected
           </p>
         )}
-      </div>
+      </fieldset>
 
-      <Field label="Notes (optional)" error={fieldErrors.notes}>
+      <Field id={fid("notes")} label="Notes (optional)" error={fieldErrors.notes}>
         <textarea
+          {...a11y("notes")}
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           maxLength={1000}
@@ -343,18 +364,28 @@ export default function QuoteForm({
         <p className="mt-3 text-[11px] text-stone-warm text-center">
           No payment required. We'll call you within 5 minutes during open hours to confirm.
         </p>
+        <p className="mt-2 text-[11px] leading-5 text-stone-warm text-center">
+          By submitting, you agree that T&amp;J Nails may call or text you at the number provided about this
+          appointment request. No marketing messages. Message and data rates may apply. See our{" "}
+          <Link href="/privacy" className="underline underline-offset-2 hover:text-charcoal">
+            Privacy Policy
+          </Link>
+          .
+        </p>
       </div>
     </form>
   );
 }
 
 function Field({
+  id,
   label,
   error,
   required,
   icon,
   children,
 }: {
+  id: string;
   label: string;
   error?: string;
   required?: boolean;
@@ -363,16 +394,22 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-warm">
-        {label} {required && <span className="text-red-500">*</span>}
+      <label htmlFor={id} className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.2em] text-stone-warm">
+        {label}{" "}
+        {required && (
+          <>
+            <span aria-hidden="true" className="text-red-700">*</span>
+            <span className="sr-only">(required)</span>
+          </>
+        )}
       </label>
       <div className="relative">
-        {icon && <span className="absolute left-3.5 top-3.5 text-stone-warm">{icon}</span>}
+        {icon && <span aria-hidden="true" className="absolute left-3.5 top-3.5 text-stone-warm">{icon}</span>}
         {children}
       </div>
       {error && (
-        <p className="mt-1 text-xs text-red-700 flex items-center gap-1">
-          <AlertCircle size={12} />
+        <p id={`${id}-error`} className="mt-1 text-xs text-red-700 flex items-center gap-1">
+          <AlertCircle size={12} aria-hidden="true" />
           {error}
         </p>
       )}
