@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight } from "lucide-react";
 import { SERVICES } from "@/lib/services";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
@@ -7,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = buildMetadata({
-  title: "Nail Services in Katy, TX — T&J Nails",
+  title: "Nail Services in Katy, TX | Manicure, Pedicure, Dip | T&J Nails",
   description:
     "All nail services at T&J Nails in Katy, TX — manicures, pedicures, dip powder, gel, shellac, acrylic, custom nail art, kids pedicures, and waxing. Family-owned for 25+ years.",
   path: "/services",
@@ -21,10 +20,9 @@ export default function ServicesHub() {
 
   return (
     <>
-      <Script
+      <script
         id="ld-services"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd(
           breadcrumbSchema([
             { name: "Home", path: "/" },
@@ -65,7 +63,6 @@ export default function ServicesHub() {
                   >
                     <div className="flex items-baseline justify-between gap-3">
                       <h3 className="font-display text-2xl leading-tight text-charcoal">{s.name}</h3>
-                      <span className="shrink-0 text-xs text-clay-700">From {s.priceDisplay}</span>
                     </div>
                     <p className="text-[15px] font-light leading-7 text-stone-warm">{s.intro}</p>
                     <div className="mt-auto flex items-center justify-between pt-2">

@@ -1,4 +1,3 @@
-import Script from "next/script";
 import { Clock, ExternalLink, Mail, MapPin, Navigation, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
@@ -7,19 +6,18 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata = buildMetadata({
-  title: "Contact T&J Nails | (281) 391-1411 - Katy, TX 77493",
+  title: "T&J Nails Hours, Phone & Directions | Katy, TX 77493",
   description:
-    "Call T&J Nails in Katy, TX at (281) 391-1411. Located at 5304 E 5th St Ste 105. Open Mon-Sat 9 AM - 7 PM. Get directions and book your appointment.",
+    "T&J Nails is open Monday–Saturday 9 AM–7 PM, closed Sunday. 5304 E 5th St Ste 105, Katy, TX 77493. Call (281) 391-1411 — walk-ins welcome.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <>
-      <Script
+      <script
         id="ld-contact"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd(breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]))}
       />
 

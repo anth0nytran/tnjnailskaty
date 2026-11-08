@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Script from "next/script";
 import { Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
@@ -37,10 +36,9 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <Script
+      <script
         id={`ld-loc-${l.slug}`}
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd([
           faqSchema(l.faqs),
           breadcrumbSchema([

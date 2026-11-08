@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight, CalendarDays, MapPin, Navigation, Phone, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { SERVICES } from "@/lib/services";
@@ -15,9 +14,9 @@ import NapBlock from "@/components/NapBlock";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata = buildMetadata({
-  title: "Best Nail Salon in Katy, TX 77493 - T&J Nails | 25+ Years Family-Owned",
+  title: "T&J Nails Katy, TX | Nail Salon 77493 — Family-Owned Since 2001",
   description:
-    "Top-rated nail salon in Katy, TX. Manicures, pedicures, dip powder, gel, acrylic, and custom nail art. Family-owned for over 25 years. 4.9 stars on Google. Book online — owners call back within 5 minutes.",
+    "T&J Nails (TJ Nails) is Katy's family-owned nail salon since 2001. Dip powder, pedicures, gel, acrylic, nail art, and eyebrow waxing. 4.9★ on Google. Walk-ins welcome, Mon–Sat 9–7.",
   path: "/",
 });
 
@@ -28,12 +27,11 @@ export default function HomePage() {
 
   return (
     <>
-      <Script
+      <script
         id="ld-home"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd([
-          faqSchema(SITE_FAQS.slice(0, 8)),
+          faqSchema(SITE_FAQS.slice(0, 10)),
           breadcrumbSchema([{ name: "Home", path: "/" }]),
         ])}
       />
@@ -42,7 +40,7 @@ export default function HomePage() {
         <div className="container-x pb-14 pt-10 sm:pb-20 sm:pt-14 lg:pb-24 lg:pt-20">
           <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-16">
             <div className="flex flex-col justify-center lg:pr-2">
-              <p className="eyebrow">Katy, TX 77493 · Family-owned since 2001</p>
+              <p className="eyebrow">T&amp;J Nails · Nail salon in Katy, TX 77493 · Since 2001</p>
               <h1 className="mt-5 font-display text-[clamp(2.2rem,5.4vw,3.9rem)] leading-[1.05] tracking-[-0.01em] text-charcoal [text-wrap:balance] sm:mt-6">
                 <span className="block whitespace-nowrap">Katy&apos;s family-owned</span>
                 <span className="block text-clay-700">nail salon since 2001.</span>
@@ -111,7 +109,6 @@ export default function HomePage() {
               <Link key={s.slug} href={`/services/${s.slug}`} className="group card-soft p-7">
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-clay-700">{s.category}</span>
-                  <span className="font-display text-sm text-charcoal/70">{priceLabel(s.priceDisplay)}</span>
                 </div>
                 <h3 className="mt-5 font-display text-3xl leading-tight text-charcoal">{s.name}</h3>
                 <p className="mt-3 text-[15px] font-light leading-7 text-stone-warm">{s.intro}</p>
@@ -375,7 +372,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="lg:col-span-2">
-            <FAQAccordion faqs={SITE_FAQS.slice(0, 8)} />
+            <FAQAccordion faqs={SITE_FAQS.slice(0, 10)} />
           </div>
         </div>
       </section>
@@ -458,10 +455,6 @@ function Info({ label, value }: { label: string; value: string }) {
       <p className="mt-2 font-display text-xl leading-snug text-charcoal">{value}</p>
     </div>
   );
-}
-
-function priceLabel(priceDisplay: string) {
-  return priceDisplay.toLowerCase().startsWith("from") ? priceDisplay : `From ${priceDisplay}`;
 }
 
 function firstTravelTime(travelTime: string) {

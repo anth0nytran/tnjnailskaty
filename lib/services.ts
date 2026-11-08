@@ -1,5 +1,31 @@
 // Each service is its own indexable URL. Hand-tuned copy for SEO + AEO citations.
 
+import { MENU, formatPrice, type MenuItem } from "./menu";
+
+// Pulls live prices from the in-shop menu (lib/menu.ts) so service pages never
+// drift from the QR-code menu. `extraNames` pulls single items from other sections.
+function menuPrices(sectionSlug: string, extraNames: string[] = []): { name: string; price: string }[] {
+  const all = MENU.flatMap((sec) => [...sec.items, ...(sec.extras ?? [])]);
+  const section = MENU.find((sec) => sec.slug === sectionSlug);
+  const items: MenuItem[] = [
+    ...(section?.items ?? []),
+    ...extraNames.map((n) => all.find((i) => i.name === n)).filter((i): i is MenuItem => Boolean(i)),
+  ];
+  return items.map((i) => ({
+    name: i.name,
+    price:
+      i.price !== undefined
+        ? formatPrice(i.price)
+        : i.priceStartingAt !== undefined
+          ? `from ${formatPrice(i.priceStartingAt)}`
+          : i.fullSet !== undefined
+            ? `${formatPrice(i.fullSet)}${i.refill ? ` · refill ${formatPrice(i.refill)}` : ""}`
+            : i.priceExtra !== undefined
+              ? `+${formatPrice(i.priceExtra)}`
+              : "Ask",
+  }));
+}
+
 export type Service = {
   slug: string;
   name: string;
@@ -19,6 +45,8 @@ export type Service = {
   aftercare: string[];
   faqs: { q: string; a: string }[];
   relatedSlugs: string[];
+  // Optional price table rendered on the page (answers "how much is…" queries).
+  priceList?: { name: string; price: string }[];
   // Per-service unique content — Katy/Texas-specific buying context.
   // Engineered for AEO/AI citation: concrete claims, real brands, real local
   // references. Content is hand-written per service, not templated.
@@ -40,9 +68,9 @@ export const SERVICES: Service[] = [
     duration: "60–75 min",
     priceFrom: 50,
     priceDisplay: "$50",
-    metaTitle: "Dip Powder Nails in Katy, TX | T&J Nails — From $50",
+    metaTitle: "Dip Powder Nails in Katy, TX | T&J Nails — Family-Owned",
     metaDescription:
-      "Long-lasting dip powder nails in Katy, TX. Odor-free, durable, 3–4 week wear. From $50 at T&J Nails — family-owned for 25+ years. Walk-ins welcome.",
+      "Long-lasting dip powder nails in Katy, TX. Odor-free, durable, 3–4 week wear at T&J Nails — family-owned for 25+ years. Walk-ins welcome.",
     h1: "Dip Powder Nails in Katy, TX",
     intro:
       "Dip powder gives you the strength of acrylic and the shine of gel — without the harsh smell or the lamp time. It's our most-requested service, and it's why most of our clients keep coming back.",
@@ -131,7 +159,7 @@ export const SERVICES: Service[] = [
     duration: "45–60 min",
     priceFrom: 35,
     priceDisplay: "$35",
-    metaTitle: "Gel Manicure in Katy, TX | Shellac Nails — T&J Nails From $35",
+    metaTitle: "Gel Manicure in Katy, TX | Shellac & Gel Polish | T&J Nails",
     metaDescription:
       "Glossy, chip-resistant gel manicures in Katy, TX. 2–3 weeks of perfect shine. Same-day appointments at T&J Nails — (281) 391-1411.",
     h1: "Gel Manicure in Katy, TX",
@@ -207,7 +235,7 @@ export const SERVICES: Service[] = [
     duration: "45–60 min",
     priceFrom: 35,
     priceDisplay: "$35",
-    metaTitle: "Shellac Nails in Katy, TX | T&J Nails — Long-Wear Manicure From $35",
+    metaTitle: "Shellac Nails in Katy, TX | 2-Week Wear Manicure | T&J Nails",
     metaDescription:
       "Shellac manicures in Katy, TX. CND-quality polish that lasts two weeks without chipping. Book online or call (281) 391-1411.",
     h1: "Shellac Nails in Katy, TX",
@@ -232,6 +260,8 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: "Is shellac the same as gel?", a: "Shellac is a brand of gel-hybrid polish by CND. It's gel-style — cured under LED — but formulated for thinner application and easier removal." },
       { q: "How is shellac different from regular polish?", a: "Regular polish chips in 3–7 days. Shellac holds for 2 weeks with no chipping." },
+      { q: "How much are shellac nails at T&J Nails?", a: "A shellac manicure is $35, or $40 with the collagen manicure. Shellac pedicures are an upgrade on any pedicure tier, and solar clear tips with shellac polish are $50 for a full set ($45 refill)." },
+      { q: "How long does a shellac manicure take?", a: "45–60 minutes, including the full manicure prep. If you need old gel or shellac soaked off first, removal is $15 and adds a little time." },
     ],
     relatedSlugs: ["gel-manicure", "manicure", "dip-powder-nails"],
     katyContext: {
@@ -269,10 +299,11 @@ export const SERVICES: Service[] = [
     duration: "30–70 min",
     priceFrom: 30,
     priceDisplay: "$30",
-    metaTitle: "Best Pedicure in Katy, TX | Spa Pedicure — T&J Nails From $30",
+    metaTitle: "Best Pedicure in Katy, TX | Spa Pedicures | T&J Nails",
     metaDescription:
-      "Five pedicure tiers in Katy, TX — Classic, Pamper, Deluxe, Royal, and Deluxe Relief. Heated chairs, fresh liners, real care. From $30.",
+      "Five pedicure tiers in Katy, TX — Classic, Pamper, Deluxe, Royal, and Deluxe Relief. Heated chairs, fresh liners, real care. Walk-ins welcome.",
     h1: "Pedicure in Katy, TX",
+    priceList: menuPrices("pedicure"),
     intro:
       "Five tiers of foot care, from a tidy maintenance pedicure to a 70-minute relief experience. All performed in our heated massage chairs with fresh single-use liners and tools sterilized to medical-grade.",
     description: [
@@ -301,7 +332,9 @@ export const SERVICES: Service[] = [
     ],
     aftercare: ["Moisturize feet nightly to extend the smoothness", "Cotton socks the night of your pedicure if you got polish"],
     faqs: [
+      { q: "How much is a pedicure at T&J Nails?", a: "Classic Pedicure $30, Pamper $40, Deluxe $50, Royal $65, and Deluxe Relief $70. Add 10 extra minutes of massage for $15." },
       { q: "What's the difference between Classic and Royal Pedicure?", a: "Classic is 30 minutes — clean, polished, done. Royal is 60 minutes with hot stones, scrub, mask, and an extended massage." },
+      { q: "Do you treat ingrown toenails or toenail fungus?", a: "No — a painful, red, or infected ingrown toenail and toenail fungus are medical conditions, so please see a Katy podiatrist first. Once it has healed, a regular pedicure is a good way to keep nails trimmed straight across and help prevent the next one." },
       { q: "Do you sanitize tools?", a: "Yes. Tools are autoclave-sterilized and stored in sealed pouches. Pedicure liners are single-use." },
       { q: "Can I bring my own polish?", a: "Yes — happy to apply your shade." },
       { q: "Are kids welcome?", a: "Yes. We do kids pedicures regularly and have age-appropriate options." },
@@ -342,10 +375,11 @@ export const SERVICES: Service[] = [
     duration: "30–45 min",
     priceFrom: 20,
     priceDisplay: "$20",
-    metaTitle: "Classic Manicure in Katy, TX | T&J Nails — From $20",
+    metaTitle: "Classic Manicure in Katy, TX | T&J Nails — Family-Owned",
     metaDescription:
       "Classic manicure in Katy, TX. Soak, shape, cuticle care, hand massage, polish. Family-owned for 25+ years. Walk-ins welcome.",
     h1: "Classic Manicure in Katy, TX",
+    priceList: menuPrices("manicure"),
     intro: "The basics, done right. Soak, shape, cuticle care, hand massage, polish — every step, every time, no shortcuts.",
     description: [
       "A classic manicure sounds simple, but it's the test of any salon. Our prep is unhurried: warm soak, nail shaping to your preference, careful cuticle work, a real hand and forearm massage, and a polish you'll like for a week.",
@@ -405,10 +439,11 @@ export const SERVICES: Service[] = [
     duration: "60–90 min",
     priceFrom: 40,
     priceDisplay: "$40",
-    metaTitle: "Acrylic Nails in Katy, TX | Solar Nails — T&J Nails From $40",
+    metaTitle: "Acrylic Nails in Katy, TX | Solar Full Sets | T&J Nails",
     metaDescription:
-      "Acrylic nails in Katy, TX. Solar full sets, color powder, white & pink. Strong, sculpted, made to last. From $40 at T&J Nails.",
+      "Acrylic nails in Katy, TX. Solar full sets, color powder, white & pink. Strong, sculpted, made to last at T&J Nails.",
     h1: "Acrylic Nails in Katy, TX",
+    priceList: menuPrices("nail-service"),
     intro: "When you want length, structure, and a shape that holds — acrylic is still the workhorse. We sculpt; we don't just glue.",
     description: [
       "Acrylic gives you control over shape and apex like no other enhancement. We use Solar (a high-quality acrylic system) for full sets, with color powder, white & pink, or clear-tip-and-polish options.",
@@ -464,9 +499,9 @@ export const SERVICES: Service[] = [
     duration: "60–75 min",
     priceFrom: 55,
     priceDisplay: "$55",
-    metaTitle: "Builder Gel Overlay in Katy, TX | T&J Nails — From $55",
+    metaTitle: "Builder Gel Overlay in Katy, TX | Strong Natural Nails | T&J Nails",
     metaDescription:
-      "Builder gel overlay in Katy, TX. Strength for thin or brittle natural nails — flexible, light, lamp-cured. From $55 at T&J Nails. Family-owned for 25+ years.",
+      "Builder gel overlay in Katy, TX. Strength for thin or brittle natural nails — flexible, light, lamp-cured. T&J Nails — family-owned for 25+ years.",
     h1: "Builder Gel Overlay in Katy, TX",
     intro:
       "A clear, hardening gel layered over your natural nail to add strength without adding length. It's what we recommend most often for clients whose nails feel thin, peel, or split.",
@@ -553,9 +588,9 @@ export const SERVICES: Service[] = [
     duration: "60–90 min",
     priceFrom: 55,
     priceDisplay: "$55",
-    metaTitle: "Gel X Nails in Katy, TX | Apres Gel Extensions — T&J Nails From $55",
+    metaTitle: "Gel X Nails in Katy, TX | Apres Gel Extensions | T&J Nails",
     metaDescription:
-      "Gel X nail extensions in Katy, TX. Pre-shaped soft gel tips, lamp-cured, lighter than acrylic. Lasts 3+ weeks. From $55 at T&J Nails — family-owned for 25+ years.",
+      "Gel X nail extensions in Katy, TX. Pre-shaped soft gel tips, lamp-cured, lighter than acrylic. Lasts 3+ weeks. T&J Nails — family-owned for 25+ years.",
     h1: "Gel X Extensions in Katy, TX",
     intro:
       "A modern alternative to acrylic. Pre-shaped soft gel tips bonded with gel adhesive and cured under LED — lighter on your nails, faster to apply, and gentler when it's time to come off.",
@@ -644,7 +679,7 @@ export const SERVICES: Service[] = [
     priceDisplay: "From $5",
     metaTitle: "Nail Art in Katy, TX | Custom Designs — T&J Nails",
     metaDescription:
-      "Custom nail art in Katy, TX. Chrome, ombre, French, freehand, seasonal designs. Bring an inspiration photo — we'll match it. From $5/nail.",
+      "Custom nail art in Katy, TX. Chrome, ombre, French, freehand, seasonal designs. Bring an inspiration photo — we'll match it.",
     h1: "Custom Nail Art in Katy, TX",
     intro:
       "Bring us an inspiration photo. We'll tell you exactly how it'll look on your nail length, what's possible, and what's not — then we'll do it.",
@@ -700,10 +735,10 @@ export const SERVICES: Service[] = [
     duration: "20–30 min",
     priceFrom: 25,
     priceDisplay: "From $25",
-    metaTitle: "Kids Pedicure in Katy, TX | T&J Nails — Family Salon",
+    metaTitle: "Kids Pedicures & Nail Parties in Katy, TX | T&J Nails",
     metaDescription:
-      "Kids pedicure in Katy, TX. Gentle, age-appropriate, family-safe products. Mom-and-daughter pedicures welcome. T&J Nails — book today.",
-    h1: "Kids Pedicure in Katy, TX",
+      "Kids pedicures in Katy, TX — ages 5+, gentle products, side-by-side mom-and-daughter chairs. Kids' nail birthday parties for groups of 3+, no party fee.",
+    h1: "Kids Pedicures & Nail Parties in Katy, TX",
     intro: "A first pedicure should feel like a treat, not a procedure. We keep it short, gentle, and fun.",
     description: [
       "Our kids pedicure is built for ages 5+ and uses age-appropriate, low-strength products. We skip the callus work and the heat lamps and keep the tone playful.",
@@ -719,6 +754,9 @@ export const SERVICES: Service[] = [
     faqs: [
       { q: "What age is appropriate?", a: "We see clients age 5 and up regularly. Younger? Call us — we'll work with you." },
       { q: "Do you do nail polish without all the chemicals?", a: "We can use lower-VOC kid-friendly polish on request." },
+      { q: "How much is a kids pedicure?", a: "Kids pedicures start at $25 and take 20–30 minutes. A parent's Classic Pedicure next to them is $30." },
+      { q: "Do you host kids' nail birthday parties?", a: "Yes. We seat groups of 3 or more kids side by side — we've done birthday parties of 4–6 kids, dance recitals, and quinceañera prep. Book at least a week ahead. Everyone pays regular menu prices; there's no party fee or minimum spend." },
+      { q: "Is T&J Nails good for a mom-and-daughter spa day?", a: "It's one of our most common bookings. Ask for side-by-side chairs and we'll time both services to finish together — about 45 minutes for a Classic Pedicure plus a kids pedicure." },
     ],
     relatedSlugs: ["pedicure", "manicure"],
     katyContext: {
@@ -750,33 +788,63 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "waxing",
-    name: "Eyebrow & Facial Waxing",
-    shortName: "Waxing",
+    name: "Eyebrow Waxing & Facial Waxing",
+    shortName: "Eyebrow Wax",
     category: "Specialty",
     duration: "10–30 min",
     priceFrom: 10,
     priceDisplay: "From $10",
-    metaTitle: "Eyebrow Waxing in Katy, TX | T&J Nails — From $10",
+    metaTitle: "Eyebrow Waxing & Tinting in Katy, TX | T&J Nails",
     metaDescription:
-      "Eyebrow, lip, chin, face, underarm, and leg waxing in Katy, TX. Quick, comfortable, professional. T&J Nails — book online.",
-    h1: "Waxing in Katy, TX",
-    intro: "Brows shaped, lip and chin smooth, legs ready. Same care, same hands as your nails.",
+      "Eyebrow waxing and tinting at T&J Nails in Katy, TX 77493 — plus lip, chin, and face waxing. Hard wax, shape mapped first, about 10 minutes. Walk-ins welcome Mon–Sat 9–7.",
+    h1: "Eyebrow Waxing & Tinting in Katy, TX",
+    intro:
+      "An eyebrow wax mapped to your face before any wax goes on, done in about ten minutes. Add a brow tint, or lip, chin, and face waxing — same care, same hands as your nails.",
     description: [
-      "We've been doing brows for as long as we've been doing nails — many of our clients book a brow wax with every fill. Quick, comfortable, and tailored to your face shape.",
+      "We've been shaping brows for as long as we've been doing nails — many of our clients add a brow wax to every fill or pedicure. We use hard wax on brows and face because it grips the hair, not the skin, which is gentler on Katy's dry winter skin and sensitive summer skin alike.",
+      "Every brow wax starts with mapping: we pencil the shape first, show you, and only then wax. Tell us if you're growing brows out, want a softer arch, or just want them cleaned up — we follow your shape, not a trend.",
+      "Eyebrow tinting ($20) darkens and fills sparse or light brows for a few weeks, and pairs with a wax in one visit ($32 total). Our brow service is waxing; threading and lamination aren't on our menu.",
+      "We also wax lip ($10), chin (from $20), full face ($35), underarms ($30), and legs (from $50). We don't offer bikini or Brazilian waxing.",
     ],
-    whoFor: ["Pre-event prep", "Brow grow-out fix", "Quick stop on lunch break"],
-    whatsIncluded: ["Brow mapping or area assessment", "Wax application and quick removal", "Soothing post-wax oil"],
+    whoFor: [
+      "You want a clean brow shape without a separate trip to a brow bar.",
+      "You're growing brows out and want a tidy-up, not a thinning.",
+      "Pre-wedding, pre-photo, or pre-vacation prep.",
+      "Light or sparse brows that need a tint to show up.",
+      "A quick lunch-break or walk-in service.",
+    ],
+    whatsIncluded: [
+      "Brow mapping or area assessment before any wax",
+      "Hard wax for brows and face, strip wax for legs",
+      "Soothing post-wax oil — no extra charge",
+    ],
     process: [
-      { title: "Map", detail: "We outline before we wax — no surprises." },
-      { title: "Wax", detail: "Strip wax for legs, hard wax for brows and face." },
+      { title: "Map", detail: "We pencil the shape and show you before we wax — no surprises." },
+      { title: "Wax", detail: "Hard wax for brows and face; strip wax for legs." },
       { title: "Soothe", detail: "Post-wax oil to calm the skin." },
     ],
-    aftercare: ["No hot showers for 6 hours", "No exfoliation for 24 hours"],
-    faqs: [
-      { q: "Do you tint brows?", a: "Yes — eyebrow tinting is $20." },
-      { q: "How often should I wax brows?", a: "Every 3–4 weeks for most clients." },
+    aftercare: [
+      "No hot showers, saunas, or steam for 6 hours",
+      "No exfoliation or retinol on the area for 24 hours",
+      "Skip makeup on the waxed area until any redness fades",
+      "Re-book every 3–4 weeks for brows",
     ],
-    relatedSlugs: ["manicure", "pedicure"],
+    faqs: [
+      { q: "How much is an eyebrow wax at T&J Nails?", a: "$12. Eyebrow tinting is $20, so a wax and tint together is $32. Lip wax is $10 and chin starts at $20." },
+      { q: "How long does an eyebrow wax take?", a: "About 10 minutes, including mapping. A tint adds a few minutes." },
+      { q: "Can I walk in for an eyebrow wax?", a: "Yes — walk-ins are welcome Monday–Saturday, 9 AM–7 PM. Brow waxes are quick, so we can usually fit one in even on busy days. Call (281) 391-1411 to check the wait." },
+      { q: "Do you tint brows?", a: "Yes — eyebrow tinting is $20 and can be done right after your wax." },
+      { q: "Hard wax or soft wax?", a: "Hard wax on brows, lip, chin, and face — it lifts off the hair instead of pulling skin. Strip (soft) wax on legs." },
+      { q: "How often should I wax my brows?", a: "Every 3–4 weeks for most clients. If you're growing them out, wait 5–6 weeks and we'll shape what's grown in." },
+      { q: "Do you do eyebrow threading?", a: "No — our brow service is waxing (plus tinting). If you've only had threading before, a mapped hard-wax brow gives a similar clean line." },
+      { q: "Do you do bikini or Brazilian waxing?", a: "No. We wax brows, lip, chin, face, underarms, and legs only." },
+      { q: "How much is a full face wax?", a: "$35 for full face. Underarms are $30 and legs start at $50." },
+    ],
+    relatedSlugs: ["manicure", "pedicure", "gel-manicure"],
+    priceList: [
+      ...menuPrices("waxing"),
+      ...menuPrices("__none__", ["Eyebrow Tinting"]),
+    ],
     katyContext: {
       eyebrow: "The combo most clients book",
       heading: "Brow wax + nail fill = one chair, one trip, two services done.",

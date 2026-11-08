@@ -32,15 +32,15 @@ export default function FAQAccordion({
                 {isOpen ? <Minus size={18} /> : <Plus size={18} />}
               </span>
             </button>
-            {isOpen && (
-              <p
-                className={`mt-3 max-w-prose text-base font-light leading-7 ${
-                  isDark ? "text-stone-quiet" : "text-stone-warm"
-                }`}
-              >
-                {f.a}
-              </p>
-            )}
+            {/* Always in the HTML (crawlers + AI engines read it); `hidden` only collapses it visually. */}
+            <p
+              hidden={!isOpen}
+              className={`mt-3 max-w-prose text-base font-light leading-7 ${
+                isDark ? "text-stone-quiet" : "text-stone-warm"
+              }`}
+            >
+              {f.a}
+            </p>
           </div>
         );
       })}

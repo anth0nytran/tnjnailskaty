@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight, Check, Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { BUSINESS } from "@/lib/business";
@@ -39,10 +38,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <Script
+      <script
         id={`ld-${s.slug}`}
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd([
           serviceSchema({
             name: s.name,
@@ -72,7 +70,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
         <div className="container-x grid gap-10 pb-20 pt-6 lg:grid-cols-3 lg:gap-12 lg:pb-24">
           <div className="lg:col-span-2">
-            <p className="eyebrow">{s.category} · {s.duration} · From {s.priceDisplay}</p>
+            <p className="eyebrow">{s.category} · {s.duration}</p>
             <h1 className="mt-5 page-title">{s.h1}</h1>
             <p className="mt-7 max-w-prose lede">{s.intro}</p>
 
@@ -88,7 +86,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <aside className="card-soft self-start p-7">
             <p className="font-display text-xl text-charcoal">Quick details</p>
             <dl className="mt-5 space-y-3.5 text-sm">
-              <Row term="Starting at" value={s.priceDisplay} bold />
               <Row term="Duration" value={s.duration} />
               <Row term="Category" value={s.category} />
               <Row term="Walk-ins" value="Welcome" />
@@ -133,6 +130,26 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </ul>
               </div>
             </div>
+
+            {s.priceList && s.priceList.length > 0 && (
+              <div className="pt-6">
+                <h2 className="font-display text-2xl text-charcoal">{s.shortName} prices at T&amp;J Nails</h2>
+                <ul className="mt-5 divide-y divide-charcoal/10 border-y border-charcoal/10">
+                  {s.priceList.map((p) => (
+                    <li key={p.name} className="flex items-baseline justify-between gap-6 py-3">
+                      <span className="text-[15px] text-charcoal">{p.name}</span>
+                      <span className="text-right tabular-nums text-charcoal">{p.price}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-sm text-stone-warm">
+                  Prices match our in-shop menu.{" "}
+                  <Link href="/menu" className="text-link">
+                    Full price list <ArrowRight size={12} />
+                  </Link>
+                </p>
+              </div>
+            )}
           </div>
 
           <aside className="card-soft self-start p-7">
@@ -212,7 +229,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <Link key={r.slug} href={`/services/${r.slug}`} className="group card-soft p-7">
                 <div className="flex items-baseline justify-between gap-3">
                   <h3 className="font-display text-2xl leading-tight text-charcoal">{r.name}</h3>
-                  <span className="shrink-0 text-xs text-clay-700">From {r.priceDisplay}</span>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-stone-warm">{r.intro}</p>
                 <span className="mt-5 text-link">

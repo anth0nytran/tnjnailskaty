@@ -1,4 +1,3 @@
-import Script from "next/script";
 import { CalendarDays, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
@@ -8,7 +7,7 @@ import NapBlock from "@/components/NapBlock";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata = buildMetadata({
-  title: "Book an Appointment - T&J Nails Katy, TX | We Call Back in 5 Minutes",
+  title: "Book at T&J Nails Katy | Walk-Ins Welcome, 5-Min Callback",
   description:
     "Request an appointment at T&J Nails in Katy, TX. Tell us when, and Jenny or Tony will call you back within 5 minutes during open hours to confirm.",
   path: "/book",
@@ -17,10 +16,9 @@ export const metadata = buildMetadata({
 export default function BookPage() {
   return (
     <>
-      <Script
+      <script
         id="ld-book"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd(breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Book", path: "/book" }]))}
       />
 

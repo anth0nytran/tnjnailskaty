@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight, MapPin } from "lucide-react";
 import { LOCATIONS } from "@/lib/locations";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
@@ -7,19 +6,18 @@ import { buildMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = buildMetadata({
-  title: "Service Area — Nail Salon Near You in Katy & Surrounding Cities",
+  title: "Nail Salon Near Katy, Fulshear & Cinco Ranch | T&J Nails",
   description:
-    "T&J Nails serves Katy, TX and surrounding cities — Cinco Ranch, Fulshear, Elyson, and Old Towne Katy 77493. Find your closest neighborhood and driving directions.",
+    "Drive times and directions to T&J Nails from Katy (77493, 77494, 77449), Cinco Ranch, Fulshear, and Elyson. 5 min off I-10 at Pin Oak, free lot parking, walk-ins welcome.",
   path: "/locations",
 });
 
 export default function LocationsHub() {
   return (
     <>
-      <Script
+      <script
         id="ld-locations"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd(
           breadcrumbSchema([
             { name: "Home", path: "/" },

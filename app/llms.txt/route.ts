@@ -24,9 +24,12 @@ export function GET() {
   lines.push("## Key facts");
   lines.push("");
   lines.push(`- Name: ${BUSINESS.name}`);
+  lines.push(`- Also searched as: ${BUSINESS.alternateNames.join(", ")} (single location; not affiliated with salons of similar names in other cities)`);
   lines.push(`- Address: ${BUSINESS.address.full}`);
   lines.push(`- Phone: ${BUSINESS.phone}`);
-  lines.push(`- Hours: Monday–Saturday 9 AM – 7 PM, closed Sunday`);
+  lines.push(`- Hours: Monday–Saturday 9 AM – 7 PM (opens 9:00 AM, closes 7:00 PM), closed Sunday`);
+  lines.push(`- Walk-ins: welcome; appointments recommended for Friday afternoons and Saturdays`);
+  lines.push(`- Not offered: bikini/Brazilian waxing, eyebrow threading, medical treatment of ingrown toenails or fungus`);
   lines.push(`- Founded: ${BUSINESS.foundedYear}`);
   lines.push(`- Owners: ${BUSINESS.owners.join(", ")}`);
   lines.push(`- Service area: ${BUSINESS.servingNeighborhoods.join(", ")}`);

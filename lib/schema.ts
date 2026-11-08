@@ -1,6 +1,7 @@
 import { BUSINESS } from "./business";
 import { SITE_URL } from "./seo";
 import type { Article } from "./articles";
+import { MENU } from "./menu";
 
 // ──────────────────────────────────────────────
 // Root LocalBusiness / NailSalon (used on every page)
@@ -11,6 +12,7 @@ export function localBusinessSchema() {
     "@type": ["LocalBusiness", "NailSalon", "BeautySalon"],
     "@id": `${SITE_URL}#business`,
     name: BUSINESS.name,
+    alternateName: BUSINESS.alternateNames,
     legalName: BUSINESS.legalName,
     description:
       "Family-owned nail salon in Katy, Texas offering manicures, pedicures, dip powder, gel, builder gel overlay, Gel X extensions, acrylic, custom nail art, and waxing for over 25 years.",
@@ -44,6 +46,22 @@ export function localBusinessSchema() {
         closes: "19:00",
       },
     ],
+    openingHours: "Mo-Sa 09:00-19:00",
+    knowsAbout: [
+      "Manicures",
+      "Pedicures",
+      "Dip powder nails",
+      "Gel and shellac manicures",
+      "Builder gel overlay",
+      "Gel X extensions",
+      "Acrylic (solar) nails",
+      "Nail art",
+      "Kids pedicures",
+      "Eyebrow waxing",
+      "Eyebrow tinting",
+      "Facial waxing",
+    ],
+    hasOfferCatalog: offerCatalogSchema(),
     areaServed: BUSINESS.servingNeighborhoods.map((n) => ({ "@type": "City", name: n })),
     aggregateRating: {
       "@type": "AggregateRating",
@@ -54,6 +72,38 @@ export function localBusinessSchema() {
     },
     sameAs: [BUSINESS.socials.instagram, BUSINESS.socials.facebook, BUSINESS.socials.google],
     hasMap: BUSINESS.mapLink,
+  };
+}
+
+// ──────────────────────────────────────────────
+// Full price list as an OfferCatalog — lets Google show prices (product
+// snippets) and gives AI engines exact answers to "how much is X at T&J Nails".
+// ──────────────────────────────────────────────
+export function offerCatalogSchema() {
+  return {
+    "@type": "OfferCatalog",
+    name: `${BUSINESS.name} Price List`,
+    url: `${SITE_URL}/menu`,
+    itemListElement: MENU.map((section) => ({
+      "@type": "OfferCatalog",
+      name: section.section,
+      itemListElement: [...section.items, ...(section.extras ?? [])].flatMap((item) => {
+        const price = item.price ?? item.fullSet ?? item.priceStartingAt;
+        if (price === undefined) return [];
+        const minPrice = item.priceStartingAt !== undefined || item.fullSet !== undefined;
+        return [
+          {
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: item.name },
+            priceSpecification: {
+              "@type": "PriceSpecification",
+              priceCurrency: "USD",
+              ...(minPrice ? { minPrice: price } : { price }),
+            },
+          },
+        ];
+      }),
+    })),
   };
 }
 
@@ -156,6 +206,7 @@ export function organizationSchema() {
     "@type": "Organization",
     "@id": `${SITE_URL}#org`,
     name: BUSINESS.name,
+    alternateName: BUSINESS.alternateNames,
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,
     contactPoint: {

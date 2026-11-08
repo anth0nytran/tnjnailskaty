@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Script from "next/script";
 import { Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { SITE_FAQS } from "@/lib/faqs";
@@ -9,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata = buildMetadata({
-  title: "FAQ — T&J Nails Katy, TX | Hours, Pricing, Services & More",
+  title: "T&J Nails FAQ: Hours, Prices & Walk-Ins | Katy, TX",
   description:
     "Frequently asked questions about T&J Nails in Katy, TX. Hours, pricing, walk-ins, sanitation, gift certificates, kids services, and more.",
   path: "/faq",
@@ -18,10 +17,9 @@ export const metadata = buildMetadata({
 export default function FAQPage() {
   return (
     <>
-      <Script
+      <script
         id="ld-faq"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd([
           faqSchema(SITE_FAQS),
           breadcrumbSchema([{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }]),

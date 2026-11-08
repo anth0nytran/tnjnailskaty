@@ -1,32 +1,33 @@
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight, Gift, Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { MENU, formatPrice } from "@/lib/menu";
-import { breadcrumbSchema, jsonLd } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, jsonLd } from "@/lib/schema";
+import { MENU_FAQS } from "@/lib/faqs";
+import FAQAccordion from "@/components/FAQAccordion";
 import { buildMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = buildMetadata({
-  title: "Menu & Pricing — T&J Nails | Katy, TX 77493",
+  title: "T&J Nails Prices & Price List | Katy, TX Nail Salon Menu",
   description:
-    "Full service menu and pricing for T&J Nails in Katy, TX. Manicures from $20, pedicures from $30, dip powder full sets from $50, gel from $35.",
+    "The full T&J Nails menu and price list — manicures, pedicures, dip powder, acrylic, gel, Gel X, builder gel, nail art, and waxing. Katy, TX 77493.",
   path: "/menu",
 });
 
 export default function MenuPage() {
   return (
     <>
-      <Script
+      <script
         id="ld-menu"
         type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={jsonLd(
+        dangerouslySetInnerHTML={jsonLd([
+          faqSchema(MENU_FAQS),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Menu", path: "/menu" },
-          ])
-        )}
+          ]),
+        ])}
       />
 
       <section className="page-hero">
@@ -37,7 +38,7 @@ export default function MenuPage() {
         <div className="container-x grid gap-10 pb-20 pt-6 lg:grid-cols-12 lg:items-end lg:pb-24">
           <div className="lg:col-span-8">
             <p className="eyebrow">Menu &amp; Pricing</p>
-            <h1 className="mt-5 page-title">The full menu, with honest pricing.</h1>
+            <h1 className="mt-5 page-title">T&amp;J Nails menu &amp; price list.</h1>
             <p className="mt-7 max-w-2xl lede">
               Pricing below is for standard length and shape. Long nails, designed shapes (almond, coffin, stiletto),
               and custom art are quoted at your visit — always before we start.
@@ -127,6 +128,18 @@ export default function MenuPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-ivory">
+        <div className="container-x section-pad">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Pricing questions</p>
+            <h2 className="mt-5 section-title">How much does it cost?</h2>
+          </div>
+          <div className="mt-8 max-w-3xl">
+            <FAQAccordion faqs={MENU_FAQS} />
+          </div>
         </div>
       </section>
 

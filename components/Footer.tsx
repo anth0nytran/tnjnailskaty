@@ -11,7 +11,7 @@ export default function Footer() {
             T<span className="text-gold-400">&amp;</span>J Nails
           </div>
           <p className="mt-5 max-w-sm text-sm leading-7 text-stone-quiet/90">
-            Family-owned nail care in Katy, Texas for over 25 years. Jenny and Tony still work the floor every day.
+            Family-owned nail care in Katy, Texas for over 25 years. Jenny and Tony still work the floor every day. You may know us as TJ Nails or T and J Nails — same shop, same family.
           </p>
           <div className="mt-6 flex gap-2">
             <a
@@ -68,7 +68,8 @@ export default function Footer() {
           <li><Link href="/services/manicure">Manicure</Link></li>
           <li><Link href="/services/acrylic-nails">Acrylic Nails</Link></li>
           <li><Link href="/services/nail-art">Custom Nail Art</Link></li>
-          <li><Link href="/services/waxing">Waxing</Link></li>
+          <li><Link href="/services/waxing">Eyebrow Waxing</Link></li>
+          <li><Link href="/services/kids-pedicure">Kids Pedicure</Link></li>
         </FooterColumn>
 
         <FooterColumn title="Local">

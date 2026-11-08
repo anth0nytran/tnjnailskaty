@@ -18,7 +18,9 @@ export function buildMetadata(input: {
     : undefined;
 
   return {
-    title: input.title,
+    // absolute: page titles already include the brand — skip the layout template
+    // (it was producing "... | T&J Nails | T&J Nails - Katy, TX", 90+ chars).
+    title: { absolute: input.title },
     description: input.description,
     metadataBase: new URL(SITE_URL),
     alternates: { canonical: url },

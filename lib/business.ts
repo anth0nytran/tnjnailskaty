@@ -1,6 +1,17 @@
 export const BUSINESS = {
   name: "T&J Nails",
   legalName: "T&J Nails",
+  // How people actually search for the shop (Search Console, May–Nov 2026).
+  alternateNames: [
+    "T and J Nails",
+    "T & J Nails",
+    "TJ Nails",
+    "TJ Nails Katy",
+    "T&J Nails Katy",
+    "TNJ Nails",
+    "T&J Nail Salon",
+    "T&J Nails & Spa",
+  ],
   tagline: "Family-owned nail care in Katy, Texas — for over 25 years.",
   shortTagline: "Katy's neighborhood nail studio since 2001.",
   phone: "(281) 391-1411",

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Script from "next/script";
 import { Star } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { REVIEWS } from "@/lib/reviews";
@@ -9,7 +8,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import ReviewsGrid from "@/components/ReviewsGrid";
 
 export const metadata = buildMetadata({
-  title: "Reviews — T&J Nails Katy, TX | 4.9★ on Google",
+  title: "T&J Nails Reviews | 4.9★ Nail Salon in Katy, TX",
   description:
     "What clients say about T&J Nails in Katy, TX. 4.9 stars on Google with hundreds of reviews. Honest words from real Katy locals — many clients of 20+ years.",
   path: "/reviews",
@@ -18,10 +17,9 @@ export const metadata = buildMetadata({
 export default function ReviewsPage() {
   return (
     <>
-      <Script
+      <script
         id="ld-reviews"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd([
           breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Reviews", path: "/reviews" }]),
           ...reviewsSchema(REVIEWS),

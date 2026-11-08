@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { ARTICLES } from "@/lib/articles";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
@@ -20,10 +19,9 @@ export default function ArticlesPage() {
 
   return (
     <>
-      <Script
+      <script
         id="ld-articles"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd(
           breadcrumbSchema([
             { name: "Home", path: "/" },

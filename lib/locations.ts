@@ -31,9 +31,9 @@ export const LOCATIONS: Location[] = [
     name: "Katy",
     fullName: "Katy, TX",
     zips: ["77449", "77450", "77491", "77492", "77493", "77494"],
-    metaTitle: "Best Nail Salon in Katy, TX | T&J Nails — 25+ Years Family-Owned",
+    metaTitle: "Nail Salon for All of Katy, TX (77449–77494) | T&J Nails",
     metaDescription:
-      "Top-rated nail salon in Katy, TX. Manicures, pedicures, dip powder, gel, acrylic, and custom nail art. 4.9★ on Google. (281) 391-1411.",
+      "Nails in Katy, TX from any zip — 77449, 77450, 77491, 77492, 77493, 77494. T&J Nails is 5 min off I-10 at Pin Oak. Dip powder, pedicures, gel, acrylic, waxing. 4.9★, walk-ins welcome.",
     h1: "Nail Salon in Katy, TX",
     intro:
       "T&J Nails has been Katy's neighborhood nail studio for over 25 years. We're a five-minute drive from Old Towne Katy, walk-ins welcome, appointments preferred.",
@@ -50,6 +50,9 @@ export const LOCATIONS: Location[] = [
       { q: "What's the best nail salon in Katy?", a: "T&J Nails has been Katy's family-owned nail studio for over 25 years, with 4.9 stars on Google and clients who've been coming for two decades." },
       { q: "Do you take walk-ins?", a: "Yes, walk-ins are welcome, but appointments are preferred — we get fully booked on weekends." },
       { q: "How far are you from Cinco Ranch?", a: "About 10 minutes — head north on Pin Oak from I-10, then right on E 5th." },
+      { q: "Which Katy zip codes do you serve?", a: "All of them. We're in 77493 (Old Towne Katy), and most clients drive in from 77449, 77450, 77491, 77492, and 77494 — anywhere in Katy is 5 to 15 minutes from the Pin Oak exit (743) on I-10." },
+      { q: "Is there a nail salon in Katy open until 7 PM?", a: "Yes — T&J Nails is open Monday through Saturday, 9 AM to 7 PM. We're closed Sunday." },
+      { q: "How much is a manicure and pedicure in Katy?", a: "At T&J Nails a basic manicure is $20 and a Classic Pedicure is $30, so a mani-pedi starts at $50. Shellac manicures are $35 and our Royal Pedicure is $65." },
     ],
     localContext: {
       eyebrow: "Katy clients, in detail",
@@ -133,15 +136,16 @@ export const LOCATIONS: Location[] = [
     name: "Fulshear",
     fullName: "Fulshear, TX",
     zips: ["77441"],
-    metaTitle: "Nail Salon Near Fulshear | T&J Nails — Katy, TX",
+    metaTitle: "Nail Salon Near Fulshear, TX — 15 Min Away | T&J Nails",
     metaDescription:
-      "Family-owned nail salon worth the drive from Fulshear. 15–20 minutes via FM-1463. Manicures, pedicures, dip, gel, acrylic. (281) 391-1411.",
-    h1: "Nail Salon Near Fulshear",
+      "Family-owned nail salon 15–20 min from Fulshear via FM-1463. Dip powder, pedicures, gel, acrylic, Gel X, and eyebrow waxing. 4.9★ · 25+ years · walk-ins welcome.",
+    h1: "Nail Salon Near Fulshear, TX",
     intro:
       "T&J Nails is a 15–20 minute drive from Fulshear — and the reason most Fulshear residents take that drive is that we remember them, their shape, and their color from one visit to the next.",
     body: [
       "Fulshear has grown faster than its salon options. Our Fulshear regulars come up FM-1463 once every 2–3 weeks for dip powder or a deluxe pedicure and are done in under 90 minutes.",
-      "Book ahead on Saturdays — we sell out the morning slots fastest.",
+      "What Fulshear clients book most: dip powder ($50 full set, $45 refill), the Royal Pedicure ($65), shellac manicures ($35), and Gel X or builder gel ($55+). Eyebrow waxing ($12) can be added to any visit in about ten minutes.",
+      "Book ahead on Saturdays — we sell out the morning slots fastest. Weekdays between 10 AM and 2 PM are the easiest drive and the easiest booking.",
     ],
     drivingDirections:
       "From Fulshear, take FM-1463 north to I-10. Exit Pin Oak Rd, head north into Old Towne Katy. Right on E 5th Street.",
@@ -149,6 +153,10 @@ export const LOCATIONS: Location[] = [
     landmarks: ["Cross Creek Ranch (FM-1463)", "Fulshear High School", "Texas Heritage Pkwy"],
     faqs: [
       { q: "Are there good nail salons near Fulshear?", a: "T&J Nails in Old Towne Katy is the most popular option for Fulshear residents — 15–20 minutes via FM-1463 and worth the drive for the consistency." },
+      { q: "How far is T&J Nails from Fulshear?", a: "15–20 minutes. Take FM-1463 north to I-10, exit Pin Oak Rd (743), head north into Old Towne Katy, and turn right on E 5th Street. We're at 5304 E 5th St, Suite 105, with free lot parking." },
+      { q: "What does a dip powder and pedicure cost for Fulshear clients?", a: "The same as everyone: dip powder full set $50 and Royal Pedicure $65. With a shellac top, the combo most Fulshear clients book runs about $115 and takes around 90 minutes." },
+      { q: "Can I walk in from Fulshear without an appointment?", a: "Yes, walk-ins are welcome Monday–Saturday, 9 AM–7 PM. Since it's a drive, we suggest calling (281) 391-1411 first — Saturday mornings usually book up." },
+      { q: "Is T&J Nails close to Cross Creek Ranch?", a: "Yes — from Cross Creek Ranch it's about 15–20 minutes north on FM-1463 to I-10, then two stoplights up Pin Oak Rd." },
     ],
     localContext: {
       eyebrow: "Fulshear → T&J on FM-1463",
@@ -230,9 +238,9 @@ export const LOCATIONS: Location[] = [
     name: "77493",
     fullName: "Katy, TX 77493",
     zips: ["77493"],
-    metaTitle: "Nail Salon 77493 | T&J Nails — Old Towne Katy",
+    metaTitle: "Nail Salon 77493 | T&J Nails, 5304 E 5th St, Old Towne Katy",
     metaDescription:
-      "Nail salon in 77493. T&J Nails is in the heart of Old Towne Katy — 5304 E 5th St Ste 105. Manicures, pedicures, dip, gel, acrylic.",
+      "The nail salon in Katy 77493: T&J Nails at 5304 E 5th St Ste 105. Manicures, pedicures, dip powder, gel, and eyebrow waxing. Walk-ins welcome — same-day most days.",
     h1: "Nail Salon in 77493 (Old Towne Katy)",
     intro:
       "We're at the center of 77493 — Old Towne Katy, the historic district. Five minutes from the Katy ISD Education Support Complex, walking distance from the MKT Trail.",
@@ -245,6 +253,8 @@ export const LOCATIONS: Location[] = [
     landmarks: ["MKT Trail", "Mary Jo Peckham Park", "Katy ISD Education Support Complex"],
     faqs: [
       { q: "What's the best-rated nail salon in 77493?", a: "T&J Nails — 4.9 stars on Google with 25+ years of family ownership at 5304 E 5th St Ste 105." },
+      { q: "Can I get a same-day nail appointment in 77493?", a: "Usually, yes. Call (281) 391-1411 before 5 PM and we can fit most services the same day — Wednesday and Thursday afternoons are the most open." },
+      { q: "Is there parking at T&J Nails?", a: "Yes — free lot parking right in front of the 5304 E 5th St strip. No street parking or garage needed." },
     ],
     localContext: {
       eyebrow: "Old Towne Katy walking distance",

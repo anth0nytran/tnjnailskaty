@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { Phone } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { breadcrumbSchema, jsonLd } from "@/lib/schema";
@@ -8,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
 export const metadata = buildMetadata({
-  title: "About T&J Nails | Family-Owned Nail Salon in Katy, TX Since 2001",
+  title: "About T&J Nails | Family-Owned Katy Nail Salon Since 2001",
   description:
     "T&J Nails is owned by Jenny and Tony — the same nail technicians who do your nails every visit. Family-owned in Katy, TX since 2001.",
   path: "/about",
@@ -17,10 +16,9 @@ export const metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
-      <Script
+      <script
         id="ld-about"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={jsonLd(breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }]))}
       />
 
